@@ -1,0 +1,102 @@
+{
+  "navigation": {
+    "home": "Home",
+    "vehicles": "Vehicles",
+    "about": "About",
+    "contact": "Contact",
+    "book_now": "Book Now"
+  },
+  "hero": {
+    "title": "Reliable Car Rental Service",
+    "subtitle": "Make your journey enjoyable with our quality vehicles at the best prices",
+    "search_placeholder": "Search vehicles...",
+    "pickup_date": "Pickup Date",
+    "return_date": "Return Date",
+    "search_button": "Find Vehicle"
+  },
+  "vehicle_categories": {
+    "economy": "Economy",
+    "compact": "Compact",
+    "intermediate": "Intermediate",
+    "standard": "Standard",
+    "full_size": "Full Size",
+    "premium": "Premium",
+    "luxury": "Luxury",
+    "suv": "SUV",
+    "minivan": "Minivan"
+  },
+  "vehicle_features": {
+    "automatic": "Automatic",
+    "manual": "Manual",
+    "air_conditioning": "Air Conditioning",
+    "gps": "GPS",
+    "bluetooth": "Bluetooth",
+    "usb": "USB",
+    "wifi": "WiFi",
+    "fuel_type": "Fuel Type",
+    "passengers": "Passengers",
+    "doors": "Doors",
+    "bags": "Bags"
+  },
+  "booking": {
+    "title": "Booking",
+    "pickup_location": "Pickup Location",
+    "return_location": "Return Location",
+    "pickup_date": "Pickup Date",
+    "return_date": "Return Date",
+    "pickup_time": "Pickup Time",
+    "return_time": "Return Time",
+    "driver_age": "Driver Age",
+    "additional_driver": "Additional Driver",
+    "insurance": "Insurance",
+    "total_price": "Total Price",
+    "book_now": "Book Now",
+    "terms_conditions": "I accept the Terms and Conditions"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "price": "Price",
+    "per_day": "per day",
+    "from": "from",
+    "select": "Select",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "footer": {
+    "company_name": "Rent A Car",
+    "description": "Reliable and quality car rental service",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Information",
+    "follow_us": "Follow Us",
+    "all_rights_reserved": "All rights reserved"
+  },
+  "about": {
+    "title": "About Us",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "values": "Our Values",
+    "team": "Our Team"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "address": "Address",
+    "phone_number": "Phone Number",
+    "email_address": "Email Address",
+    "working_hours": "Working Hours"
+  }
+}

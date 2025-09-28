@@ -1,6 +1,6 @@
-# [PROJE ADI] - [PROJE AÇIKLAMASI]
+# Rent A Car - Araç Kiralama Web Uygulaması
 
-Modern React tabanlı, çok dilli web uygulaması.
+Modern React tabanlı, çok dilli araç kiralama web uygulaması.
 
 ## 🚀 Teknolojiler
 
@@ -35,7 +35,7 @@ Modern React tabanlı, çok dilli web uygulaması.
 ## 📁 Proje Yapısı
 
 ```
-[PROJE_ADI]/
+rent_a_car_web/
 ├── public/                 # Statik dosyalar
 │   ├── assets/            # Varlıklar (resim, font, vb.)
 │   │   ├── css/           # CSS dosyaları
@@ -50,13 +50,14 @@ Modern React tabanlı, çok dilli web uygulaması.
 │   │   ├── Footer.jsx     # Alt bilgi bileşeni
 │   │   ├── Header.jsx     # Üst bilgi bileşeni
 │   │   ├── LanguageSwitcher.jsx  # Dil değiştirici
-│   │   ├── Loading.jsx    # Yükleme bileşeni
-│   │   └── [DiğerBileşenler].jsx
+│   │   └── Loading.jsx    # Yükleme bileşeni
 │   ├── pages/             # Sayfa bileşenleri
 │   │   ├── Home.jsx       # Ana sayfa
+│   │   ├── Vehicles.jsx   # Araç listeleme sayfası
+│   │   ├── VehicleDetail.jsx # Araç detay sayfası
+│   │   ├── Booking.jsx    # Rezervasyon sayfası
 │   │   ├── About.jsx      # Hakkında sayfası
-│   │   ├── Contact.jsx    # İletişim sayfası
-│   │   └── [DiğerSayfalar].jsx
+│   │   └── Contact.jsx    # İletişim sayfası
 │   ├── hooks/             # Custom React hooks
 │   │   └── useScrollReveal.js
 │   ├── utils/             # Yardımcı fonksiyonlar
@@ -112,9 +113,9 @@ npm run lint
 
 Proje çok dilli dil desteği sunar:
 - Dil dosyaları: `public/assets/i18n/`
-- Desteklenen diller: [DİL1], [DİL2], [DİL3]
+- Desteklenen diller: Türkçe, İngilizce
 - Dil değiştirme: `LanguageSwitcher` bileşeni
-- Varsayılan dil: [VARSayılanDİL]
+- Varsayılan dil: Türkçe
 
 ### Dil Dosyası Yapısı
 ```json
@@ -134,15 +135,15 @@ Proje çok dilli dil desteği sunar:
 ## 📱 Özellikler
 
 - ✅ Responsive tasarım (mobil uyumlu)
-- ✅ Çok dilli destek ([DİL1]/[DİL2])
+- ✅ Çok dilli destek (Türkçe/İngilizce)
 - ✅ Modern React hooks kullanımı
 - ✅ React Router ile SPA (Single Page Application)
-- ✅ [ÖZELLİK1] entegrasyonu
+- ✅ Araç kiralama sistemi
 - ✅ SEO optimizasyonu
 - ✅ Hızlı yükleme (Vite build tool)
-- ✅ [ÖZELLİK2] desteği
-- ✅ [ÖZELLİK3] özelliği
-- ✅ [ÖZELLİK4] yönetimi
+- ✅ Responsive tasarım
+- ✅ Rezervasyon sistemi
+- ✅ Filtreleme ve arama
 
 ## 🚀 Deployment
 
@@ -216,14 +217,14 @@ git push origin feature/[özellik-adı]
 
 ## 📞 İletişim
 
-- **Geliştirici**: [Geliştirici Adı]
-- **Email**: [email@example.com]
+- **Geliştirici**: Dogan Senturk
+- **Email**: dogan@example.com
 - **LinkedIn**: [LinkedIn Profili]
 - **GitHub**: [GitHub Profili]
 
 ## 📄 Lisans
 
-Bu proje [LİSANS TÜRÜ] lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
 
 ---
 
