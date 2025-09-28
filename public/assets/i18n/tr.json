@@ -1,0 +1,102 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "vehicles": "Araçlar",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "book_now": "Hemen Rezervasyon Yap"
+  },
+  "hero": {
+    "title": "Güvenilir Araç Kiralama Hizmeti",
+    "subtitle": "En uygun fiyatlarla kaliteli araçlarımızla seyahatinizi keyifli hale getirin",
+    "search_placeholder": "Araç ara...",
+    "pickup_date": "Alış Tarihi",
+    "return_date": "Teslim Tarihi",
+    "search_button": "Araç Bul"
+  },
+  "vehicle_categories": {
+    "economy": "Ekonomik",
+    "compact": "Kompakt",
+    "intermediate": "Orta Sınıf",
+    "standard": "Standart",
+    "full_size": "Büyük",
+    "premium": "Premium",
+    "luxury": "Lüks",
+    "suv": "SUV",
+    "minivan": "Minivan"
+  },
+  "vehicle_features": {
+    "automatic": "Otomatik",
+    "manual": "Manuel",
+    "air_conditioning": "Klima",
+    "gps": "GPS",
+    "bluetooth": "Bluetooth",
+    "usb": "USB",
+    "wifi": "WiFi",
+    "fuel_type": "Yakıt Tipi",
+    "passengers": "Yolcu",
+    "doors": "Kapı",
+    "bags": "Bavul"
+  },
+  "booking": {
+    "title": "Rezervasyon",
+    "pickup_location": "Alış Lokasyonu",
+    "return_location": "Teslim Lokasyonu",
+    "pickup_date": "Alış Tarihi",
+    "return_date": "Teslim Tarihi",
+    "pickup_time": "Alış Saati",
+    "return_time": "Teslim Saati",
+    "driver_age": "Sürücü Yaşı",
+    "additional_driver": "Ek Sürücü",
+    "insurance": "Sigorta",
+    "total_price": "Toplam Fiyat",
+    "book_now": "Rezervasyon Yap",
+    "terms_conditions": "Şartlar ve Koşulları kabul ediyorum"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata oluştu",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "save": "Kaydet",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "price": "Fiyat",
+    "per_day": "günlük",
+    "from": "itibaren",
+    "select": "Seçin",
+    "required": "Zorunlu",
+    "optional": "Opsiyonel"
+  },
+  "footer": {
+    "company_name": "Rent A Car",
+    "description": "Güvenilir ve kaliteli araç kiralama hizmeti",
+    "quick_links": "Hızlı Linkler",
+    "contact_info": "İletişim Bilgileri",
+    "follow_us": "Bizi Takip Edin",
+    "all_rights_reserved": "Tüm hakları saklıdır"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "mission": "Misyonumuz",
+    "vision": "Vizyonumuz",
+    "values": "Değerlerimiz",
+    "team": "Ekibimiz"
+  },
+  "contact": {
+    "title": "İletişim",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "message": "Mesaj",
+    "send": "Gönder",
+    "address": "Adres",
+    "phone_number": "Telefon Numarası",
+    "email_address": "E-posta Adresi",
+    "working_hours": "Çalışma Saatleri"
+  }
+}
