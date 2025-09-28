@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +47,6 @@ const Header = () => {
         </nav>
 
         <div className="header-actions">
-          <LanguageSwitcher />
           <Link to="/booking" className="btn btn-primary">
             {t('navigation.book_now')}
           </Link>

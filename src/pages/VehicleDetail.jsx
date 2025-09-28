@@ -98,6 +98,25 @@ const VehicleDetail = () => {
 
   return (
     <div className="vehicle-detail-page">
+      {/* Breadcrumb Section */}
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
+        <div className="overlay"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="breadcrumbs_content align_center_center">
+                <h3 className="text-uppercase color_ff" style={{paddingBottom: '20px', color: '#fff', textTransform: 'uppercase', marginTop: '130px'}}>Araç Detayı</h3>
+                <ol className="breadcrumb">
+                  <li><a href="/">Ana Sayfa</a></li>
+                  <li><a href="/vehicles">Araçlarımız</a></li>
+                  <li className="active">Araç Detayı</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
         <div className="vehicle-detail">
           {/* Vehicle Images */}
@@ -362,6 +381,28 @@ const VehicleDetail = () => {
               </form>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Fixed WhatsApp Button */}
+      <div className="fixed-social">
+        <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
+          <i className="fa fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      {/* Language Switcher */}
+      <div className="language-switcher">
+        <button className="language-button" aria-label="Dil değiştir">
+          <span className="flag">🇹🇷</span>
+        </button>
+        <div className="language-dropdown">
+          <button className="language-option active">
+            <span className="flag">🇹🇷</span>
+          </button>
+          <button className="language-option">
+            <span className="flag">🇺🇸</span>
+          </button>
         </div>
       </div>
     </div>

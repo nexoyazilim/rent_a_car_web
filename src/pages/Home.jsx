@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../hooks/useLanguage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   useScrollReveal();
 
   // Sayfa yüklendiğinde en üste scroll yap
@@ -295,6 +297,34 @@ const Home = () => {
            </div>
          </div>
        </section>
+       
+       {/* Fixed WhatsApp Button */}
+       <div className="fixed-social">
+         <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
+           <i className="fa fa-whatsapp"></i>
+         </a>
+       </div>
+       
+       {/* Language Switcher */}
+       <div className="language-switcher">
+         <button className="language-button" aria-label="Dil değiştir">
+           <span className="flag">{getCurrentFlag()}</span>
+         </button>
+         <div className="language-dropdown">
+           <button 
+             className={`language-option ${currentLanguage === 'tr' ? 'active' : ''}`}
+             onClick={() => changeLanguage('tr')}
+           >
+             <span className="flag">🇹🇷</span>
+           </button>
+           <button 
+             className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}
+             onClick={() => changeLanguage('en')}
+           >
+             <span className="flag">🇺🇸</span>
+           </button>
+         </div>
+       </div>
     </div>
   );
 };

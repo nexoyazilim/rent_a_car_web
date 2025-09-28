@@ -1,9 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../hooks/useLanguage';
+import '../styles/contact.css';
+
+// SVG Icon Components
+const LocationIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+  </svg>
+);
+
+const PhoneIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+  </svg>
+);
+
+const EmailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+  </svg>
+);
+
+const ClockIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+  </svg>
+);
 
 const Contact = () => {
   const { t } = useTranslation();
+  const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   useScrollReveal(); // Initialize scroll reveal animations
 
   // Sayfa yüklendiğinde en üste scroll yap
@@ -20,29 +48,6 @@ const Contact = () => {
     message: ''
   });
 
-  // Contact info data
-  const contactInfo = [
-    {
-      icon: '📍',
-      title: 'Adres',
-      details: ['Merkez Mahallesi', 'Araç Kiralama Caddesi No:123', 'Beşiktaş/İstanbul']
-    },
-    {
-      icon: '📞',
-      title: 'Telefon',
-      details: ['+90 212 123 45 67', '+90 532 123 45 67']
-    },
-    {
-      icon: '✉️',
-      title: 'E-posta',
-      details: ['info@rentacar.com', 'destek@rentacar.com']
-    },
-    {
-      icon: '🕒',
-      title: 'Çalışma Saatleri',
-      details: ['Pazartesi - Cuma: 08:00 - 18:00', 'Cumartesi: 09:00 - 16:00', 'Pazar: Kapalı']
-    }
-  ];
 
   // Form handlers
   const handleInputChange = (e) => {
@@ -68,216 +73,166 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* Hero Section */}
-      <section className="page-hero">
+      {/* Breadcrumb Section */}
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
+        <div className="overlay"></div>
         <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>{t('contact.title')}</h1>
-              <p>Bizimle iletişime geçin, size yardımcı olmaktan mutluluk duyarız</p>
-            </div>
-            <div className="hero-image">
-              <img
-                src="/assets/images/car.png"
-                alt="İletişim - Araç Kiralama"
-                className="wow fadeInUp animated"
-                data-wow-delay="0.3s"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxWidth: '400px',
-                  display: 'block',
-                  margin: '0 auto',
-                  background: 'transparent',
-                  border: 'none',
-                  boxShadow: 'none'
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Info Section */}
-      <section className="contact-info-top">
-        <div className="container">
-          <div className="contact-info-section wow fadeInUp animated" data-wow-delay="0.3s">
-            <h2>İletişim Bilgileri</h2>
-            
-            <div className="contact-info-grid">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="contact-info-card">
-                  <div className="contact-info-icon">{info.icon}</div>
-                  <div className="contact-info-content">
-                    <h3>{info.title}</h3>
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex}>{detail}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Content */}
-      <section className="contact-content">
-        <div className="container">
-          <div className="contact-grid">
-            {/* Contact Map */}
-            <div className="map-container wow fadeInLeft animated" data-wow-delay="0.3s">
-              <h3>Konumumuz</h3>
-              <div className="map-wrapper">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.9633698339347!2d29.0082!3d41.0431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5bd657bd40f%3A0x8c0b618a4c0b0b0b!2sBe%C5%9Fikta%C5%9F%2C%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1640000000000!5m2!1str!2str"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0, borderRadius: 'var(--radius-lg)' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Rent A Car Konumu - Beşiktaş, İstanbul"
-                ></iframe>
-                <div className="map-info">
-                  <div className="map-details">
-                    <span className="map-icon">📍</span>
-                    <div className="map-text">
-                      <p><strong>Adres:</strong> Merkez Mahallesi, Araç Kiralama Caddesi No:123</p>
-                      <p><strong>Bölge:</strong> Beşiktaş, İstanbul</p>
-                      <p><strong>Posta Kodu:</strong> 34353</p>
-                    </div>
-                  </div>
-                  <a 
-                    href="https://maps.google.com/maps?q=Be%C5%9Fikta%C5%9F,+%C4%B0stanbul" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn btn-primary btn-sm"
-                  >
-                    Google Maps'te Aç
-                  </a>
-                </div>
+          <div className="row">
+            <div className="col-12">
+              <div className="breadcrumbs_content align_center_center">
+                <h3 className="text-uppercase color_ff" style={{paddingBottom: '20px', color: '#fff', textTransform: 'uppercase', marginTop: '130px'}}>İletişim</h3>
+                <ol className="breadcrumb">
+                  <li><a href="/">Ana Sayfa</a></li>
+                  <li className="active">İletişim</li>
+                </ol>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <div className="contact-form-section wow fadeInRight animated" data-wow-delay="0.5s">
-              <h2>Bize Mesaj Gönderin</h2>
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">{t('contact.name')}</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">{t('contact.email')}</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">{t('contact.phone')}</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="form-input"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Konu</label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="">Konu Seçin</option>
-                      <option value="general">Genel Bilgi</option>
-                      <option value="booking">Rezervasyon</option>
-                      <option value="complaint">Şikayet</option>
-                      <option value="suggestion">Öneri</option>
-                      <option value="other">Diğer</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">{t('contact.message')}</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="form-textarea"
-                    rows="6"
-                    placeholder="Mesajınızı buraya yazın..."
-                    required
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-lg">
-                  {t('contact.send')}
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="faq-section">
-        <div className="container">
-          <h2 className="section-title wow fadeInUp animated" data-wow-delay="0.3s">Sıkça Sorulan Sorular</h2>
-          <div className="faq-grid">
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.4s">
-              <h3>Rezervasyon nasıl yapabilirim?</h3>
-              <p>Web sitemiz üzerinden online rezervasyon yapabilir veya telefon ile bizimle iletişime geçebilirsiniz.</p>
+  
+      <div className="contact-container-wrapper">
+        <div className="contact-container">
+        <section className="contact-form-section">
+          <h1>Bize Ulaşın</h1>
+          <p>Kiralama işlemleri, rezervasyonlar veya diğer tüm sorularınız için formu doldurun.</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Ad Soyad</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="form-control" 
+                required 
+              />
             </div>
-            
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.5s">
-              <h3>Hangi belgeler gereklidir?</h3>
-              <p>Ehliyet, kimlik belgesi ve kredi kartı gereklidir. Uluslararası ehliyet yurt dışından gelen müşteriler için geçerlidir.</p>
+            <div className="form-group">
+              <label htmlFor="email">E-posta Adresi</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="form-control" 
+                required 
+              />
             </div>
-            
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.6s">
-              <h3>Yaş sınırı var mı?</h3>
-              <p>Minimum 21 yaşında olmanız gerekmektedir. 25 yaş altı müşteriler için ek ücret uygulanabilir.</p>
+            <div className="form-group">
+              <label htmlFor="phone">Telefon Numarası (İsteğe Bağlı)</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="form-control" 
+              />
             </div>
-            
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.7s">
-              <h3>İptal politikası nedir?</h3>
-              <p>Rezervasyon tarihinden 24 saat öncesine kadar ücretsiz iptal edebilirsiniz.</p>
+            <div className="form-group">
+              <label htmlFor="subject">Konu</label>
+              <select 
+                id="subject" 
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                className="form-control" 
+                required
+              >
+                <option value="">Lütfen bir konu seçin...</option>
+                <option value="rezervasyon">Rezervasyon Bilgisi</option>
+                <option value="destek">Destek Talebi</option>
+                <option value="geri-bildirim">Geri Bildirim</option>
+                <option value="diger">Diğer</option>
+              </select>
             </div>
-            
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.8s">
-              <h3>Yakıt politikası nasıl?</h3>
-              <p>Araçları dolu teslim alır, dolu teslim edersiniz. Eksik yakıt için ücret alınır.</p>
+            <div className="form-group">
+              <label htmlFor="message">Mesajınız</label>
+              <textarea 
+                id="message" 
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                className="form-control" 
+                required
+              ></textarea>
             </div>
-            
-            <div className="faq-item wow fadeInUp animated" data-wow-delay="0.9s">
-              <h3>7/24 destek var mı?</h3>
-              <p>Evet, acil durumlar için 7/24 destek hattımız mevcuttur.</p>
+            <button type="submit" className="submit-btn">Mesajı Gönder</button>
+          </form>
+        </section>
+
+        <section className="contact-info-section">
+          <h2>İletişim Bilgileri</h2>
+          <div className="info-item">
+            <LocationIcon />
+            <div className="info-item-content">
+              <p>Adres</p>
+              <p>Merkez Mahallesi, Araç Kiralama Caddesi No:123, Beşiktaş/İstanbul</p>
             </div>
           </div>
+          <div className="info-item">
+            <PhoneIcon />
+            <div className="info-item-content">
+              <p>Telefon</p>
+              <p><a href="tel:+902121234567">+90 (212) 123 45 67</a></p>
+            </div>
+          </div>
+          <div className="info-item">
+            <EmailIcon />
+            <div className="info-item-content">
+              <p>E-posta</p>
+              <p><a href="mailto:info@rentacar.com">info@rentacar.com</a></p>
+            </div>
+          </div>
+          <div className="info-item">
+            <ClockIcon />
+            <div className="info-item-content">
+              <p>Çalışma Saatleri</p>
+              <p>Pazartesi - Cuma: 08:00 - 18:00<br/>Cumartesi: 09:00 - 16:00<br/>Pazar: Kapalı</p>
+            </div>
+          </div>
+          <div className="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.9633698339347!2d29.0082!3d41.0431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5bd657bd40f%3A0x8c0b618a4c0b0b0b!2sBe%C5%9Fikta%C5%9F%2C%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1640000000000!5m2!1str!2str"
+              loading="lazy"
+              title="Konum"
+            ></iframe>
+          </div>
+        </section>
         </div>
-      </section>
+      </div>
+      
+      {/* Fixed WhatsApp Button */}
+      <div className="fixed-social">
+        <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
+          <i className="fa fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      {/* Language Switcher */}
+      <div className="language-switcher">
+        <button className="language-button" aria-label="Dil değiştir">
+          <span className="flag">{getCurrentFlag()}</span>
+        </button>
+        <div className="language-dropdown">
+          <button 
+            className={`language-option ${currentLanguage === 'tr' ? 'active' : ''}`}
+            onClick={() => changeLanguage('tr')}
+          >
+            <span className="flag">🇹🇷</span>
+          </button>
+          <button 
+            className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}
+            onClick={() => changeLanguage('en')}
+          >
+            <span className="flag">🇺🇸</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
