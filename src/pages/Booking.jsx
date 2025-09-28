@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Loading';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Booking = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
 
@@ -561,14 +563,22 @@ const Booking = () => {
       {/* Language Switcher */}
       <div className="language-switcher">
         <button className="language-button" aria-label="Dil değiştir">
-          <span className="flag">🇹🇷</span>
+          <span className="flag">{getCurrentFlag()}</span>
         </button>
         <div className="language-dropdown">
-          <button className="language-option active">
+          <button 
+            className={`language-option ${currentLanguage === 'tr' ? 'active' : ''}`}
+            onClick={() => changeLanguage('tr')}
+          >
             <span className="flag">🇹🇷</span>
+            <span className="language-name">Türkçe</span>
           </button>
-          <button className="language-option">
+          <button 
+            className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}
+            onClick={() => changeLanguage('en')}
+          >
             <span className="flag">🇺🇸</span>
+            <span className="language-name">English</span>
           </button>
         </div>
       </div>

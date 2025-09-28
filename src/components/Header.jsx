@@ -37,7 +37,7 @@ const Header = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                  className="nav-link"
                 >
                   {link.label}
                 </Link>
@@ -53,7 +53,7 @@ const Header = () => {
           
           {/* Mobile menu button */}
           <button
-            className="mobile-menu-btn"
+            className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -64,10 +64,17 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
-          <nav className="mobile-nav">
+        <div 
+          className="mobile-menu-overlay"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
+      )}
+
+      {/* Mobile menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <nav className="mobile-nav">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -87,7 +94,6 @@ const Header = () => {
             </Link>
           </nav>
         </div>
-      )}
     </header>
   );
 };
