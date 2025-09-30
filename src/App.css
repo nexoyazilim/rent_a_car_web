@@ -147,9 +147,7 @@
   background-color: #f8f9fa;
 }
 
-.language-option.active {
-  /* Aktif dil vurgulaması kaldırıldı */
-}
+/* .language-option.active kaldırıldı: boş kurallar temizlendi */
 
 .language-option .flag {
   font-size: 20px;
@@ -386,9 +384,7 @@
   color: var(--primary-color);
 }
 
-.mobile-nav-link.active {
-  /* Aktif sayfa vurgulaması kaldırıldı */
-}
+/* .mobile-nav-link.active kaldırıldı: boş kurallar temizlendi */
 
 
 .mobile-book-btn {
@@ -420,7 +416,7 @@
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -558,7 +554,7 @@
 
 /* Featured Vehicles Section */
 .featured-vehicles {
-  padding: 4rem 0;
+  padding: 1rem 0;
   background-color: #ffffff;
 }
 
@@ -822,6 +818,8 @@
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
   overflow: hidden;
+  /* Perf: büyük arka planlar ve overlay boyamaları izole et */
+  contain: paint;
 }
 
 .mission-vision-section::before {
@@ -832,7 +830,24 @@
   right: 0;
   bottom: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(0,123,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-  opacity: 0.5;
+  /* Perf: daha az opaklık ile boyama maliyetini düşür */
+  opacity: 0.25;
+}
+
+/* Düşük hareket tercihi olan kullanıcılar için animasyonları kapat */
+@media (prefers-reduced-motion: reduce) {
+  .mission-vision-section .animated,
+  .mission-vision-section .wow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Mobilde boyama maliyetini azalt: arka plan overlay'i kaldır */
+@media (max-width: 768px) {
+  .mission-vision-section::before {
+    display: none;
+  }
 }
 
 .mv-container {
@@ -849,11 +864,14 @@
   background: #ffffff;
   border-radius: 20px;
   padding: 3rem 2rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  /* Perf: büyük blur gölgeler pahalıdır, biraz düşürelim */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 123, 255, 0.1);
+  /* Perf: hover animasyonlarında yeniden boyamayı izole et */
+  contain: layout paint;
 }
 
 .mv-card::before {
@@ -873,8 +891,8 @@
 }
 
 .mv-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
 }
 
 .mv-icon-wrapper {
@@ -957,7 +975,7 @@
 
 /* Values Detail Section - Modern Design */
 .values-detail-section {
-  padding: 6rem 0;
+  padding: 1rem 0;
   background: #ffffff;
   position: relative;
 }
@@ -992,6 +1010,99 @@
   color: var(--text-color);
   opacity: 0.8;
   margin: 0;
+}
+
+/* Team Section */
+.team-section {
+  padding: 1rem 0;
+  background: #ffffff;
+}
+
+.team-section .section-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+}
+
+.team-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.team-image {
+  width: 100%;
+  height: 280px; /* Fallback: bazı tarayıcılarda aspect-ratio sorunları için */
+  object-fit: cover;
+  display: block;
+  background-color: #f5f5f5;
+}
+
+.team-card h3 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.team-position {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.team-description {
+  margin: 0.5rem 1rem 1.25rem;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .team-section {
+    padding: 3rem 0;
+  }
+
+  .team-section .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .team-grid {
+    gap: 1rem;
+  }
+
+  .team-image {
+    height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card {
+    transition: none;
+  }
+  .team-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .values-container {
@@ -1111,12 +1222,26 @@
 .vvsg.breadcrumbs_common.breadcrumbs_style5 {
   position: relative;
   min-height: 300px;
-  background-size: center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Breadcrumb helper classes (inline stil yerine) */
+.breadcrumbs-hero {
+  background-image: url('/assets/images/dacia_duster.jpg');
+  background-position: bottom;
+}
+
+.breadcrumbs-title {
+  padding-bottom: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 130px;
 }
 
 .vvsg.breadcrumbs_common.breadcrumbs_style5 .overlay {
@@ -1329,55 +1454,7 @@
 }
 
 
-/* Footer */
-.footer {
-  background-color: var(--text-primary);
-  color: white;
-  padding: 3rem 0 1rem;
-  margin-top: 4rem;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.footer-section h3 {
-  color: white;
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
-}
-
-.footer-section p,
-.footer-section a {
-  color: #d1d5db;
-  line-height: 1.6;
-}
-
-.footer-section a:hover {
-  color: white;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-bottom {
-  border-top: 1px solid #374151;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  text-align: center;
-  color: #9ca3af;
-}
+/* Footer stilleri src/styles/footer.css dosyasına taşındı */
 
 /* Responsive */
 /* Tablet Styles */
@@ -1643,7 +1720,7 @@
   
   /* Values Detail Mobile */
   .values-detail-section {
-    padding: 3rem 0;
+    padding: 1rem 0;
   }
   
   .values-container {
@@ -1680,6 +1757,10 @@
   /* Breadcrumb Mobile */
   .vvsg.breadcrumbs_common.breadcrumbs_style5 {
     min-height: 250px;
+  }
+
+  .breadcrumbs-title {
+    margin-top: 80px;
   }
   
   .breadcrumbs_content h3 {

@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Loading';
 import { useLanguage } from '../hooks/useLanguage';
+import '../styles/vehicles.css';
 
 const Vehicles = () => {
   const { t } = useTranslation();
@@ -31,7 +32,7 @@ const Vehicles = () => {
       id: 1,
       name: 'BMW 3 Series',
       category: 'Premium',
-      image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
+      image: '/assets/images/renault_megane.jpg',
       price: 450,
       transmission: 'Otomatik',
       fuelType: 'Benzin',
@@ -44,7 +45,7 @@ const Vehicles = () => {
       id: 2,
       name: 'Mercedes C-Class',
       category: 'Luxury',
-      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400',
+      image: '/assets/images/mercedes_vito.jpg',
       price: 550,
       transmission: 'Otomatik',
       fuelType: 'Benzin',
@@ -57,7 +58,7 @@ const Vehicles = () => {
       id: 3,
       name: 'Audi A4',
       category: 'Premium',
-      image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400',
+      image: '/assets/images/audi_a5.png',
       price: 480,
       transmission: 'Otomatik',
       fuelType: 'Benzin',
@@ -70,7 +71,7 @@ const Vehicles = () => {
       id: 4,
       name: 'Volkswagen Golf',
       category: 'Compact',
-      image: 'https://images.unsplash.com/photo-1549317336-206569e8475c?w=400',
+      image: '/assets/images/dacia_duster.jpg',
       price: 280,
       transmission: 'Manuel',
       fuelType: 'Benzin',
@@ -83,7 +84,7 @@ const Vehicles = () => {
       id: 5,
       name: 'Toyota Corolla',
       category: 'Economy',
-      image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400',
+      image: '/assets/images/toyota_corolla.png',
       price: 220,
       transmission: 'Otomatik',
       fuelType: 'Hibrit',
@@ -96,7 +97,7 @@ const Vehicles = () => {
       id: 6,
       name: 'BMW X5',
       category: 'SUV',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+      image: '/assets/images/fiat_egea.png',
       price: 650,
       transmission: 'Otomatik',
       fuelType: 'Benzin',
@@ -157,13 +158,13 @@ const Vehicles = () => {
   return (
     <div className="vehicles-page">
       {/* Breadcrumb Section */}
-      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative breadcrumbs-hero">
         <div className="overlay"></div>
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="breadcrumbs_content align_center_center">
-                <h3 className="text-uppercase color_ff" style={{paddingBottom: '20px', color: '#fff', textTransform: 'uppercase', marginTop: '130px'}}>Araçlarımız</h3>
+                <h3 className="text-uppercase color_ff breadcrumbs-title">Araçlarımız</h3>
                 <ol className="breadcrumb">
                   <li><a href="/">Ana Sayfa</a></li>
                   <li className="active">Araçlarımız</li>
@@ -305,6 +306,9 @@ const Vehicles = () => {
                     src={vehicle.image}
                     alt={vehicle.name}
                     className="vehicle-image"
+                    loading="lazy"
+                    sizes="(max-width: 992px) 100vw, 33vw"
+                    decoding="async"
                   />
                   <div className="vehicle-info">
                     <h3 className="vehicle-name">{vehicle.name}</h3>
@@ -333,7 +337,7 @@ const Vehicles = () => {
                       </div>
                       <button
                         className="btn btn-primary"
-                        onClick={() => navigate(`/vehicle/${vehicle.id}`)}
+                        onClick={() => navigate(`/vehicle/${vehicle.id}`, { state: { vehicle } })}
                       >
                         Detaylar
                       </button>

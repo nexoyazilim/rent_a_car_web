@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Loading';
 import { useLanguage } from '../hooks/useLanguage';
+import '../styles/vehicle-detail.css';
 
 const VehicleDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const location = useLocation();
   const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   const [vehicle, setVehicle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,6 +19,11 @@ const VehicleDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // id değiştiğinde de en üste scroll yap (benzer araca geçişte)
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [id]);
   const [bookingForm, setBookingForm] = useState({
     pickupDate: '',
     returnDate: '',
@@ -36,9 +43,9 @@ const VehicleDetail = () => {
       name: 'BMW 3 Series',
       category: 'Premium',
       images: [
-        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
-        'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-        'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800'
+        '/assets/images/toyota_corolla.png',
+        '/assets/images/renault_megane.jpg',
+        '/assets/images/audi_a5.png'
       ],
       price: 450,
       transmission: 'Otomatik',
@@ -59,12 +66,22 @@ const VehicleDetail = () => {
   };
 
   useEffect(() => {
-    // Simüle edilmiş API çağrısı
+    // Vehicles sayfasından state ile geldiyse onu kullan
+    if (location.state && location.state.vehicle) {
+      const v = location.state.vehicle;
+      const normalized = v.images && Array.isArray(v.images)
+        ? v
+        : { ...v, images: v.image ? [v.image] : [] };
+      setVehicle(normalized);
+      setLoading(false);
+      return;
+    }
+    // Aksi halde basit mock veriden id ile yükle (varsa)
     setTimeout(() => {
       setVehicle(vehicleData[id]);
       setLoading(false);
-    }, 1000);
-  }, [id]);
+    }, 400);
+  }, [id, location.state]);
 
   const handleBookingFormChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -100,24 +117,7 @@ const VehicleDetail = () => {
 
   return (
     <div className="vehicle-detail-page">
-      {/* Breadcrumb Section */}
-      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
-        <div className="overlay"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="breadcrumbs_content align_center_center">
-                <h3 className="text-uppercase color_ff" style={{paddingBottom: '20px', color: '#fff', textTransform: 'uppercase', marginTop: '130px'}}>Araç Detayı</h3>
-                <ol className="breadcrumb">
-                  <li><a href="/">Ana Sayfa</a></li>
-                  <li><a href="/vehicles">Araçlarımız</a></li>
-                  <li className="active">Araç Detayı</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <div className="container">
         <div className="vehicle-detail">
@@ -125,21 +125,70 @@ const VehicleDetail = () => {
           <div className="vehicle-images">
             <div className="main-image">
               <img
-                src={vehicle.images[selectedImage]}
+                src={(vehicle && vehicle.images && vehicle.images[selectedImage]) || (vehicle && vehicle.image) || ''}
                 alt={vehicle.name}
                 className="vehicle-main-image"
+                loading="lazy"
+                sizes="(max-width: 992px) 100vw, 60vw"
+                decoding="async"
               />
             </div>
-            <div className="image-thumbnails">
-              {vehicle.images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`${vehicle.name} ${index + 1}`}
-                  className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
-                  onClick={() => setSelectedImage(index)}
-                />
-              ))}
+            {vehicle.images && vehicle.images.length > 1 && (
+              <div className="image-thumbnails">
+                {vehicle.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${vehicle.name} ${index + 1}`}
+                    className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
+                    onClick={() => setSelectedImage(index)}
+                    loading="lazy"
+                    sizes="(max-width: 992px) 30vw, 18vw"
+                    decoding="async"
+                  />
+                ))}
+              </div>
+            )}
+            <div className="image-info-block">
+              <div className="vehicle-features">
+                <h3>Özellikler</h3>
+                <div className="features-grid">
+                  {vehicle.features && vehicle.features.length > 0 ? (
+                    vehicle.features.map((feature, index) => (
+                      <span key={index} className="feature-tag">
+                        {feature}
+                      </span>
+                    ))
+                  ) : (
+                    <>
+                      <span className="feature-tag">Klima</span>
+                      <span className="feature-tag">Bluetooth</span>
+                    </>
+                  )}
+                </div>
+                <div className="features-demo-text">
+                  <p>
+                    Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda 
+                    yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı 
+                    seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.
+                  </p>
+                  <ul>
+                    <li>Uyarlanabilir hız sabitleme ve şerit takip asistanı</li>
+                    <li>Çift bölgeli otomatik klima ve arka havalandırma</li>
+                    <li>LED farlar, otomatik uzun/kısa far geçişi</li>
+                    <li>Android Auto & Apple CarPlay desteği</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="vehicle-description">
+                <h3>Açıklama</h3>
+                <p>{vehicle.description || 'Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.'}</p>
+                <p>
+                  Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise 
+                  sessiz kabini ve stabil yol tutuşuyla güven verir. Geniş bagaj hacmi, aile ve iş seyahatlerinde 
+                  ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -150,10 +199,32 @@ const VehicleDetail = () => {
               <span className="vehicle-category">{vehicle.category}</span>
             </div>
 
+            <div className="vehicle-meta">
+              <div className="rating" aria-label="araç puanı">
+                ★★★★☆
+                <span className="rating-count">(124)</span>
+              </div>
+            </div>
+
             <div className="vehicle-price">
               <span className="price">₺{vehicle.price}</span>
               <span className="price-period">/gün</span>
             </div>
+
+            <div className="quick-specs">
+              <div className="quick-spec-item"><span>⛽ Yakıt:</span><strong>{vehicle.fuelType || 'Bilinmiyor'}</strong></div>
+              <div className="quick-spec-item"><span>⚙️ Vites:</span><strong>{vehicle.transmission || 'Bilinmiyor'}</strong></div>
+              <div className="quick-spec-item"><span>👥 Yolcu:</span><strong>{vehicle.passengers || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🚪 Kapı:</span><strong>{vehicle.doors || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🧳 Bagaj:</span><strong>{vehicle.bags || '-'}</strong></div>
+            </div>
+
+            <div className="cta-row">
+              <button className="btn btn-primary btn-icon" onClick={() => navigate('/booking', { state: { vehicle } })}>🗓️ Rezervasyon Yap</button>
+              <button className="btn btn-outline btn-icon" onClick={() => window.print()}>🖨️ Yazdır</button>
+            </div>
+
+            <div className="divider"></div>
 
             <div className="vehicle-specs">
               <div className="spec-item">
@@ -178,210 +249,75 @@ const VehicleDetail = () => {
               </div>
             </div>
 
-            <div className="vehicle-features">
-              <h3>Özellikler</h3>
-              <div className="features-grid">
-                {vehicle.features.map((feature, index) => (
-                  <span key={index} className="feature-tag">
-                    {feature}
-                  </span>
-                ))}
-              </div>
-            </div>
+            
 
-            <div className="vehicle-description">
-              <h3>Açıklama</h3>
-              <p>{vehicle.description}</p>
-            </div>
-
-            <div className="vehicle-specifications">
-              <h3>Teknik Özellikler</h3>
-              <div className="specs-grid">
-                {Object.entries(vehicle.specifications).map(([key, value]) => (
-                  <div key={key} className="spec-row">
-                    <span className="spec-label">{key}:</span>
-                    <span className="spec-value">{value}</span>
-                  </div>
-                ))}
+            {vehicle.specifications && Object.keys(vehicle.specifications).length > 0 && (
+              <div className="vehicle-specifications">
+                <h3>Teknik Özellikler</h3>
+                <div className="specs-grid">
+                  {Object.entries(vehicle.specifications).map(([key, value]) => (
+                    <div key={key} className="spec-row">
+                      <span className="spec-label">{key}:</span>
+                      <span className="spec-value">{value}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          {/* Booking Form */}
-          <div className="booking-form-container">
-            <div className="booking-form">
-              <h3>Rezervasyon Yap</h3>
-              <form onSubmit={handleBooking}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Alış Tarihi</label>
-                    <input
-                      type="date"
-                      name="pickupDate"
-                      value={bookingForm.pickupDate}
-                      onChange={handleBookingFormChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Teslim Tarihi</label>
-                    <input
-                      type="date"
-                      name="returnDate"
-                      value={bookingForm.returnDate}
-                      onChange={handleBookingFormChange}
-                      className="form-input"
-                      required
-                    />
+          
+        </div>
+        {/* Related Vehicles */}
+        <div className="related-section">
+          <div className="related-header">
+            <h3>Benzer Araçlar</h3>
+          </div>
+          <div className="related-grid">
+            {[1,2,3,4].map((i) => {
+              const relatedImages = [
+                '/assets/images/renault_megane.jpg',
+                '/assets/images/mercedes_vito.jpg',
+                '/assets/images/audi_a5.png',
+                '/assets/images/dacia_duster.jpg'
+              ];
+              const fallback = {
+                id: i,
+                name: 'Örnek Araç',
+                category: 'Economy',
+                price: 300,
+                image: '/assets/images/dacia_duster.jpg'
+              };
+              const current = vehicle && vehicle.category ? vehicle.category : 'Economy';
+              const suggestions = [
+                {
+                  id: `${vehicle?.id || 0}-${i}`,
+                  name: `${current} Araç ${i}`,
+                  category: current,
+                  price: (vehicle?.price || 300) + i * 20,
+                  image: relatedImages[i - 1] || vehicle?.images?.[0] || vehicle?.image || fallback.image
+                }
+              ];
+              const item = suggestions[0] || fallback;
+              return (
+                <div key={item.id} className="related-card">
+                  <img src={item.image} alt={item.name} className="related-image" loading="lazy" decoding="async" />
+                  <div className="related-info">
+                    <div className="related-top">
+                      <span className="related-name">{item.name}</span>
+                      <span className="related-category">{item.category}</span>
+                    </div>
+                <div className="related-price">
+                  <span className="price">₺{item.price}</span>
+                  <span className="price-period">/gün</span>
+                </div>
+                    <div className="related-actions">
+                      <button className="btn btn-outline" onClick={() => navigate(`/vehicle/${(vehicle?.id || 0) + i}`, { state: { vehicle: { ...vehicle, id: (vehicle?.id || 0) + i } } })}>Detay</button>
+                    </div>
                   </div>
                 </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Alış Saati</label>
-                    <select
-                      name="pickupTime"
-                      value={bookingForm.pickupTime}
-                      onChange={handleBookingFormChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="">Saat Seçin</option>
-                      <option value="09:00">09:00</option>
-                      <option value="10:00">10:00</option>
-                      <option value="11:00">11:00</option>
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                      <option value="14:00">14:00</option>
-                      <option value="15:00">15:00</option>
-                      <option value="16:00">16:00</option>
-                      <option value="17:00">17:00</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Teslim Saati</label>
-                    <select
-                      name="returnTime"
-                      value={bookingForm.returnTime}
-                      onChange={handleBookingFormChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="">Saat Seçin</option>
-                      <option value="09:00">09:00</option>
-                      <option value="10:00">10:00</option>
-                      <option value="11:00">11:00</option>
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                      <option value="14:00">14:00</option>
-                      <option value="15:00">15:00</option>
-                      <option value="16:00">16:00</option>
-                      <option value="17:00">17:00</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Alış Lokasyonu</label>
-                    <select
-                      name="pickupLocation"
-                      value={bookingForm.pickupLocation}
-                      onChange={handleBookingFormChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="">Lokasyon Seçin</option>
-                      <option value="istanbul-airport">İstanbul Havalimanı</option>
-                      <option value="sabiha-gokcen">Sabiha Gökçen</option>
-                      <option value="taksim">Taksim</option>
-                      <option value="kadikoy">Kadıköy</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label">Teslim Lokasyonu</label>
-                    <select
-                      name="returnLocation"
-                      value={bookingForm.returnLocation}
-                      onChange={handleBookingFormChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="">Lokasyon Seçin</option>
-                      <option value="istanbul-airport">İstanbul Havalimanı</option>
-                      <option value="sabiha-gokcen">Sabiha Gökçen</option>
-                      <option value="taksim">Taksim</option>
-                      <option value="kadikoy">Kadıköy</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Sürücü Yaşı</label>
-                  <select
-                    name="driverAge"
-                    value={bookingForm.driverAge}
-                    onChange={handleBookingFormChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">Yaş Seçin</option>
-                    <option value="21-24">21-24</option>
-                    <option value="25-29">25-29</option>
-                    <option value="30-39">30-39</option>
-                    <option value="40-49">40-49</option>
-                    <option value="50+">50+</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Sigorta Seçimi</label>
-                  <select
-                    name="insurance"
-                    value={bookingForm.insurance}
-                    onChange={handleBookingFormChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="basic">Temel Sigorta</option>
-                    <option value="full">Tam Sigorta</option>
-                    <option value="premium">Premium Sigorta</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="checkbox-label">
-                    <input
-                      type="checkbox"
-                      name="additionalDriver"
-                      checked={bookingForm.additionalDriver}
-                      onChange={handleBookingFormChange}
-                    />
-                    Ek sürücü ekle
-                  </label>
-                </div>
-
-                <div className="booking-summary">
-                  <div className="summary-row">
-                    <span>Araç Kiralama (3 gün)</span>
-                    <span>₺{vehicle.price * 3}</span>
-                  </div>
-                  <div className="summary-row">
-                    <span>Sigorta</span>
-                    <span>₺50</span>
-                  </div>
-                  <div className="summary-row total">
-                    <span>Toplam</span>
-                    <span>₺{vehicle.price * 3 + 50}</span>
-                  </div>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-lg w-full">
-                  Rezervasyon Yap
-                </button>
-              </form>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

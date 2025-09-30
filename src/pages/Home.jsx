@@ -249,45 +249,34 @@ const Home = () => {
              <div className="clearfix"></div>
              <div className="col-lg-3">
                <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.5s">
-                 <i className="fa bg-color fa-trophy">🏆</i>
                  <div className="d-inner">
                    <h4>Birinci sınıf hizmetler</h4>
                    <p>Lüksün olağanüstü özenle buluştuğu, unutulmaz anlar yaratan ve tüm beklentilerinizi aşan yer.</p>
                  </div>
                </div>
                <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.75s">
-                 <i className="fa bg-color fa-road">🛣️</i>
                  <div className="d-inner">
                    <h4>7/24 yol asistanı</h4>
                    <p>7/24 Yol Asistanı hizmetimizle, yolculuğunuz boyunca her an yanınızdayız.</p>
                  </div>
                </div>
              </div>
-             <div className="col-lg-6">
-               <img 
-                 src="/assets/images/toyota_corolla.png" 
-                 alt="Toyota Corolla Altis - Araç Kiralama" 
-                 className="wow fadeInUp animated" 
-                 data-wow-delay="0.3s"
-                 style={{
-                   width: '100%',
-                   height: 'auto',
-                   maxWidth: '500px',
-                   display: 'block',
-                   margin: '0 auto'
-                 }}
-               />
+            <div className="col-lg-6">
+              <img 
+                src="/assets/images/toyota_corolla.png" 
+                alt="Toyota Corolla Altis - Araç Kiralama" 
+                className="wow fadeInUp animated story-img" 
+                data-wow-delay="0.3s"
+              />
              </div>
              <div className="col-lg-3">
                <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1s">
-                 <i className="fa bg-color fa-tag">💰</i>
                  <div className="d-inner">
                    <h4>Minimum Maliyetle Kalite</h4>
                    <p>Bütçenize uygun araç kiralama seçenekleri ile en kaliteli hizmeti sunuyoruz. Farklı ödeme seçenekleri ve kampanyalarımızla, her zaman avantajlısınız.</p>
                  </div>
                </div>
                <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1.25s">
-                 <i className="fa bg-color fa-map-pin">📍</i>
                  <div className="d-inner">
                    <h4>Hızlı Rezervasyon, Anında Teslimat</h4>
                    <p>Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin.</p>

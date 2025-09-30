@@ -50,32 +50,23 @@ const About = () => {
       title: 'Müşteri Memnuniyeti',
       description: 'Müşteri memnuniyeti bizim önceliğimizdir.'
     },
-    {
-      icon: '⚡',
-      title: 'Hızlı Hizmet',
-      description: 'Hızlı ve etkili çözümler sunuyoruz.'
-    }
+
   ];
 
   return (
     <div className="about-page">
       {/* Breadcrumb Section */}
-      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative breadcrumbs-hero">
         <div className="overlay"></div>
-      </section>
-
-      {/* Breadcrumb Navigation */}
-      <section className="breadcrumb-navigation-section">
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="breadcrumbs_content align_center_center">
-                <div className="breadcrumb-wrapper-inner">
-                  <span>
-                    <a title="Homepage" href="/">Anasayfa</a>
-                  </span>
-                  <span>Hakkımızda</span>
-                </div>
+                <h3 className="text-uppercase color_ff breadcrumbs-title">Hakkımızda</h3>
+                <ol className="breadcrumb">
+                  <li><a href="/">Ana Sayfa</a></li>
+                  <li className="active">Hakkımızda</li>
+                </ol>
               </div>
             </div>
           </div>
@@ -176,6 +167,8 @@ const About = () => {
                   src={member.image}
                   alt={member.name}
                   className="team-image"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <h3>{member.name}</h3>
                 <p className="team-position">{member.position}</p>
@@ -186,48 +179,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Statistics */}
-      <section className="statistics">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item wow fadeInUp animated" data-wow-delay="0.3s">
-              <div className="stat-number">10+</div>
-              <div className="stat-label">Yıllık Deneyim</div>
-            </div>
-            <div className="stat-item wow fadeInUp animated" data-wow-delay="0.5s">
-              <div className="stat-number">500+</div>
-              <div className="stat-label">Araç Filosu</div>
-            </div>
-            <div className="stat-item wow fadeInUp animated" data-wow-delay="0.7s">
-              <div className="stat-number">50K+</div>
-              <div className="stat-label">Mutlu Müşteri</div>
-            </div>
-            <div className="stat-item wow fadeInUp animated" data-wow-delay="0.9s">
-              <div className="stat-number">24/7</div>
-              <div className="stat-label">Müşteri Desteği</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <div className="cta-content wow fadeInUp animated" data-wow-delay="0.3s">
-            <h2>Araç Kiralamaya Hazır mısınız?</h2>
-            <p>Hemen rezervasyon yapın ve seyahatinizi keyifli hale getirin</p>
-            <div className="cta-buttons">
-              <a href="/vehicles" className="btn btn-primary btn-lg">
-                Araçları Görüntüle
-              </a>
-              <a href="/contact" className="btn btn-outline btn-lg">
-                İletişime Geç
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Fixed WhatsApp Button */}
       <div className="fixed-social">
         <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">

@@ -74,13 +74,13 @@ const Contact = () => {
   return (
     <div className="contact-page">
       {/* Breadcrumb Section */}
-      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative" style={{backgroundImage: 'url(/assets/images/renault_clio.png)', backgroundPosition: 'bottom'}}>
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative breadcrumbs-hero">
         <div className="overlay"></div>
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="breadcrumbs_content align_center_center">
-                <h3 className="text-uppercase color_ff" style={{paddingBottom: '20px', color: '#fff', textTransform: 'uppercase', marginTop: '130px'}}>İletişim</h3>
+                <h3 className="text-uppercase color_ff breadcrumbs-title">İletişim</h3>
                 <ol className="breadcrumb">
                   <li><a href="/">Ana Sayfa</a></li>
                   <li className="active">İletişim</li>
