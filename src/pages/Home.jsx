@@ -214,7 +214,6 @@ const Home = () => {
                     <div className="vehicle-specs">
                       <span>👥 {vehicle.passengers} kişi</span>
                       <span>🚪 {vehicle.doors} kapı</span>
-                      <span>🧳 {vehicle.bags} bavul</span>
                     </div>
                     
                     <div className="vehicle-price">

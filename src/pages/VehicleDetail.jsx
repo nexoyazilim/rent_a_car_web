@@ -235,10 +235,7 @@ const VehicleDetail = () => {
                 <span className="spec-icon">🚪</span>
                 <span>{vehicle.doors} kapı</span>
               </div>
-              <div className="spec-item">
-                <span className="spec-icon">🧳</span>
-                <span>{vehicle.bags} bavul</span>
-              </div>
+         
               <div className="spec-item">
                 <span className="spec-icon">⚙️</span>
                 <span>{vehicle.transmission}</span>

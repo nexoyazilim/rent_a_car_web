@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Loading';
@@ -12,12 +12,14 @@ const Vehicles = () => {
   const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   const [vehicles, setVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const listTopRef = useRef(null);
 
   // Sayfa yüklendiğinde en üste scroll yap
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const [filters, setFilters] = useState({
+    brand: '',
     category: '',
     priceRange: '',
     transmission: '',
@@ -31,6 +33,7 @@ const Vehicles = () => {
     {
       id: 1,
       name: 'BMW 3 Series',
+      brand: 'BMW',
       category: 'Premium',
       image: '/assets/images/renault_megane.jpg',
       price: 450,
@@ -44,6 +47,7 @@ const Vehicles = () => {
     {
       id: 2,
       name: 'Mercedes C-Class',
+      brand: 'Mercedes',
       category: 'Luxury',
       image: '/assets/images/mercedes_vito.jpg',
       price: 550,
@@ -57,6 +61,7 @@ const Vehicles = () => {
     {
       id: 3,
       name: 'Audi A4',
+      brand: 'Audi',
       category: 'Premium',
       image: '/assets/images/audi_a5.png',
       price: 480,
@@ -70,6 +75,7 @@ const Vehicles = () => {
     {
       id: 4,
       name: 'Volkswagen Golf',
+      brand: 'Volkswagen',
       category: 'Compact',
       image: '/assets/images/dacia_duster.jpg',
       price: 280,
@@ -83,6 +89,7 @@ const Vehicles = () => {
     {
       id: 5,
       name: 'Toyota Corolla',
+      brand: 'Toyota',
       category: 'Economy',
       image: '/assets/images/toyota_corolla.png',
       price: 220,
@@ -96,6 +103,7 @@ const Vehicles = () => {
     {
       id: 6,
       name: 'BMW X5',
+      brand: 'BMW',
       category: 'SUV',
       image: '/assets/images/fiat_egea.png',
       price: 650,
@@ -125,6 +133,7 @@ const Vehicles = () => {
   };
 
   const filteredVehicles = vehicles.filter(vehicle => {
+    if (filters.brand && vehicle.brand !== filters.brand) return false;
     if (filters.category && vehicle.category !== filters.category) return false;
     if (filters.transmission && vehicle.transmission !== filters.transmission) return false;
     if (filters.fuelType && vehicle.fuelType !== filters.fuelType) return false;
@@ -150,6 +159,22 @@ const Vehicles = () => {
         return 0;
     }
   });
+
+  const isFilteringActive = Boolean(
+    filters.brand ||
+    filters.category ||
+    filters.priceRange ||
+    filters.transmission ||
+    filters.fuelType ||
+    filters.passengers
+  );
+
+  // Filtre/sıralama değiştiğinde liste başına kaydır
+  useEffect(() => {
+    if (!listTopRef.current) return;
+    const y = listTopRef.current.getBoundingClientRect().top + window.pageYOffset - 90; // fixed header offset
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }, [filters.brand, filters.category, filters.priceRange, filters.transmission, filters.fuelType, filters.passengers, filters.sortBy]);
 
   if (loading) {
     return <Loading message="Araçlar yükleniyor..." />;
@@ -185,6 +210,22 @@ const Vehicles = () => {
           {/* Filters Sidebar */}
           <div className="filters-sidebar">
             <h3>Filtreler</h3>
+            <div className="filter-group">
+              <label className="form-label">Marka</label>
+              <select
+                name="brand"
+                value={filters.brand}
+                onChange={handleFilterChange}
+                className="form-select"
+              >
+                <option value="">Tüm Markalar</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Audi">Audi</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Toyota">Toyota</option>
+              </select>
+            </div>
             
             <div className="filter-group">
               <label className="form-label">Kategori</label>
@@ -282,8 +323,8 @@ const Vehicles = () => {
 
           {/* Vehicles Grid */}
           <div className="vehicles-main">
-            <div className="vehicles-header">
-              <p>{sortedVehicles.length} araç bulundu</p>
+            <div ref={listTopRef} className="vehicles-header">
+              <p>{isFilteringActive ? `${sortedVehicles.length} araç bulundu` : 'Tüm araçlar listeleniyor'}</p>
               <div className="sort-controls">
                 <label className="form-label">Sırala:</label>
                 <select
@@ -317,7 +358,6 @@ const Vehicles = () => {
                     <div className="vehicle-specs">
                       <span>👥 {vehicle.passengers} kişi</span>
                       <span>🚪 {vehicle.doors} kapı</span>
-                      <span>🧳 {vehicle.bags} bavul</span>
                       <span>⚙️ {vehicle.transmission}</span>
                       <span>⛽ {vehicle.fuelType}</span>
                     </div>
