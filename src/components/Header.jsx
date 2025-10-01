@@ -29,7 +29,29 @@ const Header = () => {
   ];
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <>
+      <div className="top-header">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="contact-info">
+                <a href="mailto:info@demo.com"><i className="fa-solid fa-envelope"></i> info@gmail.com</a>
+                <a href="https://wa.me/+905353084466" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-whatsapp"></i> +90 535 308 44 66</a>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="top-social-container d-flex justify-content-end align-items-center">
+                <div className="social-links">
+                  <a className="facebook-icon" href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
+                  <a className="insta-icon" href="https://www.instagram.com/ucarli.vip.travel?igsh=YWI1MjM1cDR2bDRp&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <Link to="/" className="logo" aria-label="Rent A Car Anasayfa">
           <img src="/assets/images/logo.png" alt="Rent A Car" className="site-logo" loading="eager" decoding="async" />
@@ -100,7 +122,8 @@ const Header = () => {
             </a>
           </nav>
         </div>
-    </header>
+      </header>
+    </>
   );
 };
 

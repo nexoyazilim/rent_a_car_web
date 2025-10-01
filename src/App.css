@@ -198,14 +198,107 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* Header yüksekliği için */
+  padding-top: 124px; /* Top header (44px) + header (80px) */
   background-color: #ffffff;
 }
 
 /* Header stilleri */
-.header {
+.top-header {
+  background: #0b1b2b;
+  color: #ffffff;
+  font-size: 0.875rem;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1003; /* header(1002) üstünde */
+}
+.top-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+.top-header .row {
+  display: grid;
+  grid-template-columns: 1fr auto; /* esnek sol, sabit sağ */
+  align-items: center;
+  column-gap: 0.75rem;
+}
+.top-header .col-md-6 { min-width: 0; }
+.top-header .col-md-6:last-child { display: flex; justify-content: flex-end; }
+.top-header .contact-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0; /* ellipsis için */
+}
+.top-header .contact-info a + a { padding-left: 8px; }
+.top-header .contact-info a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  font-size: 0.875rem;
+}
+.top-header .contact-info a:hover {
+  opacity: 1;
+}
+.top-header .social-links {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: 0;
+}
+.top-header .top-social-container { display: flex; justify-content: flex-end; }
+.top-header .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  opacity: 0.95;
+  transition: all 0.2s ease;
+}
+.top-header .social-links a:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #0b1b2b; /* lacivert zemin için kontrast */
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    font-size: 0.8rem;
+  }
+  .top-header .container { padding: 0.4rem 0.75rem; }
+  .top-header .row { grid-template-columns: 1fr auto; }
+  .top-header .col-md-6 { min-width: 0; }
+  .top-header .col-md-6:last-child { justify-content: flex-end; }
+  .top-header .contact-info { gap: 0.5rem; min-width: 0; }
+  .top-header .contact-info a + a { padding-left: 6px; }
+  .top-header .contact-info a {
+    font-size: 0.8rem;
+    max-width: 44vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .top-header .contact-info a i { font-size: 0.75rem; margin-right: 6px; }
+  .top-header .contact-info a:first-child { max-width: 42vw; }
+  .top-header .contact-info a:last-child { max-width: 36vw; }
+  .top-header .social-links { gap: 0.4rem; }
+  .top-header .social-links a { width: 32px; height: 32px; }
+}
+
+@media (max-width: 420px) {
+  .top-header .contact-info a { font-size: 0.75rem; }
+  .top-header .social-links a { width: 28px; height: 28px; }
+}
+.header {
+  position: fixed;
+  top: 44px; /* top-header yüksekliği kadar aşağıda */
   left: 0;
   right: 0;
   background-color: rgba(255, 255, 255, 0.95);
@@ -642,6 +735,12 @@
   background: linear-gradient(180deg, #ffffff 0%, #fff6d6 100%);
 }
 
+/* Section side padding */
+.featured-vehicles .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 /* Featured Vehicles themed header */
 .featured-vehicles .section-header {
   text-align: center;
@@ -652,7 +751,7 @@
   font-size: 2.25rem;
   font-weight: 800;
   color: var(--secondary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -719,6 +818,8 @@
   height: 48px;
   z-index: 2;
 }
+.featured-vehicles .slick-prev { left: 8px; }
+.featured-vehicles .slick-next { right: 8px; }
 
 .featured-vehicles .slick-prev:before,
 .featured-vehicles .slick-next:before {
@@ -820,9 +921,89 @@
   color: #fff;
 }
 
+/* Mobile-optimized featured slider */
+@media (max-width: 768px) {
+  .featured-vehicles {
+    padding: 1.5rem 0;
+  }
+  .featured-vehicles .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .featured-vehicles .section-header h2 {
+    font-size: 1.5rem;
+  }
+  .featured-vehicles .section-header p {
+    font-size: 0.95rem;
+    margin-top: 20px;
+  }
+  .featured-vehicles .vehicle-slide {
+    padding: 0 8px;
+  }
+  .featured-vehicles .slick-list {
+    margin: 0 -8px;
+  }
+  .featured-vehicles .vehicle-card-media {
+    aspect-ratio: 16 / 9; /* daha yatay, kısa kart */
+  }
+  .featured-vehicles .vehicle-card-body {
+    padding: 0.75rem;
+  }
+  .featured-vehicles .vehicle-name {
+    font-size: 1rem;
+  }
+  .featured-vehicles .vehicle-features {
+    gap: 0.35rem;
+  }
+  .featured-vehicles .feature-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  .featured-vehicles .vehicle-specs {
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .featured-vehicles .vehicle-card-footer {
+    margin-top: 0.75rem;
+  }
+  .featured-vehicles .price {
+    font-size: 1.25rem;
+  }
+  .featured-vehicles .btn.btn-outline {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  /* Butonu alta al, tam genişlik yap */
+  .featured-vehicles .vehicle-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .featured-vehicles .vehicle-card-footer .vehicle-price {
+    order: 1;
+  }
+  .featured-vehicles .vehicle-card-footer .btn {
+    order: 2;
+    width: 100%;
+  }
+  /* okları küçült */
+  .featured-vehicles .slick-prev,
+  .featured-vehicles .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+  .featured-vehicles .slick-prev { left: 6px; }
+  .featured-vehicles .slick-next { right: 6px; }
+  .featured-vehicles .slick-prev:before,
+  .featured-vehicles .slick-next:before {
+    font-size: 32px;
+  }
+}
+
 /* Features Section */
 .features {
-  padding: 4rem 0;
   background-color: #ffffff;
 }
 
@@ -1746,6 +1927,30 @@
   .header-content {
     padding: 0.75rem 1rem;
   }
+  .header { top: 36px; }
+  .main-content { padding-top: 116px; }
+  /* Features başlık bloğunu mobilde ortala */
+  .features .row { justify-content: center; }
+  .features .col-lg-6.offset-lg-3.text-center {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .features .section-header { text-align: center; }
+  /* Kenarlardan iç boşluk ver */
+  .features .col-lg-6.offset-lg-3.text-center,
+  .features .section-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Featured araç kartları: detayları azalt, yükseklik sabitle */
+  .featured-vehicles .vehicle-features,
+  .featured-vehicles .vehicle-specs {
+    display: none;
+  }
+  .featured-vehicles .vehicle-card-media { aspect-ratio: 16 / 9; }
+  .featured-vehicles .vehicle-card-body { min-height: 110px; }
   
   .logo {
     font-size: 1.25rem;
@@ -1799,7 +2004,7 @@
   }
   
   .features .offset-lg-3 {
-    margin-left: 0;
+  margin-top: 20px;
   }
   
   .box-icon.s2.d-invert {
