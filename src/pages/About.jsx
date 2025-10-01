@@ -15,42 +15,41 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: 'Ahmet Yılmaz',
-      position: 'Genel Müdür',
+      name: t('about.team_members.ahmet.name'),
+      position: t('about.team_members.ahmet.position'),
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
-      description: '15 yıllık sektör deneyimi'
+      description: t('about.team_members.ahmet.desc')
     },
     {
-      name: 'Ayşe Demir',
-      position: 'Operasyon Müdürü',
+      name: t('about.team_members.ayse.name'),
+      position: t('about.team_members.ayse.position'),
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300',
-      description: 'Müşteri memnuniyeti uzmanı'
+      description: t('about.team_members.ayse.desc')
     },
     {
-      name: 'Mehmet Kaya',
-      position: 'Teknik Sorumlu',
+      name: t('about.team_members.mehmet.name'),
+      position: t('about.team_members.mehmet.position'),
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-      description: 'Araç bakım ve onarım uzmanı'
+      description: t('about.team_members.mehmet.desc')
     }
   ];
 
   const values = [
-    {
-      icon: '🎯',
-      title: 'Güvenilirlik',
-      description: 'Müşterilerimize her zaman güvenilir hizmet sunuyoruz.'
+    { 
+      icon: '🎯', 
+      title: t('about.values_items.reliability.title', { defaultValue: 'Güvenilirlik' }), 
+      description: t('about.values_items.reliability.desc', { defaultValue: 'Müşterilerimize her zaman güvenilir hizmet sunuyoruz.' }) 
     },
-    {
-      icon: '💎',
-      title: 'Kalite',
-      description: 'En kaliteli araçları ve hizmetleri sunmaya odaklanıyoruz.'
+    { 
+      icon: '💎', 
+      title: t('about.values_items.quality.title', { defaultValue: 'Kalite' }), 
+      description: t('about.values_items.quality.desc', { defaultValue: 'En kaliteli araçları ve hizmetleri sunmaya odaklanıyoruz.' }) 
     },
-    {
-      icon: '🤝',
-      title: 'Müşteri Memnuniyeti',
-      description: 'Müşteri memnuniyeti bizim önceliğimizdir.'
+    { 
+      icon: '🤝', 
+      title: t('about.values_items.customer_satisfaction.title', { defaultValue: 'Müşteri Memnuniyeti' }), 
+      description: t('about.values_items.customer_satisfaction.desc', { defaultValue: 'Müşteri memnuniyeti bizim önceliğimizdir.' }) 
     },
-
   ];
 
   return (
@@ -62,10 +61,10 @@ const About = () => {
           <div className="row">
             <div className="col-12">
               <div className="breadcrumbs_content align_center_center">
-                <h3 className="text-uppercase color_ff breadcrumbs-title">Hakkımızda</h3>
+                <h3 className="text-uppercase color_ff breadcrumbs-title">{t('about.title')}</h3>
                 <ol className="breadcrumb">
-                  <li><a href="/">Ana Sayfa</a></li>
-                  <li className="active">Hakkımızda</li>
+                  <li><a href="/">{t('navigation.home')}</a></li>
+                  <li className="active">{t('about.title')}</li>
                 </ol>
               </div>
             </div>
@@ -86,11 +85,8 @@ const About = () => {
                 </div>
               </div>
               <div className="mv-content">
-                <h3>Misyonumuz</h3>
-                <p>
-                  Müşterilerimize güvenli, konforlu ve uygun fiyatlı araç kiralama 
-                  hizmeti sunarak, seyahat deneyimlerini en üst seviyeye çıkarmak.
-                </p>
+                <h3>{t('about.mission')}</h3>
+                <p>{t('about.mission_text')}</p>
               </div>
             </div>
             
@@ -103,11 +99,8 @@ const About = () => {
                 </div>
               </div>
               <div className="mv-content">
-                <h3>Vizyonumuz</h3>
-                <p>
-                  Türkiye'nin en güvenilir ve tercih edilen araç kiralama şirketi 
-                  olmak ve sektörde standartları belirleyen lider konumumuzu sürdürmek.
-                </p>
+                <h3>{t('about.vision')}</h3>
+                <p>{t('about.vision_text')}</p>
               </div>
             </div>
             
@@ -120,7 +113,7 @@ const About = () => {
                 </div>
               </div>
               <div className="mv-content">
-                <h3>Değerlerimiz</h3>
+                <h3>{t('about.values')}</h3>
                 <p>
                   Güvenilirlik, kalite, müşteri memnuniyeti ve sürekli gelişim 
                   değerlerimizle hizmet veriyoruz.
@@ -135,8 +128,8 @@ const About = () => {
       <section className="values-detail-section">
         <div className="container">
           <div className="values-header wow fadeInUp animated" data-wow-delay="0.3s">
-            <h2>Değerlerimiz</h2>
-            <p>İş yapış şeklimizi belirleyen temel değerlerimiz</p>
+            <h2>{t('about.values')}</h2>
+            <p>{t('about.values_intro')}</p>
           </div>
           <div className="values-container">
             {values.map((value, index) => (
@@ -207,6 +200,13 @@ const About = () => {
           >
             <span className="flag">🇺🇸</span>
             <span className="language-name">English</span>
+          </button>
+          <button 
+            className={`language-option ${currentLanguage === 'ar' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ar')}
+          >
+            <span className="flag">🇸🇦</span>
+            <span className="language-name">العربية</span>
           </button>
         </div>
       </div>

@@ -4,7 +4,8 @@
     "vehicles": "Vehicles",
     "about": "About",
     "contact": "Contact",
-    "book_now": "Book Now"
+    "book_now": "Book Now",
+    "rental_terms": "Rental Terms"
   },
   "hero": {
     "title": "Reliable Car Rental Service",
@@ -12,6 +13,8 @@
     "search_placeholder": "Search vehicles...",
     "pickup_date": "Pickup Date",
     "return_date": "Return Date",
+    "pickup_time": "Pickup Time",
+    "return_time": "Return Time",
     "search_button": "Find Vehicle"
   },
   "vehicle_categories": {
@@ -85,7 +88,20 @@
     "mission": "Our Mission",
     "vision": "Our Vision",
     "values": "Our Values",
-    "team": "Our Team"
+    "team": "Our Team",
+    "mission_text": "To provide safe, comfortable and affordable car rental services, enhancing our customers' travel experience to the highest level.",
+    "vision_text": "To be Turkey's most trusted and preferred car rental company, maintaining our leadership that sets the standards in the industry.",
+    "values_intro": "The core values that shape our way of doing business",
+    "values_items": {
+      "reliability": { "title": "Reliability", "desc": "We always provide reliable service to our customers." },
+      "quality": { "title": "Quality", "desc": "We focus on providing the highest quality vehicles and services." },
+      "customer_satisfaction": { "title": "Customer Satisfaction", "desc": "Customer satisfaction is our priority." }
+    },
+    "team_members": {
+      "ahmet": { "name": "Ahmet Yılmaz", "position": "General Manager", "desc": "15 years of industry experience" },
+      "ayse": { "name": "Ayşe Demir", "position": "Operations Manager", "desc": "Customer satisfaction expert" },
+      "mehmet": { "name": "Mehmet Kaya", "position": "Technical Lead", "desc": "Vehicle maintenance and repair expert" }
+    }
   },
   "contact": {
     "title": "Contact",
@@ -97,6 +113,55 @@
     "address": "Address",
     "phone_number": "Phone Number",
     "email_address": "Email Address",
-    "working_hours": "Working Hours"
+    "working_hours": "Working Hours",
+    "working_hours_detail": "Monday - Friday: 08:00 - 18:00\nSaturday: 09:00 - 16:00\nSunday: Closed",
+    "form_intro": "Fill in the form for rentals, reservations or any other questions.",
+    "subject": "Subject",
+    "subject_placeholder": "Please select a subject...",
+    "subject_reservation": "Reservation Information",
+    "subject_support": "Support Request",
+    "subject_feedback": "Feedback",
+    "subject_other": "Other",
+    "success_message": "Your message has been sent successfully!"
+  },
+  "features": {
+    "title": "The Joy of Driving Begins!",
+    "description": "Enhance your driving experience with our latest models. Whether you are looking for luxury or economy, finding the right car is now easy. Explore our vehicles and book now!",
+    "service1_title": "First-class services",
+    "service1_desc": "Where luxury meets exceptional care, creating unforgettable moments and exceeding expectations.",
+    "service2_title": "24/7 Road Assistance",
+    "service2_desc": "With our 24/7 Road Assistance service, we're with you throughout your journey.",
+    "service3_title": "Quality at Minimum Cost",
+    "service3_desc": "We offer the best service with budget-friendly options. With various payment options and campaigns, you always win.",
+    "service4_title": "Fast Booking, Instant Delivery",
+    "service4_desc": "Reserve your car in just a few steps on our website and save time."
+  }
+  ,
+  "vehicles": {
+    "title": "Available Vehicles",
+    "subtitle": "Find the right car and make a reservation",
+    "filters": "Filters",
+    "brand": "Brand",
+    "category": "Category",
+    "price_range": "Price Range",
+    "transmission": "Transmission",
+    "fuel_type": "Fuel Type",
+    "passengers": "Passengers",
+    "all_brands": "All Brands",
+    "all_categories": "All Categories",
+    "all_prices": "All Prices",
+    "all_transmissions": "All Transmissions",
+    "all_fuels": "All Fuel Types",
+    "all_passengers": "All Passenger Counts",
+    "clear_filters": "Clear Filters",
+    "sort_by": "Sort:",
+    "sort_price": "By Price",
+    "sort_name": "By Name",
+    "sort_category": "By Category",
+    "results": "{{count}} vehicles found",
+    "all_listed": "All vehicles are listed",
+    "details": "Details",
+    "no_results_title": "No vehicles match your filters",
+    "no_results_desc": "Try changing the filters and search again"
   }
 }

@@ -61,7 +61,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Mesajınız başarıyla gönderildi!');
+    alert(t('contact.success_message', { defaultValue: 'Mesajınız başarıyla gönderildi!' }));
     setFormData({
       name: '',
       email: '',
@@ -80,10 +80,10 @@ const Contact = () => {
           <div className="row">
             <div className="col-12">
               <div className="breadcrumbs_content align_center_center">
-                <h3 className="text-uppercase color_ff breadcrumbs-title">İletişim</h3>
+                <h3 className="text-uppercase color_ff breadcrumbs-title">{t('contact.title')}</h3>
                 <ol className="breadcrumb">
-                  <li><a href="/">Ana Sayfa</a></li>
-                  <li className="active">İletişim</li>
+                  <li><a href="/">{t('navigation.home')}</a></li>
+                  <li className="active">{t('contact.title')}</li>
                 </ol>
               </div>
             </div>
@@ -95,11 +95,11 @@ const Contact = () => {
       <div className="contact-container-wrapper">
         <div className="contact-container">
         <section className="contact-form-section">
-          <h1>Bize Ulaşın</h1>
-          <p>Kiralama işlemleri, rezervasyonlar veya diğer tüm sorularınız için formu doldurun.</p>
+          <h1>{t('contact.title')}</h1>
+          <p>{t('contact.form_intro', { defaultValue: 'Kiralama işlemleri, rezervasyonlar veya diğer tüm sorularınız için formu doldurun.' })}</p>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Ad Soyad</label>
+              <label htmlFor="name">{t('contact.name')}</label>
               <input 
                 type="text" 
                 id="name" 
@@ -107,11 +107,12 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 className="form-control" 
+                placeholder={t('contact.name_placeholder', { defaultValue: 'Adınızı ve soyadınızı girin' })}
                 required 
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">E-posta Adresi</label>
+              <label htmlFor="email">{t('contact.email_address')}</label>
               <input 
                 type="email" 
                 id="email" 
@@ -119,11 +120,12 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 className="form-control" 
+                placeholder={t('contact.email_placeholder', { defaultValue: 'ornek@eposta.com' })}
                 required 
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Telefon Numarası (İsteğe Bağlı)</label>
+              <label htmlFor="phone">{t('contact.phone_number')}</label>
               <input 
                 type="tel" 
                 id="phone" 
@@ -131,10 +133,11 @@ const Contact = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="form-control" 
+                placeholder={t('contact.phone_placeholder', { defaultValue: '+90 5xx xxx xx xx' })}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="subject">Konu</label>
+              <label htmlFor="subject">{t('contact.subject', { defaultValue: 'Konu' })}</label>
               <select 
                 id="subject" 
                 name="subject"
@@ -143,56 +146,57 @@ const Contact = () => {
                 className="form-control" 
                 required
               >
-                <option value="">Lütfen bir konu seçin...</option>
-                <option value="rezervasyon">Rezervasyon Bilgisi</option>
-                <option value="destek">Destek Talebi</option>
-                <option value="geri-bildirim">Geri Bildirim</option>
-                <option value="diger">Diğer</option>
+                <option value="">{t('contact.subject_placeholder', { defaultValue: 'Lütfen bir konu seçin...' })}</option>
+                <option value="rezervasyon">{t('contact.subject_reservation', { defaultValue: 'Rezervasyon Bilgisi' })}</option>
+                <option value="destek">{t('contact.subject_support', { defaultValue: 'Destek Talebi' })}</option>
+                <option value="geri-bildirim">{t('contact.subject_feedback', { defaultValue: 'Geri Bildirim' })}</option>
+                <option value="diger">{t('contact.subject_other', { defaultValue: 'Diğer' })}</option>
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="message">Mesajınız</label>
+              <label htmlFor="message">{t('contact.message')}</label>
               <textarea 
                 id="message" 
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 className="form-control" 
+                placeholder={t('contact.message_placeholder', { defaultValue: 'Mesajınızı yazın' })}
                 required
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn">Mesajı Gönder</button>
+            <button type="submit" className="submit-btn">{t('contact.send')}</button>
           </form>
         </section>
 
         <section className="contact-info-section">
-          <h2>İletişim Bilgileri</h2>
+          <h2>{t('footer.contact_info')}</h2>
           <div className="info-item">
             <LocationIcon />
             <div className="info-item-content">
-              <p>Adres</p>
+              <p>{t('contact.address')}</p>
               <p>Merkez Mahallesi, Araç Kiralama Caddesi No:123, Beşiktaş/İstanbul</p>
             </div>
           </div>
           <div className="info-item">
             <PhoneIcon />
             <div className="info-item-content">
-              <p>Telefon</p>
+              <p>{t('contact.phone')}</p>
               <p><a href="tel:+902121234567">+90 (212) 123 45 67</a></p>
             </div>
           </div>
           <div className="info-item">
             <EmailIcon />
             <div className="info-item-content">
-              <p>E-posta</p>
+              <p>{t('contact.email')}</p>
               <p><a href="mailto:info@rentacar.com">info@rentacar.com</a></p>
             </div>
           </div>
           <div className="info-item">
             <ClockIcon />
             <div className="info-item-content">
-              <p>Çalışma Saatleri</p>
-              <p>Pazartesi - Cuma: 08:00 - 18:00<br/>Cumartesi: 09:00 - 16:00<br/>Pazar: Kapalı</p>
+              <p>{t('contact.working_hours')}</p>
+              <p>{t('contact.working_hours_detail', { defaultValue: 'Pazartesi - Cuma: 08:00 - 18:00\nCumartesi: 09:00 - 16:00\nPazar: Kapalı' }).split('\n').map((line, i) => (<span key={i}>{line}<br/></span>))}</p>
             </div>
           </div>
           <div className="map-container">
@@ -234,6 +238,13 @@ const Contact = () => {
           >
             <span className="flag">🇺🇸</span>
             <span className="language-name">English</span>
+          </button>
+          <button 
+            className={`language-option ${currentLanguage === 'ar' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ar')}
+          >
+            <span className="flag">🇸🇦</span>
+            <span className="language-name">العربية</span>
           </button>
         </div>
       </div>

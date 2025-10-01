@@ -45,7 +45,7 @@ const VehicleDetail = () => {
       images: [
         '/assets/images/toyota_corolla.png',
         '/assets/images/renault_megane.jpg',
-        '/assets/images/audi_a5.png'
+        '/assets/images/audi_a4.png'
       ],
       price: 450,
       transmission: 'Otomatik',
@@ -208,7 +208,7 @@ const VehicleDetail = () => {
 
             <div className="vehicle-price">
               <span className="price">₺{vehicle.price}</span>
-              <span className="price-period">/gün</span>
+              <span className="price-period">/{t('common.per_day')}</span>
             </div>
 
             <div className="quick-specs">
@@ -275,8 +275,14 @@ const VehicleDetail = () => {
               const relatedImages = [
                 '/assets/images/renault_megane.jpg',
                 '/assets/images/mercedes_vito.jpg',
-                '/assets/images/audi_a5.png',
+                '/assets/images/audi_a5.webp',
                 '/assets/images/dacia_duster.jpg'
+              ];
+              const relatedNames = [
+                'Renault Megane',
+                'Mercedes Vito',
+                'Audi A5',
+                'Dacia Duster'
               ];
               const fallback = {
                 id: i,
@@ -289,7 +295,7 @@ const VehicleDetail = () => {
               const suggestions = [
                 {
                   id: `${vehicle?.id || 0}-${i}`,
-                  name: `${current} Araç ${i}`,
+                  name: relatedNames[i - 1] || fallback.name,
                   category: current,
                   price: (vehicle?.price || 300) + i * 20,
                   image: relatedImages[i - 1] || vehicle?.images?.[0] || vehicle?.image || fallback.image
@@ -302,12 +308,14 @@ const VehicleDetail = () => {
                   <div className="related-info">
                     <div className="related-top">
                       <span className="related-name">{item.name}</span>
+                      <div className="related-price">
+                        <span className="price">₺{item.price}</span>
+                        <span className="price-period">/{t('common.per_day')}</span>
+                      </div>
+                    </div>
+                    <div className="related-sub">
                       <span className="related-category">{item.category}</span>
                     </div>
-                <div className="related-price">
-                  <span className="price">₺{item.price}</span>
-                  <span className="price-period">/gün</span>
-                </div>
                     <div className="related-actions">
                       <button className="btn btn-outline" onClick={() => navigate(`/vehicle/${(vehicle?.id || 0) + i}`, { state: { vehicle: { ...vehicle, id: (vehicle?.id || 0) + i } } })}>Detay</button>
                     </div>
@@ -345,6 +353,13 @@ const VehicleDetail = () => {
           >
             <span className="flag">🇺🇸</span>
             <span className="language-name">English</span>
+          </button>
+          <button 
+            className={`language-option ${currentLanguage === 'ar' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ar')}
+          >
+            <span className="flag">🇸🇦</span>
+            <span className="language-name">العربية</span>
           </button>
         </div>
       </div>

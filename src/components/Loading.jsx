@@ -7,7 +7,13 @@ const Loading = ({ message }) => {
   return (
     <div className="loading-container">
       <div className="loading-content">
-        <div className="spinner"></div>
+        <img
+          src="/assets/images/loading.gif"
+          alt="Yükleniyor"
+          className="loading-gif"
+          loading="eager"
+          decoding="async"
+        />
         <p className="loading-text">
           {message || t('common.loading')}
         </p>

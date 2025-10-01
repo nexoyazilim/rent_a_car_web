@@ -21,6 +21,8 @@ const Home = () => {
   const [searchForm, setSearchForm] = useState({
     pickupDate: '',
     returnDate: '',
+    pickupTime: '',
+    returnTime: '',
     pickupLocation: '',
     returnLocation: '',
     vehicleType: ''
@@ -41,26 +43,26 @@ const Home = () => {
     }));
   };
 
-  // Öne çıkan araçlar
+  // Öne çıkan araçlar (Vehicles.jsx ile eşleştirildi)
   const featuredVehicles = [
     {
       id: 1,
-      name: 'BMW 3 Series',
+      name: 'Renault Megane',
       category: 'Premium',
-      image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
+      image: '/assets/images/renault_megane.jpg',
       price: 450,
-      features: ['Otomatik', 'Klima', 'GPS', 'Bluetooth'],
+      features: ['Klima', 'GPS', 'Bluetooth', 'USB'],
       passengers: 5,
       doors: 4,
       bags: 2
     },
     {
       id: 2,
-      name: 'Mercedes C-Class',
+      name: 'Mercedes Vito',
       category: 'Luxury',
-      image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400',
+      image: '/assets/images/mercedes_vito.jpg',
       price: 550,
-      features: ['Otomatik', 'Klima', 'GPS', 'WiFi'],
+      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth'],
       passengers: 5,
       doors: 4,
       bags: 3
@@ -69,12 +71,45 @@ const Home = () => {
       id: 3,
       name: 'Audi A4',
       category: 'Premium',
-      image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400',
+      image: '/assets/images/audi_a4.png',
       price: 480,
-      features: ['Otomatik', 'Klima', 'GPS', 'Bluetooth'],
+      features: ['Klima', 'GPS', 'Bluetooth', 'USB'],
       passengers: 5,
       doors: 4,
       bags: 2
+    },
+    {
+      id: 4,
+      name: 'Dacia Duster',
+      category: 'Compact',
+      image: '/assets/images/dacia_duster.jpg',
+      price: 280,
+      features: ['Klima', 'Bluetooth', 'USB'],
+      passengers: 5,
+      doors: 4,
+      bags: 2
+    },
+    {
+      id: 5,
+      name: 'Toyota Corolla',
+      category: 'Economy',
+      image: '/assets/images/toyota_corolla.png',
+      price: 220,
+      features: ['Klima', 'Bluetooth'],
+      passengers: 5,
+      doors: 4,
+      bags: 2
+    },
+    {
+      id: 6,
+      name: 'Fiat Egea',
+      category: 'SUV',
+      image: '/assets/images/fiat_egea.jpg',
+      price: 650,
+      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth', 'USB'],
+      passengers: 7,
+      doors: 5,
+      bags: 4
     }
   ];
 
@@ -109,14 +144,12 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
-          <h1>{t('hero.title')}</h1>
-          <p>{t('hero.subtitle')}</p>
+          {/* Hero başlık ve alt metin kullanıcı isteğiyle kaldırıldı */}
           
           {/* Search Form */}
-          <form className="search-form" onSubmit={handleSearch}>
+          <form className="search-form rental-form-content" onSubmit={handleSearch}>
             <div className="search-form-grid">
-              <div className="form-group">
+              <div className="form-group date-group">
                 <label className="form-label">{t('hero.pickup_date')}</label>
                 <input
                   type="date"
@@ -128,7 +161,24 @@ const Home = () => {
                 />
               </div>
               
-              <div className="form-group">
+              <div className="form-group time-group">
+                <label className="form-label">{t('hero.pickup_time') || 'Alış Saati'}</label>
+                <select
+                  name="pickupTime"
+                  value={searchForm.pickupTime}
+                  onChange={handleInputChange}
+                  className="form-select"
+                  required
+                >
+                  <option value="">--</option>
+                  {[...Array(23).keys()].map(i => {
+                    const h = String(i+1).padStart(2,'0')+':00';
+                    return <option key={h} value={h}>{h}</option>
+                  })}
+                </select>
+              </div>
+
+              <div className="form-group date-group">
                 <label className="form-label">{t('hero.return_date')}</label>
                 <input
                   type="date"
@@ -140,6 +190,23 @@ const Home = () => {
                 />
               </div>
               
+              <div className="form-group time-group">
+                <label className="form-label">{t('hero.return_time') || 'Teslim Saati'}</label>
+                <select
+                  name="returnTime"
+                  value={searchForm.returnTime}
+                  onChange={handleInputChange}
+                  className="form-select"
+                  required
+                >
+                  <option value="">--</option>
+                  {[...Array(23).keys()].map(i => {
+                    const h = String(i+1).padStart(2,'0')+':00';
+                    return <option key={h} value={h}>{h}</option>
+                  })}
+                </select>
+              </div>
+
               <div className="form-group">
                 <label className="form-label">Alış Lokasyonu</label>
                 <select
@@ -179,30 +246,37 @@ const Home = () => {
               {t('hero.search_button')}
             </button>
           </form>
-        </div>
       </section>
 
       {/* Featured Vehicles */}
       <section className="featured-vehicles">
         <div className="container">
           <div className="section-header">
-            <h2>Öne Çıkan Araçlar</h2>
-            <p>En popüler ve kaliteli araçlarımızı keşfedin</p>
+            <h2>{t('features.title')}</h2>
+            <p>{t('features.description')}</p>
           </div>
           
           <Slider {...sliderSettings}>
             {featuredVehicles.map((vehicle) => (
               <div key={vehicle.id} className="vehicle-slide">
                 <div className="vehicle-card">
-                  <img
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    className="vehicle-image"
-                  />
-                  <div className="vehicle-info">
-                    <h3 className="vehicle-name">{vehicle.name}</h3>
-                    <p className="vehicle-category">{vehicle.category}</p>
-                    
+                  <div className="vehicle-card-media">
+                    <img
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      className="vehicle-image"
+                      loading="lazy"
+                    />
+                    <span className="vehicle-badge" aria-label="Kategori">
+                      {vehicle.category}
+                    </span>
+                  </div>
+
+                  <div className="vehicle-card-body">
+                    <div className="vehicle-card-header">
+                      <h3 className="vehicle-name">{vehicle.name}</h3>
+                    </div>
+
                     <div className="vehicle-features">
                       {vehicle.features.map((feature, index) => (
                         <span key={index} className="feature-tag">
@@ -210,20 +284,27 @@ const Home = () => {
                         </span>
                       ))}
                     </div>
-                    
-                    <div className="vehicle-specs">
-                      <span>👥 {vehicle.passengers} kişi</span>
-                      <span>🚪 {vehicle.doors} kapı</span>
+
+                    <div className="vehicle-specs" aria-label="Araç Özellikleri">
+                      <span className="spec-item" title="Yolcu">
+                        👥 {vehicle.passengers}
+                      </span>
+                      <span className="spec-item" title="Kapı">
+                        🚪 {vehicle.doors}
+                      </span>
                     </div>
-                    
-                    <div className="vehicle-price">
-                      <div className="price">
-                        ₺{vehicle.price}
-                        <span className="price-period">/gün</span>
+
+                    <div className="vehicle-card-footer">
+                      <div className="vehicle-price">
+                        <div className="price">
+                          ₺{vehicle.price}
+                          <span className="price-period">/{t('common.per_day')}</span>
+                        </div>
                       </div>
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-primary btn-outline"
                         onClick={() => navigate(`/vehicle/${vehicle.id}`)}
+                        aria-label={`${vehicle.name} detaylarını görüntüle`}
                       >
                         Detaylar
                       </button>
@@ -241,22 +322,22 @@ const Home = () => {
          <div className="container">
            <div className="row align-items-center">
              <div className="col-lg-6 offset-lg-3 text-center">
-               <h2>Sürüş Keyfi Başlıyor!</h2>
-               <p>En yeni model araçlarımızla sürüş keyfinizi katlayın. İster lüks segment, ister ekonomik seçenekler arayın, size en uygun aracı bulmak artık çok kolay. Hemen araçlarımızı keşfedin ve rezervasyon yapın!</p>
+              <h2>{t('features.title')}</h2>
+              <p>{t('features.description')}</p>
                <div className="spacer-20"></div>
              </div>
              <div className="clearfix"></div>
              <div className="col-lg-3">
                <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.5s">
                  <div className="d-inner">
-                   <h4>Birinci sınıf hizmetler</h4>
-                   <p>Lüksün olağanüstü özenle buluştuğu, unutulmaz anlar yaratan ve tüm beklentilerinizi aşan yer.</p>
+                  <h4>{t('features.service1_title')}</h4>
+                  <p>{t('features.service1_desc')}</p>
                  </div>
                </div>
                <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.75s">
                  <div className="d-inner">
-                   <h4>7/24 yol asistanı</h4>
-                   <p>7/24 Yol Asistanı hizmetimizle, yolculuğunuz boyunca her an yanınızdayız.</p>
+                  <h4>{t('features.service2_title')}</h4>
+                  <p>{t('features.service2_desc')}</p>
                  </div>
                </div>
              </div>
@@ -271,14 +352,14 @@ const Home = () => {
              <div className="col-lg-3">
                <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1s">
                  <div className="d-inner">
-                   <h4>Minimum Maliyetle Kalite</h4>
-                   <p>Bütçenize uygun araç kiralama seçenekleri ile en kaliteli hizmeti sunuyoruz. Farklı ödeme seçenekleri ve kampanyalarımızla, her zaman avantajlısınız.</p>
+                  <h4>{t('features.service3_title')}</h4>
+                  <p>{t('features.service3_desc')}</p>
                  </div>
                </div>
                <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1.25s">
                  <div className="d-inner">
-                   <h4>Hızlı Rezervasyon, Anında Teslimat</h4>
-                   <p>Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin.</p>
+                  <h4>{t('features.service4_title')}</h4>
+                  <p>{t('features.service4_desc')}</p>
                  </div>
                </div>
              </div>
@@ -315,6 +396,13 @@ const Home = () => {
              <span className="flag">🇺🇸</span>
              <span className="language-name">English</span>
            </button>
+          <button 
+            className={`language-option ${currentLanguage === 'ar' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ar')}
+          >
+            <span className="flag">🇸🇦</span>
+            <span className="language-name">العربية</span>
+          </button>
          </div>
        </div>
     </div>

@@ -4,7 +4,8 @@
     "vehicles": "Araçlar",
     "about": "Hakkımızda",
     "contact": "İletişim",
-    "book_now": "Hemen Rezervasyon Yap"
+    "book_now": "Hemen Rezervasyon Yap",
+    "rental_terms": "Kiralama Koşulları"
   },
   "hero": {
     "title": "Güvenilir Araç Kiralama Hizmeti",
@@ -12,6 +13,8 @@
     "search_placeholder": "Araç ara...",
     "pickup_date": "Alış Tarihi",
     "return_date": "Teslim Tarihi",
+    "pickup_time": "Alış Saati",
+    "return_time": "Teslim Saati",
     "search_button": "Araç Bul"
   },
   "vehicle_categories": {
@@ -85,7 +88,20 @@
     "mission": "Misyonumuz",
     "vision": "Vizyonumuz",
     "values": "Değerlerimiz",
-    "team": "Ekibimiz"
+    "team": "Ekibimiz",
+    "mission_text": "Müşterilerimize güvenli, konforlu ve uygun fiyatlı araç kiralama hizmeti sunarak, seyahat deneyimlerini en üst seviyeye çıkarmak.",
+    "vision_text": "Türkiye'nin en güvenilir ve tercih edilen araç kiralama şirketi olmak ve sektörde standartları belirleyen lider konumumuzu sürdürmek.",
+    "values_intro": "İş yapış şeklimizi belirleyen temel değerlerimiz",
+    "values_items": {
+      "reliability": { "title": "Güvenilirlik", "desc": "Müşterilerimize her zaman güvenilir hizmet sunuyoruz." },
+      "quality": { "title": "Kalite", "desc": "En kaliteli araçları ve hizmetleri sunmaya odaklanıyoruz." },
+      "customer_satisfaction": { "title": "Müşteri Memnuniyeti", "desc": "Müşteri memnuniyeti bizim önceliğimizdir." }
+    },
+    "team_members": {
+      "ahmet": { "name": "Ahmet Yılmaz", "position": "Genel Müdür", "desc": "15 yıllık sektör deneyimi" },
+      "ayse": { "name": "Ayşe Demir", "position": "Operasyon Müdürü", "desc": "Müşteri memnuniyeti uzmanı" },
+      "mehmet": { "name": "Mehmet Kaya", "position": "Teknik Sorumlu", "desc": "Araç bakım ve onarım uzmanı" }
+    }
   },
   "contact": {
     "title": "İletişim",
@@ -97,6 +113,55 @@
     "address": "Adres",
     "phone_number": "Telefon Numarası",
     "email_address": "E-posta Adresi",
-    "working_hours": "Çalışma Saatleri"
+    "working_hours": "Çalışma Saatleri",
+    "working_hours_detail": "Pazartesi - Cuma: 08:00 - 18:00\nCumartesi: 09:00 - 16:00\nPazar: Kapalı",
+    "form_intro": "Kiralama işlemleri, rezervasyonlar veya diğer tüm sorularınız için formu doldurun.",
+    "subject": "Konu",
+    "subject_placeholder": "Lütfen bir konu seçin...",
+    "subject_reservation": "Rezervasyon Bilgisi",
+    "subject_support": "Destek Talebi",
+    "subject_feedback": "Geri Bildirim",
+    "subject_other": "Diğer",
+    "success_message": "Mesajınız başarıyla gönderildi!"
+  },
+  "features": {
+    "title": "Sürüş Keyfi Başlıyor!",
+    "description": "En yeni model araçlarımızla sürüş keyfinizi katlayın. İster lüks segment, ister ekonomik seçenekler arayın, size en uygun aracı bulmak artık çok kolay. Hemen araçlarımızı keşfedin ve rezervasyon yapın!",
+    "service1_title": "Birinci sınıf hizmetler",
+    "service1_desc": "Lüksün olağanüstü özenle buluştuğu, unutulmaz anlar yaratan ve tüm beklentilerinizi aşan yer.",
+    "service2_title": "7/24 yol asistanı",
+    "service2_desc": "7/24 Yol Asistanı hizmetimizle, yolculuğunuz boyunca her an yanınızdayız.",
+    "service3_title": "Minimum Maliyetle Kalite",
+    "service3_desc": "Bütçenize uygun araç kiralama seçenekleri ile en kaliteli hizmeti sunuyoruz. Farklı ödeme seçenekleri ve kampanyalarımızla, her zaman avantajlısınız.",
+    "service4_title": "Hızlı Rezervasyon, Anında Teslimat",
+    "service4_desc": "Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin."
+  }
+  ,
+  "vehicles": {
+    "title": "Mevcut Araçlar",
+    "subtitle": "Size uygun aracı bulun ve rezervasyon yapın",
+    "filters": "Filtreler",
+    "brand": "Marka",
+    "category": "Kategori",
+    "price_range": "Fiyat Aralığı",
+    "transmission": "Vites",
+    "fuel_type": "Yakıt Tipi",
+    "passengers": "Yolcu Sayısı",
+    "all_brands": "Tüm Markalar",
+    "all_categories": "Tüm Kategoriler",
+    "all_prices": "Tüm Fiyatlar",
+    "all_transmissions": "Tüm Vitesler",
+    "all_fuels": "Tüm Yakıt Tipleri",
+    "all_passengers": "Tüm Yolcu Sayıları",
+    "clear_filters": "Filtreleri Temizle",
+    "sort_by": "Sırala:",
+    "sort_price": "Fiyata Göre",
+    "sort_name": "İsme Göre",
+    "sort_category": "Kategoriye Göre",
+    "results": "{{count}} araç bulundu",
+    "all_listed": "Tüm araçlar listeleniyor",
+    "details": "Detaylar",
+    "no_results_title": "Arama kriterlerinize uygun araç bulunamadı",
+    "no_results_desc": "Filtreleri değiştirerek tekrar deneyin"
   }
 }

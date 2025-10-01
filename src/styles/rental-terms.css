@@ -1,0 +1,50 @@
+.rental-terms-page {
+  background: #ffffff;
+}
+
+.rental-terms-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.rental-terms-title {
+  margin: 0 0 0.5rem 0;
+}
+
+.rental-terms-intro {
+  color: var(--text-secondary);
+  margin: 0 0 1.25rem 0;
+}
+
+.rt-section {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.rt-section h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.rt-section ul {
+  margin: 0.25rem 0 0 1rem;
+  padding: 0;
+}
+
+.rt-section li {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .rental-terms-container {
+    padding: 1.5rem 0.75rem;
+  }
+}
+
+

@@ -13,6 +13,7 @@ const Footer = () => {
     { path: '/vehicles', label: t('navigation.vehicles') },
     { path: '/about', label: t('navigation.about') },
     { path: '/contact', label: t('navigation.contact') },
+    { path: '/rental-terms', label: t('navigation.rental_terms') },
   ];
 
   const socialLinks = [
