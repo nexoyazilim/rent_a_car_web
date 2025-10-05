@@ -24,17 +24,19 @@ body {
 
 /* Renk değişkenleri */
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --primary-light: #3b82f6;
-  --secondary-color: #64748b;
-  --accent-color: #f59e0b;
+  /* Sarı-Siyah-Beyaz Tema */
+  --primary-color: #FFC107; /* sarı */
+  --primary-dark: #FF8F00; /* koyu sarı/amber */
+  --primary-light: #FFE082; /* açık sarı */
+  --secondary-color: #111827; /* koyu siyahımsı gri */
+  --accent-color: #FFD54F; /* vurgu sarı */
   --success-color: #10b981;
+  --bg-secondary: #f3f4f6; /* açık gri arkaplan */
   --error-color: #ef4444;
-  --warning-color: #f59e0b;
+  --warning-color: #FFC107;
   
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
+  --text-primary: #0B0F19; /* siyaha yakın */
+  --text-secondary: #4b5563; /* orta gri */
   --text-light: #9ca3af;
   
   --bg-primary: #ffffff;
@@ -69,6 +71,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  padding-top: 2rem;
 }
 
 h3 {
@@ -93,13 +96,13 @@ p {
 
 /* Linkler */
 a {
-  color: var(--primary-color);
+  color: var(--primary-dark);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--primary-dark);
+  color: var(--primary-color);
 }
 
 /* Butonlar */
@@ -236,10 +239,17 @@ a:hover {
 
 /* Grid sistemi */
 .container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 1rem;
   background-color: transparent;
+}
+
+/* Çok geniş ekranlarda ölü alanı azalt */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 .row {
@@ -363,17 +373,32 @@ a:hover {
   animation: fadeIn 0.6s ease-out;
 }
 
-/* Loading spinner */
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid var(--border-color);
-  border-top: 4px solid var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+/* Loading component styles */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.loading-gif {
+  width: 180px;
+  height: auto;
+  display: block;
+  background: transparent;
+  image-rendering: -webkit-optimize-contrast;
+  mix-blend-mode: multiply;
+}
+
+/* Body scroll lock when overlays/drawers are open */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
 }

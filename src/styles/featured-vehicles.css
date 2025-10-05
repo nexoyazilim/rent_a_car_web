@@ -1,0 +1,276 @@
+/* Featured Vehicles Section */
+.featured-vehicles {
+  padding: 2rem 0 3rem 0; /* hero altına taşan form için yer aç */
+  background: linear-gradient(180deg, #ffffff 0%, #fff6d6 100%);
+  position: relative;
+  z-index: 5;
+  margin-top: 0;
+}
+
+/* Section side padding */
+.featured-vehicles .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Featured Vehicles themed header */
+.featured-vehicles .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.featured-vehicles .section-header h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.featured-vehicles .section-header h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+  border-radius: 4px;
+}
+
+/* Featured vehicle card accents */
+.featured-vehicles .vehicle-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.featured-vehicles .vehicle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(17, 24, 39, 0.14);
+  border-color: rgba(255, 143, 0, 0.6);
+}
+
+/* Price highlight */
+.featured-vehicles .price {
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.featured-vehicles .price-period {
+  font-size: 0.9rem;
+}
+
+/* Slick dots theme */
+.featured-vehicles .slick-dots li button:before {
+  color: rgba(17, 24, 39, 0.35);
+}
+
+.featured-vehicles .slick-dots li.slick-active button:before {
+  color: var(--primary-dark);
+}
+
+/* Slider item spacing for featured vehicles */
+.featured-vehicles .vehicle-slide {
+  padding: 0 10px;
+}
+
+.featured-vehicles .slick-list {
+  margin: 0 -10px;
+}
+
+/* Bigger navigation arrows for featured vehicles slider */
+.featured-vehicles .slick-prev,
+.featured-vehicles .slick-next {
+  width: 48px;
+  height: 48px;
+  z-index: 2;
+}
+.featured-vehicles .slick-prev { left: -24px; }
+.featured-vehicles .slick-next { right: -24px; }
+
+.featured-vehicles .slick-prev:before,
+.featured-vehicles .slick-next:before {
+  font-size: 46px;
+  line-height: 1;
+  color: var(--primary-dark);
+  opacity: 0.9;
+}
+
+/* Modernized Featured Vehicle Card Layout */
+.featured-vehicles .vehicle-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #f5f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-vehicles .vehicle-card-media .vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.featured-vehicles .vehicle-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(17, 24, 39, 0.75);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: saturate(160%) blur(4px);
+}
+
+.featured-vehicles .vehicle-card-body {
+  padding: 1rem 1rem 1.25rem;
+}
+
+.featured-vehicles .vehicle-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.featured-vehicles .vehicle-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.featured-vehicles .vehicle-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.featured-vehicles .feature-tag {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.featured-vehicles .vehicle-specs {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.featured-vehicles .spec-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.featured-vehicles .vehicle-card-footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.featured-vehicles .btn.btn-outline {
+  background: transparent;
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-dark);
+}
+
+.featured-vehicles .btn.btn-outline:hover {
+  background: var(--primary-dark);
+  color: #fff;
+}
+
+/* Mobile-optimized featured slider */
+@media (max-width: 768px) {
+  .featured-vehicles {
+    padding: 6rem 0 1.5rem 0; /* mobilde de üst boşluğu artır */
+    margin-top: 0;
+  }
+  .featured-vehicles .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .featured-vehicles .section-header h2 {
+    font-size: 1.5rem;
+  }
+  .featured-vehicles .section-header p {
+    font-size: 0.95rem;
+    margin-top: 20px;
+  }
+  .featured-vehicles .vehicle-slide {
+    padding: 0 6px;
+  }
+  .featured-vehicles .slick-list {
+    margin: 0 -6px;
+  }
+  .featured-vehicles .vehicle-card-media {
+    aspect-ratio: 16 / 9; /* daha yatay, kısa kart */
+  }
+  .featured-vehicles .vehicle-card-body {
+    padding: 0.75rem;
+  }
+  .featured-vehicles .vehicle-name {
+    font-size: 1rem;
+  }
+  .featured-vehicles .vehicle-features {
+    gap: 0.35rem;
+  }
+  .featured-vehicles .feature-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  .featured-vehicles .vehicle-specs {
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .featured-vehicles .vehicle-card-footer {
+    margin-top: 0.75rem;
+  }
+  .featured-vehicles .price {
+    font-size: 1.25rem;
+  }
+  .featured-vehicles .btn.btn-outline {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  /* Butonu alta al, tam genişlik yap */
+  .featured-vehicles .vehicle-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .featured-vehicles .vehicle-card-footer .vehicle-price {
+    order: 1;
+  }
+  .featured-vehicles .vehicle-card-footer .btn {
+    order: 2;
+    width: 100%;
+  }
+  /* okları küçült */
+  .featured-vehicles .slick-prev,
+  .featured-vehicles .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+  .featured-vehicles .slick-prev { left: -18px; }
+  .featured-vehicles .slick-next { right: -18px; }
+  .featured-vehicles .slick-prev:before,
+  .featured-vehicles .slick-next:before {
+    font-size: 32px;
+  }
+}

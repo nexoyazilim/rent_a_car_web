@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loading from '../components/Loading';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Booking = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
 
@@ -133,6 +135,25 @@ const Booking = () => {
 
   return (
     <div className="booking-page">
+      {/* Breadcrumb Section */}
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 bg_img pos_relative breadcrumbs-hero">
+        <div className="overlay"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="breadcrumbs_content align_center_center">
+                <h3 className="text-uppercase color_ff breadcrumbs-title">Rezervasyon</h3>
+                <ol className="breadcrumb">
+                  <li><a href="/">Ana Sayfa</a></li>
+                  <li><a href="/vehicles">Araçlarımız</a></li>
+                  <li className="active">Rezervasyon</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
         <div className="booking-header">
           <h1>Rezervasyon</h1>
@@ -529,6 +550,36 @@ const Booking = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Fixed WhatsApp Button */}
+      <div className="fixed-social">
+        <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
+          <i className="fa fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      {/* Language Switcher */}
+      <div className="language-switcher">
+        <button className="language-button" aria-label="Dil değiştir">
+          <span className="flag">{getCurrentFlag()}</span>
+        </button>
+        <div className="language-dropdown">
+          <button 
+            className={`language-option ${currentLanguage === 'tr' ? 'active' : ''}`}
+            onClick={() => changeLanguage('tr')}
+          >
+            <span className="flag">🇹🇷</span>
+            <span className="language-name">Türkçe</span>
+          </button>
+          <button 
+            className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}
+            onClick={() => changeLanguage('en')}
+          >
+            <span className="flag">🇺🇸</span>
+            <span className="language-name">English</span>
+          </button>
         </div>
       </div>
     </div>

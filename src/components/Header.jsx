@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useTranslation();
   const location = useLocation();
+  const { currentLanguage } = useLanguage();
+  const isTR = currentLanguage === 'tr';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,18 +20,50 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Sayfa boşluğu kaldırmak için body'ye sınıf ekle
+  useEffect(() => {
+    if (isScrolled) {
+      document.body.classList.add('top-header-hidden');
+    } else {
+      document.body.classList.remove('top-header-hidden');
+    }
+  }, [isScrolled]);
+
   const navLinks = [
     { path: '/', label: t('navigation.home') },
-    { path: '/vehicles', label: t('navigation.vehicles') },
-    { path: '/about', label: t('navigation.about') },
-    { path: '/contact', label: t('navigation.contact') },
+    { path: isTR ? '/araclar' : '/vehicles', label: t('navigation.vehicles') },
+    { path: isTR ? '/hakkimizda' : '/about', label: t('navigation.about') },
+    { path: isTR ? '/iletisim' : '/contact', label: t('navigation.contact') },
+    { path: isTR ? '/kiralama-kosullari' : '/rental-terms', label: t('navigation.rental_terms') },
   ];
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <>
+      <div className={`top-header ${isScrolled ? 'hidden' : ''}`}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="contact-info">
+                <a href="mailto:info@demo.com"><i className="fa-solid fa-envelope"></i> info@gmail.com</a>
+                <a href="https://wa.me/+905353084466" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-whatsapp"></i> +90 535 308 44 66</a>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="top-social-container d-flex justify-content-end align-items-center">
+                <div className="social-links">
+                  <a className="facebook-icon" href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
+                  <a className="insta-icon" href="https://www.instagram.com/ucarli.vip.travel?igsh=YWI1MjM1cDR2bDRp&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
-        <Link to="/" className="logo">
-          🚗 Rent A Car
+        <Link to="/" className="logo" aria-label="Rent A Car Anasayfa">
+          <img src="/assets/images/logo.png" alt="Rent A Car" className="site-logo" loading="eager" decoding="async" />
         </Link>
 
         <nav className="nav">
@@ -38,7 +72,7 @@ const Header = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                  className="nav-link"
                 >
                   {link.label}
                 </Link>
@@ -48,14 +82,13 @@ const Header = () => {
         </nav>
 
         <div className="header-actions">
-          <LanguageSwitcher />
-          <Link to="/booking" className="btn btn-primary">
+          <a href="https://wa.me/+905555555555" target="_blank" rel="noopener noreferrer" className="btn btn-primary" aria-label="WhatsApp ile yazın">
             {t('navigation.book_now')}
-          </Link>
+          </a>
           
           {/* Mobile menu button */}
           <button
-            className="mobile-menu-btn"
+            className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -66,10 +99,17 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
-          <nav className="mobile-nav">
+        <div 
+          className="mobile-menu-overlay"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
+      )}
+
+      {/* Mobile menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <nav className="mobile-nav">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -80,17 +120,19 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/booking"
+            <a
+              href="https://wa.me/+905555555555"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary mobile-book-btn"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('navigation.book_now')}
-            </Link>
+            </a>
           </nav>
         </div>
-      )}
-    </header>
+      </header>
+    </>
   );
 };
 

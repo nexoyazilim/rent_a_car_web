@@ -1,0 +1,273 @@
+.vehicles-page {
+  background: #ffffff;
+}
+
+.page-header {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Masaüstünde toggle butonunu gizle (btn sınıfını bastırmak için !important) */
+.filters-toggle-btn {
+  display: none !important;
+  margin-top: 0.75rem;
+}
+
+.vehicles-content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.filters-sidebar {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  /* Kullanıcı deneyimi: filtreler uzun olduğunda panel içinde kaydırma */
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filters-sidebar h3 {
+  margin-top: 0;
+}
+
+/* Masaüstünde kapatma butonunu gizle (yüksek özgüllük + !important) */
+.filters-sidebar .filters-close-btn {
+  display: none !important;
+}
+
+.filter-group {
+  margin-bottom: 0.75rem;
+}
+
+.vehicles-main {
+  min-width: 0;
+}
+
+.vehicles-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.vehicle-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #f5f5f5;
+}
+
+.vehicle-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 992px) {
+  .vehicles-content {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: fixed;
+    left: 0;
+    top: 72px; /* sabit header yüksekliği kadar boşluk bırak */
+    bottom: 0;
+    width: 88%;
+    max-width: 360px;
+    z-index: 1001;
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    border-radius: 0 12px 12px 0;
+    max-height: calc(100vh - 72px);
+    overflow: auto; /* yalnızca panel kayar */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filters-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .filters-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    position: sticky;
+    top: -1px; /* üst sınırda piksel kesilmesini önle */
+    background: #fff;
+    padding: 0 8px 0.5rem;
+    z-index: 1;
+  }
+
+  .filters-sidebar-header h3 {
+    margin: 0;
+    font-size: 22px; /* Filtreler başlığı biraz büyütüldü */
+    flex: 1; /* başlık alanını esnet, butonu sağa it */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .filters-close-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px; /* buton hafif büyütüldü */
+    font-size: 0.95rem; /* çarpı boyutu büyütüldü */
+    line-height: 1;
+    border-width: 1px;
+    min-width: 0;
+    width: 32px; /* hafif daha büyük */
+    height: 32px;
+    border-radius: 6px;
+    margin-left: 0; /* esneme h3 tarafından sağlanıyor */
+  }
+
+  /* Yüksek öncelikli override: global .btn padding'ini bastır */
+  .filters-sidebar .filters-close-btn {
+    padding: 4px 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .filters-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+  }
+
+  .filters-toggle-btn {
+    display: inline-block !important;
+  }
+
+  .vehicle-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .vehicle-image {
+    height: 170px;
+  }
+
+  /* Daha kompakt dropdown görünümleri */
+  .filters-sidebar .form-label {
+    font-size: 0.85rem;
+  }
+
+  .filters-sidebar .form-select,
+  .filters-sidebar select.form-select {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    height: 38px;
+    line-height: 1.2;
+  }
+
+  .filters-sidebar .form-select option {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vehicle-card {
+    transition: none;
+  }
+  .vehicle-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Geniş ekran optimizasyonları */
+@media (min-width: 1400px) {
+  .vehicles-content {
+    grid-template-columns: 360px 1fr;
+    gap: 1.25rem;
+  }
+  .vehicle-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .vehicle-image {
+    height: 220px;
+  }
+}
+
+/* Küçük ekranlar için tek sütun ve daha yüksek görsel */
+@media (max-width: 576px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .vehicle-card {
+    border-radius: 10px;
+  }
+  .vehicle-image {
+    height: 200px;
+  }
+  .vehicles-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+

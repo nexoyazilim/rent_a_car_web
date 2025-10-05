@@ -21,6 +21,7 @@ i18n
     react: {
       useSuspense: false,
     },
+    supportedLngs: ['tr', 'en', 'ar'],
   });
 
 export default i18n;
