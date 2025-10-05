@@ -72,104 +72,76 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission, Vision, Values */}
-      <section className="mission-vision-section">
+      {/* Mission, Vision, Values - Text Only Redesign */}
+      <section className="mission-vision-section text-only">
         <div className="container">
-          <div className="mv-container">
-            <div
-              className="mv-card mission-card wow fadeInLeft animated"
-              data-wow-delay="0.3s"
-              style={{
-                backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/misyonumuz.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'inherit',
-                backgroundRepeat: 'no-repeat',
-                minHeight: '420px',
-                display: 'flex',
-                alignItems: 'flex-end',
-                padding: '2rem',
-                color: '#ffffff'
-              }}
-            >
-              <div
-                className="mv-content"
-                style={{
-                  textAlign: 'right',
-                  maxWidth: '50%',
-                  marginLeft: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <p style={{ color: 'inherit' }}>{t('about.mission_text')}</p>
+          <div className="mv-rows">
+            {/* Row 1: Left Text, Right Image */}
+            <div className="mv-row wow fadeInUp animated" data-wow-delay="0.2s">
+              <div className="mv-col mv-col-text">
+                <h3>{t('about.mission.title', { defaultValue: 'Misyonumuz' })}</h3>
+                <p className="mv-caption">Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızla samimiyet, güven ve profesyonelliği bir araya getiriyoruz.
+
+Müşterilerimize güvenilir, şeffaf ve hızlı araç kiralama deneyimi sunmak en büyük önceliğimizdir. Her bireyin farklı ihtiyaçları olduğunu biliyor, bu doğrultuda esnek, yenilikçi ve kişiye özel çözümler geliştiriyoruz. Amacımız, yolculuk sürecinizi yalnızca zahmetsiz değil aynı zamanda keyifli hale getirmektir.
+
+Teknolojiyi, müşteri memnuniyetini ve sürekli gelişimi merkeze alarak hizmet kalitemizi her geçen gün artırıyoruz. Deneyimli ekibimizle birlikte, araç kiralama sektöründe fark yaratan bir hizmet anlayışıyla hareket ediyor; güven, konfor ve kolaylığı bir arada sunmak için çalışıyoruz.
+
+Yola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve mutlu geçmesi için buradayız.</p>
+              </div>
+              <div className="mv-col mv-col-media">
+                <img
+                  src="/assets/images/about_2.png"
+                  alt="Profesyonel Ekip Fotoğrafları: İşin Arkasındaki Yüzler"
+                  className="mv-illustration"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
-            
-            <div
-              className="mv-card vision-card wow fadeInUp animated"
-              data-wow-delay="0.5s"
-              style={{
-                backgroundImage: "linear-gradient(to left, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/vizyonumuz.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'inherit',
-                backgroundRepeat: 'no-repeat',
-                minHeight: '420px',
-                display: 'flex',
-                alignItems: 'flex-end',
-                padding: '2rem',
-                color: '#ffffff'
-              }}
-            >
-              <div
-                className="mv-content"
-                style={{
-                  textAlign: 'right',
-                  maxWidth: '50%',
-                  marginLeft: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <p style={{ color: 'inherit' }}>{t('about.vision_text')}</p>
+
+            {/* Row 2: Left Image, Right Text */}
+            <div className="mv-row reverse wow fadeInUp animated" data-wow-delay="0.3s">
+              <div className="mv-col mv-col-media">
+                <img
+                  src="/assets/images/about_3.png"
+                  alt="Ofis ve Çalışma Ortamı: Şeffaflık ve Kurumsallık"
+                  className="mv-illustration"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="mv-col mv-col-text">
+                <h3>{t('about.vision.title', { defaultValue: 'Vizyonumuz' })}</h3>
+                <p className="mv-caption">Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızın yer aldığı fotoğraflar, ekibimizin samimiyetini ve profesyonelliğini en doğal haliyle yansıtır.
+
+Amacımız, sadece araç kiralama hizmeti sunan bir marka olmanın ötesine geçerek, müşteri memnuniyetini her şeyin önünde tutan, teknolojiyi etkin şekilde kullanan ve çevreye duyarlı çözümler üreten bir kurum olmaktır.
+
+Sektörde dijitalleşme, yenilikçilik ve sürdürülebilirlik ilkeleri doğrultusunda; hizmet kalitesini sürekli geliştiren, kullanıcı deneyimini ön planda tutan ve güvenilirliğiyle fark yaratan bir marka haline gelmeyi hedefliyoruz.
+Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, yenilikçi çözümlerimizle sektörün geleceğine yön veren ve akla ilk gelen araç kiralama markalarından biri olmayı amaçlıyoruz.</p>
               </div>
             </div>
-            
-            <div
-              className="mv-card values-card wow fadeInRight animated"
-              data-wow-delay="0.7s"
-              style={{
-                backgroundImage: "linear-gradient(to left, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/degerlerimiz.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'inherit',
-                backgroundRepeat: 'no-repeat',
-                minHeight: '420px',
-                display: 'flex',
-                alignItems: 'flex-end',
-                padding: '2rem',
-                color: '#ffffff'
-              }}
-            >
-              <div
-                className="mv-content"
-                style={{
-                  textAlign: 'right',
-                  maxWidth: '50%',
-                  marginLeft: 'auto',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <p style={{ color: 'inherit' }}>
-                  Güvenilirlik, kalite, müşteri memnuniyeti ve sürekli gelişim 
-                  değerlerimizle hizmet veriyoruz.
-                </p>
+
+            {/* Row 3: Left Text, Right Image */}
+            <div className="mv-row wow fadeInUp animated" data-wow-delay="0.4s">
+              <div className="mv-col mv-col-text">
+                <h3>{t('about.values_brief.title', { defaultValue: 'Değerlerimiz' })}</h3>
+                <p className="mv-caption">Müşterilerimize her zaman güvenilir, şeffaf ve kaliteli bir araç kiralama deneyimi sunmayı ilke edindik. Tüm süreçlerimizde dürüstlüğü ve müşteri memnuniyetini ön planda tutarak, beklentileri aşan hizmetler vermeyi hedefliyoruz. Bakımlı ve yenilenen araç filomuzla güvenli sürüşü garanti ederken, açık fiyat politikamızla sürprizlere yer vermiyoruz. Profesyonel ekibimiz, her adımda çözüm odaklı yaklaşımıyla müşterilerimizin yanında yer alır. Çevreye duyarlı ve sürdürülebilir çözümler geliştirerek hem doğayı hem de ekonomiyi korumayı önemsiyoruz. 7/24 destek anlayışımızla, yolculuğunuzun her anında güvenle yanınızdayız.</p>
+              </div>
+              <div className="mv-col mv-col-media">
+                <img
+                  src="/assets/images/about_1.png"
+                  alt="Araç Filosu ve Bakım Anları: Kalite ve Güvenilirlik"
+                  className="mv-illustration"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Detail */}
+      {/* Values Detail - Image Gallery */}
       <section className="values-detail-section">
         <div className="container">
           <div className="values-header wow fadeInUp animated" data-wow-delay="0.3s">
@@ -177,19 +149,51 @@ const About = () => {
             <p>{t('about.values_intro')}</p>
           </div>
           <div className="values-container">
-            {values.map((value, index) => (
-              <div key={index} className="value-item wow fadeInUp animated" data-wow-delay={`${0.4 + index * 0.1}s`}>
-                <div className="value-icon-wrapper">
-                  <div className="value-icon">
-                    {value.icon}
-                  </div>
-                </div>
-                <div className="value-content">
-                  <h3>{value.title}</h3>
-                  <p>{value.description}</p>
-                </div>
+            <div className="value-item wow fadeInUp animated" data-wow-delay="0.3s">
+              <div className="value-image-wrapper">
+                <img
+                  src="/assets/images/about_6.png"
+                  alt="RC Rent A Car dış cephe ve filo"
+                  className="value-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="value-title-overlay"><span>{values[0].title}</span></div>
               </div>
-            ))}
+              <div className="value-content">
+                <p>{values[0].description}</p>
+              </div>
+            </div>
+            <div className="value-item wow fadeInUp animated" data-wow-delay="0.35s">
+              <div className="value-image-wrapper">
+                <img
+                  src="/assets/images/about_4.png"
+                  alt="RC Rent A Car showroom ve araçlar"
+                  className="value-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="value-title-overlay"><span>{values[1].title}</span></div>
+              </div>
+              <div className="value-content">
+                <p>{values[1].description}</p>
+              </div>
+            </div>
+            <div className="value-item wow fadeInUp animated" data-wow-delay="0.4s">
+              <div className="value-image-wrapper">
+                <img
+                  src="/assets/images/about_5.png"
+                  alt="Araç teslim anı"
+                  className="value-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="value-title-overlay"><span>{values[2].title}</span></div>
+              </div>
+              <div className="value-content">
+                <p>{values[2].description}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

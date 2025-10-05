@@ -196,7 +196,7 @@
 /* Mobile-optimized featured slider */
 @media (max-width: 768px) {
   .featured-vehicles {
-    padding: 6rem 0 1.5rem 0; /* mobilde de üst boşluğu artır */
+    padding: 1rem 0 1.5rem 0; /* mobilde de üst boşluğu artır */
     margin-top: 0;
   }
   .featured-vehicles .container {

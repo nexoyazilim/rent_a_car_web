@@ -218,6 +218,98 @@ body.top-header-hidden .main-content {
   right: 0;
   z-index: 1003; /* header(1002) üstünde */
 }
+/* Mission Vision Text-only */
+.mission-vision-section.text-only {
+  padding: 30px 0;
+  background-color: #fafbfc;
+}
+
+.mission-vision-section.text-only .mv-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* .mission-vision-section.text-only .section-header — kaldırıldı (About başlığı) */
+/* .mission-vision-section.text-only .section-title — kaldırıldı (About başlığı) */
+
+
+
+.mission-vision-section.text-only .mv-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.mission-vision-section.text-only .mv-col-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 560px; /* daha dar metin alanı */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-vision-section.text-only .mv-col-text h3 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.mission-vision-section.text-only .mv-row.reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.mission-vision-section.text-only .mv-col-media img {
+  display: block;
+  width: 100%;
+  max-width: 420px; /* görselleri daha küçük göster */
+  height: auto;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-vision-section.text-only .mv-col-text .mv-illustration { display: none; }
+
+.mission-vision-section.text-only .mv-caption {
+  margin: 10px 0 0 0;
+  font-size: 0.92rem;
+  color: var(--text-tertiary, #6b7280);
+}
+
+
+
+.mission-vision-section.text-only .mv-text {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.mission-vision-section.text-only .mv-row:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,0.06);
+}
+
+.mission-vision-section.text-only .mv-icon {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .mission-vision-section.text-only .mv-row,
+  .mission-vision-section.text-only .mv-row.reverse {
+    grid-template-columns: 1fr;
+  }
+}
 .top-header.hidden {
   transform: translateY(-100%);
   transition: transform 0.3s ease;
@@ -557,6 +649,55 @@ body.top-header-hidden .header {
   }
 }
 
+/* Küçük mobil cihazlarda (360px–576px): bazı alanları yan yana göster */
+@media (min-width: 360px) and (max-width: 576px) {
+  .rental-form-content .search-form-grid {
+    display: grid !important; /* olası override'ları ez */
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem; /* aralığı küçült */
+  }
+  /* İlk 4 öğe (2 tarih + 2 saat) yan yana */
+  .rental-form-content .search-form-grid > .form-group:nth-child(-n+4) {
+    grid-column: span 1 !important;
+  }
+  /* 5 ve 6. öğeler (lokasyonlar) tam genişlik */
+  .rental-form-content .search-form-grid > .form-group:nth-child(5),
+  .rental-form-content .search-form-grid > .form-group:nth-child(6) {
+    grid-column: 1 / -1 !important;
+  }
+  /* Buton tam genişlik */
+  .rental-form-content .search-form .btn-primary,
+  .hero .search-form .btn-primary {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Kart ve input ölçülerini küçült */
+  .rental-form-content .form-group {
+    padding: 8px 10px; /* kart iç boşluğu azalsın */
+  }
+  .rental-form-content .form-label {
+    font-size: 0.75rem; /* etiket küçült */
+    margin-bottom: 4px;
+  }
+  .rental-form-content .form-input,
+  .rental-form-content .form-select {
+    height: 44px; /* input yüksekliği küçült */
+    padding: 0 10px;
+    font-size: 0.95rem;
+  }
+  .rental-form-content .form-select {
+    background-position: calc(100% - 14px) 50%, calc(100% - 8px) 50%;
+    background-size: 5px 5px, 5px 5px;
+  }
+  /* Tarih ve saat alanları: daha küçük */
+  .rental-form-content .form-group.date-group .form-input,
+  .rental-form-content .form-group.time-group .form-select {
+    height: 38px;
+    font-size: 0.9rem;
+    padding: 0 8px;
+  }
+}
+
 @media (max-width: 992px) {
   .hero .hero-title {
     top: 90px;
@@ -634,7 +775,6 @@ body.top-header-hidden .header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -70px; /* görselin altına taşır */
   z-index: 10;
 }
 
@@ -652,7 +792,6 @@ body.top-header-hidden .header {
   color: var(--text-primary);
   border: 2px solid #e5e7eb;
   border-radius: 12px;
-  padding: 1rem 1.25rem;
   font-size: 1rem;
   transition: all 0.3s ease;
   width: 100%;
@@ -700,22 +839,31 @@ body.top-header-hidden .header {
 
 @media (max-width: 992px) {
   .rental-form-content .search-form-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); /* 3 yerine 2 sütun: taşmayı önle */
+    gap: 0.75rem;
   }
   .hero {
     justify-content: center;
-    padding: 3rem 0;
+    padding: 3rem 0; /* normal akışta */
     min-height: 50vh;
   }
   .hero .search-form {
+    position: static; /* geri al: normal akış */
+    left: auto;
+    bottom: auto;
+    transform: none;
     margin: 0 auto;
     max-width: 100%;
+    width: auto;
+    box-sizing: border-box;
     padding: 1.5rem;
-    margin-top: -80px;
   }
   .hero .search-form .btn-primary {
     grid-column: span 3;
+  }
+  /* Mobil/tablet için min-width kısıtını kaldır */
+  .search-form .date-group .form-input {
+    min-width: 0;
   }
 }
 
@@ -725,16 +873,80 @@ body.top-header-hidden .header {
     gap: 0.75rem;
   }
   .hero .search-form {
+    position: static; /* geri al: normal akış */
+    left: auto;
+    bottom: auto;
+    transform: none;
     padding: 1.25rem;
-    margin: 0 1rem;
-    margin-top: -60px;
+    margin: 10rem 1rem 0.5rem;
+    width: auto;
+    box-sizing: border-box;
   }
   .hero {
     min-height: 45vh;
-    padding: 2.5rem 0;
+    padding: 5rem 0 2.5rem 0; /* önceki değerler */
   }
   .hero .search-form .btn-primary {
     grid-column: span 1;
+  }
+  /* Values başlık overlay mobilde sığmıyorsa aşağı kaydır */
+  .value-title-overlay {
+    align-items: center;
+    padding-top: 8px;
+  }
+  .value-title-overlay span {
+    font-size: 0.95rem;
+  }
+  .value-image {
+    height: 200px;
+  }
+  /* Mobil – arama formu özel tasarım */
+  .rental-form-content .form-group {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .rental-form-content .form-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0 0 6px 2px;
+    font-weight: 600;
+  }
+  .rental-form-content .form-input,
+  .rental-form-content .form-select {
+    height: 48px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0 12px;
+    background-color: #fff;
+  }
+  .rental-form-content .form-select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%), linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+    background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+  }
+  /* Tarih ve saat gruplarını daha kompakt yap */
+  .rental-form-content .form-group.date-group,
+  .rental-form-content .form-group.time-group {
+    padding: 8px 10px;
+  }
+  .rental-form-content .form-group.date-group .form-input,
+  .rental-form-content .form-group.time-group .form-select {
+    height: 42px;
+    min-width: 0 !important;
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+  .rental-form-content .btn-primary {
+    width: 100%;
+    height: 52px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
   }
 }
 
@@ -758,7 +970,6 @@ body.top-header-hidden .header {
 .search-form .form-input,
 .search-form .form-select {
   border: 1px solid var(--border-color);
-  padding: 0.9rem 1rem;
 }
 
 /* Tarih girdilerini daha geniş yap */
@@ -858,7 +1069,7 @@ body.top-header-hidden .header {
 /* Features Section */
 .features {
   background-color: #ffffff;
-  padding-top: 7rem;
+  padding-top: 3rem;
 }
 
 .section-header {
@@ -1272,14 +1483,14 @@ body.top-header-hidden .header {
 
 /* Values Detail Section - Modern Design */
 .values-detail-section {
-  padding: 1rem 0;
+  padding: 0.5rem 0; /* toplam dikey boşluğu azalt */
   background: #ffffff;
   position: relative;
 }
 
 .values-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem; /* başlık-altı boşluğu kısalt */
 }
 
 .values-header h2 {
@@ -1404,21 +1615,64 @@ body.top-header-hidden .header {
 
 .values-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem; /* kartlar arası boşluğu azalt */
+  max-width: 1100px; /* toplam genişliği biraz daralt */
   margin: 0 auto;
 }
 
 .value-item {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 1rem; /* iç boşluğu azalt */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 123, 255, 0.1);
+  border: 1px solid rgba(0, 123, 255, 0.08);
   position: relative;
   overflow: hidden;
+}
+
+/* Values galeri görselleri: kırpmadan sığdır */
+.value-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain; /* istenen: contain */
+  object-position: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* Görsel başlık overlay */
+.value-image-wrapper {
+  position: relative;
+}
+
+.value-title-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.value-title-overlay span {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+  max-width: 95%;
+  text-align: center;
+  white-space: normal; /* uzun başlıklar satıra sığsın */
 }
 
 .value-item::before {
@@ -1513,6 +1767,7 @@ body.top-header-hidden .header {
   margin: 0;
   font-size: 1rem;
   opacity: 0.9;
+  padding-top: 30px;
 }
 
 /* Breadcrumb Section */
@@ -1822,8 +2077,10 @@ body.top-header-hidden .header {
     margin: 0 1rem;
   }
   
-  .search-form-grid {
-    grid-template-columns: 1fr;
+  .search-form-grid,
+  .rental-form-content .search-form-grid {
+    grid-template-columns: 1fr; /* 768px altında tek sütun */
+    gap: 0.75rem;
   }
   
   .vehicle-grid {
