@@ -23,7 +23,7 @@ const About = () => {
     {
       name: t('about.team_members.ayse.name'),
       position: t('about.team_members.ayse.position'),
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
       description: t('about.team_members.ayse.desc')
     },
     {
@@ -76,45 +76,90 @@ const About = () => {
       <section className="mission-vision-section">
         <div className="container">
           <div className="mv-container">
-            <div className="mv-card mission-card wow fadeInLeft animated" data-wow-delay="0.3s">
-              <div className="mv-icon-wrapper">
-                <div className="mv-icon mission-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="mv-content">
-                <h3>{t('about.mission')}</h3>
-                <p>{t('about.mission_text')}</p>
+            <div
+              className="mv-card mission-card wow fadeInLeft animated"
+              data-wow-delay="0.3s"
+              style={{
+                backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/misyonumuz.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'inherit',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '420px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                padding: '2rem',
+                color: '#ffffff'
+              }}
+            >
+              <div
+                className="mv-content"
+                style={{
+                  textAlign: 'right',
+                  maxWidth: '50%',
+                  marginLeft: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <p style={{ color: 'inherit' }}>{t('about.mission_text')}</p>
               </div>
             </div>
             
-            <div className="mv-card vision-card wow fadeInUp animated" data-wow-delay="0.5s">
-              <div className="mv-icon-wrapper">
-                <div className="mv-icon vision-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="mv-content">
-                <h3>{t('about.vision')}</h3>
-                <p>{t('about.vision_text')}</p>
+            <div
+              className="mv-card vision-card wow fadeInUp animated"
+              data-wow-delay="0.5s"
+              style={{
+                backgroundImage: "linear-gradient(to left, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/vizyonumuz.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'inherit',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '420px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                padding: '2rem',
+                color: '#ffffff'
+              }}
+            >
+              <div
+                className="mv-content"
+                style={{
+                  textAlign: 'right',
+                  maxWidth: '50%',
+                  marginLeft: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <p style={{ color: 'inherit' }}>{t('about.vision_text')}</p>
               </div>
             </div>
             
-            <div className="mv-card values-card wow fadeInRight animated" data-wow-delay="0.7s">
-              <div className="mv-icon-wrapper">
-                <div className="mv-icon values-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="mv-content">
-                <h3>{t('about.values')}</h3>
-                <p>
+            <div
+              className="mv-card values-card wow fadeInRight animated"
+              data-wow-delay="0.7s"
+              style={{
+                backgroundImage: "linear-gradient(to left, rgba(0,0,0,0.45), rgba(0,0,0,0)), url('/assets/images/degerlerimiz.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'inherit',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '420px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                padding: '2rem',
+                color: '#ffffff'
+              }}
+            >
+              <div
+                className="mv-content"
+                style={{
+                  textAlign: 'right',
+                  maxWidth: '50%',
+                  marginLeft: 'auto',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <p style={{ color: 'inherit' }}>
                   Güvenilirlik, kalite, müşteri memnuniyeti ve sürekli gelişim 
                   değerlerimizle hizmet veriyoruz.
                 </p>

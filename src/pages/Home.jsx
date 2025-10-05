@@ -6,6 +6,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import { useLanguage } from '../hooks/useLanguage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../styles/featured-vehicles.css';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -118,16 +119,16 @@ const Home = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3, // Web görünümünde 3 araba
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    mobileFirst: true,
+    mobileFirst: false,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2, // Mobil görünümde 2 araba
           slidesToScroll: 1
         }
       }
@@ -138,7 +139,10 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-          {/* Hero başlık ve alt metin kullanıcı isteğiyle kaldırıldı */}
+          {/* Hero Başlık */}
+          <div className="hero-title" aria-label="Hero Başlık">
+            <h1>{t('hero.title') || 'Araç Kiralama'}</h1>
+          </div>
           
           {/* Search Form */}
           <form className="search-form rental-form-content" onSubmit={handleSearch}>
@@ -242,18 +246,71 @@ const Home = () => {
           </form>
       </section>
 
+      {/* Features Section */}
+      <section className="features" aria-label="section">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 offset-lg-3 text-center">
+             <h2>
+               {t('home.features.title_main', { defaultValue: 'Neden Bizi Seçmelisiniz?' })}
+               <br />
+               {t('home.features.title_sub', { defaultValue: 'Kaliteli Hizmet, Güvenilir Araçlar' })}
+             </h2>
+             <p>{t('home.features.description', { defaultValue: 'Uygun fiyatlı ve bakımlı araç filomuz, esnek rezervasyon seçeneklerimiz ve 7/24 destek ekibimizle sorunsuz bir deneyim yaşayın. Şeffaf sözleşme şartları ve hızlı teslim/teslim alma süreçleriyle zaman kazanın.' })}</p>
+              <div className="spacer-20"></div>
+            </div>
+            <div className="clearfix"></div>
+            <div className="col-lg-3">
+              <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.5s">
+                <div className="d-inner">
+                 <h4>{t('features.service1_title')}</h4>
+                 <p>{t('features.service1_desc')}</p>
+                </div>
+              </div>
+              <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.75s">
+                <div className="d-inner">
+                 <h4>{t('features.service2_title')}</h4>
+                 <p>{t('features.service2_desc')}</p>
+                </div>
+              </div>
+            </div>
+           <div className="col-lg-6">
+             <img 
+               src="/assets/images/toyota_corolla.png" 
+               alt="Toyota Corolla Altis - Araç Kiralama" 
+               className="wow fadeInUp animated story-img" 
+               data-wow-delay="0.3s"
+             />
+            </div>
+            <div className="col-lg-3">
+              <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1s">
+                <div className="d-inner">
+                 <h4>{t('features.service3_title')}</h4>
+                 <p>{t('features.service3_desc')}</p>
+                </div>
+              </div>
+              <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1.25s">
+                <div className="d-inner">
+                 <h4>{t('features.service4_title')}</h4>
+                 <p>{t('features.service4_desc')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Vehicles */}
-      <section className="featured-vehicles">
+      <section className="featured-vehicles wow fadeInUp animated" data-wow-delay="0.2s">
         <div className="container">
           <div className="section-header">
-            <h2>{t('features.title')}</h2>
-            <p>{t('features.description')}</p>
+            <h2>{t('featured.title', { defaultValue: 'Öne Çıkan Araçlar – En Popüler Seçimlerimiz' })}</h2>
           </div>
           
           <Slider {...sliderSettings}>
             {featuredVehicles.map((vehicle) => (
               <div key={vehicle.id} className="vehicle-slide">
-                <div className="vehicle-card">
+                <div className="vehicle-card wow fadeInUp animated" data-wow-delay="0.15s">
                   <div className="vehicle-card-media">
                     <img
                       src={vehicle.image}
@@ -310,56 +367,6 @@ const Home = () => {
           </Slider>
         </div>
       </section>
-
-       {/* Features Section */}
-       <section className="features" aria-label="section">
-         <div className="container">
-           <div className="row align-items-center">
-             <div className="col-lg-6 offset-lg-3 text-center">
-              <h2>{t('features.title')}</h2>
-              <p>{t('features.description')}</p>
-               <div className="spacer-20"></div>
-             </div>
-             <div className="clearfix"></div>
-             <div className="col-lg-3">
-               <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.5s">
-                 <div className="d-inner">
-                  <h4>{t('features.service1_title')}</h4>
-                  <p>{t('features.service1_desc')}</p>
-                 </div>
-               </div>
-               <div className="box-icon s2 wow fadeInRight animated" data-wow-delay="0.75s">
-                 <div className="d-inner">
-                  <h4>{t('features.service2_title')}</h4>
-                  <p>{t('features.service2_desc')}</p>
-                 </div>
-               </div>
-             </div>
-            <div className="col-lg-6">
-              <img 
-                src="/assets/images/toyota_corolla.png" 
-                alt="Toyota Corolla Altis - Araç Kiralama" 
-                className="wow fadeInUp animated story-img" 
-                data-wow-delay="0.3s"
-              />
-             </div>
-             <div className="col-lg-3">
-               <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1s">
-                 <div className="d-inner">
-                  <h4>{t('features.service3_title')}</h4>
-                  <p>{t('features.service3_desc')}</p>
-                 </div>
-               </div>
-               <div className="box-icon s2 d-invert wow fadeInLeft animated" data-wow-delay="1.25s">
-                 <div className="d-inner">
-                  <h4>{t('features.service4_title')}</h4>
-                  <p>{t('features.service4_desc')}</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </section>
        
        {/* Fixed WhatsApp Button */}
        <div className="fixed-social">

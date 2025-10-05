@@ -20,6 +20,16 @@ const RentalTerms = () => {
 
   return (
     <div className="rental-terms-page">
+      {/* Breadcrumb Hero */}
+      <section className="vvsg breadcrumbs_common breadcrumbs_style5 breadcrumbs-hero">
+        <div className="overlay" />
+        <div className="container">
+          <div className="breadcrumbs_content">
+            <h3 className="breadcrumbs-title">{t('navigation.rental_terms')}</h3>
+          </div>
+        </div>
+      </section>
+
       <div className="rental-terms-container">
         <h1 className="rental-terms-title">{t('navigation.rental_terms')}</h1>
         <p className="rental-terms-intro">

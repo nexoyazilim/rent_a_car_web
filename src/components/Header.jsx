@@ -20,6 +20,15 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Sayfa boşluğu kaldırmak için body'ye sınıf ekle
+  useEffect(() => {
+    if (isScrolled) {
+      document.body.classList.add('top-header-hidden');
+    } else {
+      document.body.classList.remove('top-header-hidden');
+    }
+  }, [isScrolled]);
+
   const navLinks = [
     { path: '/', label: t('navigation.home') },
     { path: isTR ? '/araclar' : '/vehicles', label: t('navigation.vehicles') },
@@ -30,7 +39,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="top-header">
+      <div className={`top-header ${isScrolled ? 'hidden' : ''}`}>
         <div className="container">
           <div className="row">
             <div className="col-md-6">

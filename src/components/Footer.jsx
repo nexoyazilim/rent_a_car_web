@@ -63,20 +63,6 @@ const Footer = () => {
         <div className="footer-section">
           <h3>{t('footer.company_name')}</h3>
           <p>{t('footer.description')}</p>
-          <div className="social-links">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                className="social-link"
-                aria-label={social.name}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className="footer-section">
