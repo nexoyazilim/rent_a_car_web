@@ -44,6 +44,12 @@
   height: 28px;
 }
 
+/* Font Awesome icon (i element) için de boyutlandırma ekle */
+.fixed-social .whatsapp i {
+  font-size: 28px;
+  line-height: 1;
+}
+
 @keyframes pulse {
   0% {
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);

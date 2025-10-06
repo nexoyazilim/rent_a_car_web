@@ -252,7 +252,6 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    rtl: currentLanguage === 'ar',
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };

@@ -17,6 +17,8 @@
 .featured-vehicles .section-header {
   text-align: center;
   margin-bottom: 4rem;
+  /* RTL'de de ortalı kalsın */
+  direction: ltr;
 }
 
 .featured-vehicles .section-header h2 {
