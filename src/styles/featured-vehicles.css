@@ -1,6 +1,6 @@
 /* Featured Vehicles Section */
 .featured-vehicles {
-  padding: 2rem 0 3rem 0; /* hero altına taşan form için yer aç */
+  padding: 4rem 0 3rem 0; /* hero altına taşan form için yer aç */
   background: linear-gradient(180deg, #ffffff 0%, #fff6d6 100%);
   position: relative;
   z-index: 5;

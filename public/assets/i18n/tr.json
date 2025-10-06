@@ -152,6 +152,10 @@
     }
   }
   ,
+  "featured": {
+    "title": "Öne Çıkan Araçlar – En Popüler Seçimlerimiz"
+  }
+  ,
   "vehicles": {
     "title": "Mevcut Araçlar",
     "subtitle": "Size uygun aracı bulun ve rezervasyon yapın",

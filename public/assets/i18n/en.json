@@ -158,6 +158,10 @@
     }
   }
   ,
+  "featured": {
+    "title": "Featured Vehicles – Our Most Popular Picks"
+  }
+  ,
   "vehicles": {
     "title": "Available Vehicles",
     "subtitle": "Find the right car and make a reservation",

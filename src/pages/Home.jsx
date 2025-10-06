@@ -448,7 +448,7 @@ const Home = () => {
       <section className="featured-vehicles wow fadeInUp animated" data-wow-delay="0.2s">
         <div className="container">
           <div className="section-header">
-            <h2>{t('featured.title', { defaultValue: 'Öne Çıkan Araçlar – En Popüler Seçimlerimiz' })}</h2>
+            <h2>{t('featured.title')}</h2>
           </div>
           
           <Slider key={`slider-${viewportBucket}`} {...sliderSettings}>
