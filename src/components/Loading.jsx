@@ -8,7 +8,7 @@ const Loading = ({ message }) => {
     <div className="loading-container">
       <div className="loading-content">
         <img
-          src="/assets/images/loading.gif"
+          src={`${import.meta.env.BASE_URL}assets/images/loading.gif`}
           alt="Yükleniyor"
           className="loading-gif"
           loading="eager"

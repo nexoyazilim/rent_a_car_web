@@ -11,7 +11,7 @@ i18n
     debug: false,
     
     backend: {
-      loadPath: '/assets/i18n/{{lng}}.json',
+      loadPath: `${import.meta.env.BASE_URL}assets/i18n/{{lng}}.json`,
     },
     
     interpolation: {

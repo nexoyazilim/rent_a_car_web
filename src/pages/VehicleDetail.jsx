@@ -44,9 +44,9 @@ const VehicleDetail = () => {
       name: 'BMW 3 Series',
       category: 'Premium',
       images: [
-        '/assets/images/toyota_corolla.png',
-        '/assets/images/renault_megane.jpg',
-        '/assets/images/audi_a4.png'
+        `${import.meta.env.BASE_URL}assets/images/toyota_corolla.png`,
+        `${import.meta.env.BASE_URL}assets/images/renault_megane.jpg`,
+        `${import.meta.env.BASE_URL}assets/images/audi_a4.png`
       ],
       price: 450,
       transmission: 'Otomatik',
@@ -255,10 +255,10 @@ const VehicleDetail = () => {
           <div className="related-grid">
             {[1,2,3,4].map((i) => {
               const relatedImages = [
-                '/assets/images/renault_megane.jpg',
-                '/assets/images/mercedes_vito.jpg',
-                '/assets/images/audi_a5.webp',
-                '/assets/images/dacia_duster.jpg'
+                `${import.meta.env.BASE_URL}assets/images/renault_megane.jpg`,
+                `${import.meta.env.BASE_URL}assets/images/mercedes_vito.jpg`,
+                `${import.meta.env.BASE_URL}assets/images/audi_a5.webp`,
+                `${import.meta.env.BASE_URL}assets/images/dacia_duster.jpg`
               ];
               const relatedNames = [
                 'Renault Megane',
@@ -271,7 +271,7 @@ const VehicleDetail = () => {
                 name: 'Örnek Araç',
                 category: 'Economy',
                 price: 300,
-                image: '/assets/images/dacia_duster.jpg'
+                image: `${import.meta.env.BASE_URL}assets/images/dacia_duster.jpg`
               };
               const current = vehicle && vehicle.category ? vehicle.category : 'Economy';
               const suggestions = [

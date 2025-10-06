@@ -621,7 +621,7 @@ body.top-header-hidden .header {
 
 /* Hero section */
 .hero {
-  background: url('/assets/images/hero_background.webp') center center / cover no-repeat;
+  background: url('/rent_a_car_web/assets/images/hero_background.webp') center center / cover no-repeat;
   color: white;
   padding: 20rem 0 5rem 0;
   text-align: center;
@@ -1893,7 +1893,7 @@ body.top-header-hidden .header {
 
 /* Breadcrumb helper classes (inline stil yerine) */
 .breadcrumbs-hero {
-  background-image: url('/assets/images/page-title.jpg');
+  background-image: url('/rent_a_car_web/assets/images/page-title.jpg');
   background-position: center bottom;
 }
 

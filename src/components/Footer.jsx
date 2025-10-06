@@ -88,7 +88,7 @@ const Footer = () => {
 
         <div className="footer-section">
           <h3>{t('footer.follow_us')}</h3>
-          <p>Bizi sosyal medyada takip edin ve güncel kampanyalardan haberdar olun.</p>
+          <p>{t('footer.follow_us_text')}</p>
           <div className="newsletter">
             <div className="social-icons" aria-label="Sosyal medya bağlantıları">
               {socialLinks.map((social) => (

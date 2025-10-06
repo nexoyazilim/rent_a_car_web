@@ -152,7 +152,7 @@ const Home = () => {
       id: 1,
       name: 'Renault Megane',
       category: 'Premium',
-      image: '/assets/images/renault_megane.jpg',
+      image: `${import.meta.env.BASE_URL}assets/images/renault_megane.jpg`,
       price: 450,
       features: ['GPS', 'Bluetooth'],
       passengers: 5,
@@ -163,7 +163,7 @@ const Home = () => {
       id: 2,
       name: 'Mercedes Vito',
       category: 'Luxury',
-      image: '/assets/images/mercedes_vito.jpg',
+      image: `${import.meta.env.BASE_URL}assets/images/mercedes_vito.jpg`,
       price: 550,
       features: ['GPS', 'Bluetooth'],
       passengers: 5,
@@ -174,7 +174,7 @@ const Home = () => {
       id: 3,
       name: 'Audi A4',
       category: 'Premium',
-      image: '/assets/images/audi_a4.png',
+      image: `${import.meta.env.BASE_URL}assets/images/audi_a4.png`,
       price: 480,
       features: ['GPS', 'Bluetooth'],
       passengers: 5,
@@ -185,7 +185,7 @@ const Home = () => {
       id: 4,
       name: 'Dacia Duster',
       category: 'Compact',
-      image: '/assets/images/dacia_duster.jpg',
+      image: `${import.meta.env.BASE_URL}assets/images/dacia_duster.jpg`,
       price: 280,
       features: ['Bluetooth', 'USB'],
       passengers: 5,
@@ -196,7 +196,7 @@ const Home = () => {
       id: 5,
       name: 'Toyota Corolla',
       category: 'Economy',
-      image: '/assets/images/toyota_corolla.png',
+      image: `${import.meta.env.BASE_URL}assets/images/toyota_corolla.png`,
       price: 220,
       features: ['Bluetooth'],
       passengers: 5,
@@ -207,7 +207,7 @@ const Home = () => {
       id: 6,
       name: 'Fiat Egea',
       category: 'SUV',
-      image: '/assets/images/fiat_egea.jpg',
+      image: `${import.meta.env.BASE_URL}assets/images/fiat_egea.jpg`,
       price: 650,
       features: ['GPS', 'USB'],
       passengers: 7,
@@ -420,7 +420,7 @@ const Home = () => {
             </div>
            <div className="col-lg-6">
              <img 
-               src="/assets/images/toyota_corolla.png" 
+               src={`${import.meta.env.BASE_URL}assets/images/toyota_corolla.png`} 
                alt="Toyota Corolla Altis - Araç Kiralama" 
                className="wow fadeInUp animated story-img" 
                data-wow-delay="0.3s"

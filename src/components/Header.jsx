@@ -63,7 +63,7 @@ const Header = () => {
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <Link to="/" className="logo" aria-label="Rent A Car Anasayfa">
-          <img src="/assets/images/logo.png" alt="Rent A Car" className="site-logo" loading="eager" decoding="async" />
+          <img src={`${import.meta.env.BASE_URL}assets/images/logo.png`} alt="Rent A Car" className="site-logo" loading="eager" decoding="async" />
         </Link>
 
         <nav className="nav">

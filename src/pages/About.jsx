@@ -90,7 +90,7 @@ Yola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve
               </div>
               <div className="mv-col mv-col-media">
                 <img
-                  src="/assets/images/about_2.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_2.png`}
                   alt="Profesyonel Ekip Fotoğrafları: İşin Arkasındaki Yüzler"
                   className="mv-illustration"
                   loading="lazy"
@@ -103,7 +103,7 @@ Yola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve
             <div className="mv-row reverse wow fadeInUp animated" data-wow-delay="0.3s">
               <div className="mv-col mv-col-media">
                 <img
-                  src="/assets/images/about_3.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_3.png`}
                   alt="Ofis ve Çalışma Ortamı: Şeffaflık ve Kurumsallık"
                   className="mv-illustration"
                   loading="lazy"
@@ -129,7 +129,7 @@ Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, 
               </div>
               <div className="mv-col mv-col-media">
                 <img
-                  src="/assets/images/about_1.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_1.png`}
                   alt="Araç Filosu ve Bakım Anları: Kalite ve Güvenilirlik"
                   className="mv-illustration"
                   loading="lazy"
@@ -152,7 +152,7 @@ Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, 
             <div className="value-item wow fadeInUp animated" data-wow-delay="0.3s">
               <div className="value-image-wrapper">
                 <img
-                  src="/assets/images/about_6.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_6.png`}
                   alt="RC Rent A Car dış cephe ve filo"
                   className="value-image"
                   loading="lazy"
@@ -167,7 +167,7 @@ Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, 
             <div className="value-item wow fadeInUp animated" data-wow-delay="0.35s">
               <div className="value-image-wrapper">
                 <img
-                  src="/assets/images/about_4.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_4.png`}
                   alt="RC Rent A Car showroom ve araçlar"
                   className="value-image"
                   loading="lazy"
@@ -182,7 +182,7 @@ Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, 
             <div className="value-item wow fadeInUp animated" data-wow-delay="0.4s">
               <div className="value-image-wrapper">
                 <img
-                  src="/assets/images/about_5.png"
+                  src={`${import.meta.env.BASE_URL}assets/images/about_5.png`}
                   alt="Araç teslim anı"
                   className="value-image"
                   loading="lazy"
