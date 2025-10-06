@@ -11,6 +11,8 @@
     "title": "Reliable Car Rental Service",
     "subtitle": "Make your journey enjoyable with our quality vehicles at the best prices",
     "search_placeholder": "Search vehicles...",
+    "pickup_location": "Pickup Location",
+    "return_location": "Return Location",
     "pickup_date": "Pickup Date",
     "return_date": "Return Date",
     "pickup_time": "Pickup Time",
@@ -73,7 +75,8 @@
     "from": "from",
     "select": "Select",
     "required": "Required",
-    "optional": "Optional"
+    "optional": "Optional",
+    "unknown": "Unknown"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -87,12 +90,18 @@
   "about": {
     "title": "About Us",
     "mission": "Our Mission",
+    "mission_long": "Professional Team Photos: “Faces Behind the Work” — Smiling team members photographed in the office bring sincerity, trust and professionalism together. Providing a reliable, transparent and fast car rental experience to our customers is our top priority. Knowing that every individual has different needs, we develop flexible, innovative and personalized solutions. Our goal is to make your journey not only effortless but also enjoyable. We continuously improve our service quality by focusing on technology, customer satisfaction and ongoing development. Together with our experienced team, we operate with a service approach that makes a difference in the car rental industry; we work to offer trust, comfort and convenience all at once. We are here to ensure that every moment of your journey is more comfortable, safer and happier than planned.",
     "vision": "Our Vision",
+    "vision_long": "Professional Team Photos: “Faces Behind the Work” — Photos featuring our smiling colleagues in the office naturally reflect the sincerity and professionalism of our team. Our aim is to go beyond being a brand that only offers car rental services, by prioritizing customer satisfaction above all, effectively using technology and producing environmentally friendly solutions. In line with the principles of digitalization, innovation and sustainability in the sector; we aim to become a brand that continuously improves service quality, prioritizes user experience and stands out with its reliability. With this vision, we closely follow ever-evolving technology and strive to become one of the top-of-mind car rental brands by shaping the future of the industry with our innovative solutions.",
     "values": "Our Values",
     "team": "Our Team",
     "mission_text": "To provide safe, comfortable and affordable car rental services, enhancing our customers' travel experience to the highest level.",
     "vision_text": "To be Turkey's most trusted and preferred car rental company, maintaining our leadership that sets the standards in the industry.",
     "values_intro": "The core values that shape our way of doing business",
+    "values_brief": {
+      "title": "Our Values",
+      "long": "We are committed to always providing a reliable, transparent and high-quality car rental experience. We put honesty and customer satisfaction first in all our processes and aim to deliver services that exceed expectations. While guaranteeing safe driving with our well-maintained and renewed fleet, we avoid surprises with our transparent pricing policy. Our professional team stands by our customers with a solution-oriented approach at every step. By developing environmentally friendly and sustainable solutions, we care about protecting both nature and the economy. With our 24/7 support approach, we are with you at every moment of your journey."
+    },
     "values_items": {
       "reliability": { "title": "Reliability", "desc": "We always provide reliable service to our customers." },
       "quality": { "title": "Quality", "desc": "We focus on providing the highest quality vehicles and services." },
@@ -173,6 +182,26 @@
     "no_results_desc": "Try changing the filters and search again"
   }
   ,
+  "vehicle": {
+    "features": "Features",
+    "description": "Description",
+    "sample_desc_fallback": "In city driving, it saves fuel; on long journeys, its quiet cabin and stable handling provide confidence.",
+    "sample_desc_p1": "This model stands out with a comfortable suspension system, advanced safety technologies, and ergonomic seats that don't tire you on long trips. The updated multimedia screen, wireless connectivity options, and smart driving assists provide a modern driving experience.",
+    "sample_desc_p2": "Its large trunk offers the space you need for family and business trips, while practical storage compartments make daily life easier.",
+    "sample_bullet_1": "Adaptive cruise control and lane keeping assist",
+    "sample_bullet_2": "Dual-zone automatic climate control and rear vents",
+    "sample_bullet_3": "LED headlights with automatic high/low beam",
+    "sample_bullet_4": "Android Auto & Apple CarPlay support",
+    "fuel": "Fuel",
+    "transmission": "Transmission",
+    "passengers": "Passengers",
+    "doors": "Doors",
+    "bags": "Bags",
+    "book_now": "Book Now",
+    "specs": "Specifications",
+    "related": "Related Vehicles",
+    "details": "Details"
+  },
   "rental": {
     "terms_intro": "Rental terms and general conditions are listed below. Please read before booking.",
     "eligibility_title": "Rental Eligibility",

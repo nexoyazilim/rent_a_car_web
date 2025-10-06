@@ -136,25 +136,10 @@ const VehicleDetail = () => {
                 decoding="async"
               />
             </div>
-            {vehicle.images && vehicle.images.length > 1 && (
-              <div className="image-thumbnails">
-                {vehicle.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${vehicle.name} ${index + 1}`}
-                    className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
-                    onClick={() => setSelectedImage(index)}
-                    loading="lazy"
-                    sizes="(max-width: 992px) 30vw, 18vw"
-                    decoding="async"
-                  />
-                ))}
-              </div>
-            )}
+            {/* Thumbnail galerisi kaldırıldı; gerekirse tekrar eklenebilir */}
             <div className="image-info-block">
               <div className="vehicle-features">
-                <h3>Özellikler</h3>
+                <h3>{t('vehicle.features')}</h3>
                 <div className="features-grid">
                   {vehicle.features && vehicle.features.length > 0 ? (
                     vehicle.features.map((feature, index) => (
@@ -168,27 +153,19 @@ const VehicleDetail = () => {
                   )}
                 </div>
                 <div className="features-demo-text">
-                  <p>
-                    Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda 
-                    yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı 
-                    seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.
-                  </p>
+                  <p>{t('vehicle.sample_desc_p1')}</p>
                   <ul>
-                    <li>Uyarlanabilir hız sabitleme ve şerit takip asistanı</li>
-                    <li>Çift bölgeli otomatik klima ve arka havalandırma</li>
-                    <li>LED farlar, otomatik uzun/kısa far geçişi</li>
-                    <li>Android Auto & Apple CarPlay desteği</li>
+                    <li>{t('vehicle.sample_bullet_1')}</li>
+                    <li>{t('vehicle.sample_bullet_2')}</li>
+                    <li>{t('vehicle.sample_bullet_3')}</li>
+                    <li>{t('vehicle.sample_bullet_4')}</li>
                   </ul>
                 </div>
               </div>
               <div className="vehicle-description">
-                <h3>Açıklama</h3>
-                <p>{vehicle.description || 'Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.'}</p>
-                <p>
-                  Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise 
-                  sessiz kabini ve stabil yol tutuşuyla güven verir. Geniş bagaj hacmi, aile ve iş seyahatlerinde 
-                  ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.
-                </p>
+                <h3>{t('vehicle.description')}</h3>
+                <p>{vehicle.description || t('vehicle.sample_desc_fallback')}</p>
+                <p>{t('vehicle.sample_desc_p2')}</p>
               </div>
             </div>
           </div>
@@ -213,15 +190,15 @@ const VehicleDetail = () => {
             </div>
 
             <div className="quick-specs">
-              <div className="quick-spec-item"><span>⛽ Yakıt:</span><strong>{vehicle.fuelType || 'Bilinmiyor'}</strong></div>
-              <div className="quick-spec-item"><span>⚙️ Vites:</span><strong>{vehicle.transmission || 'Bilinmiyor'}</strong></div>
-              <div className="quick-spec-item"><span>👥 Yolcu:</span><strong>{vehicle.passengers || '-'}</strong></div>
-              <div className="quick-spec-item"><span>🚪 Kapı:</span><strong>{vehicle.doors || '-'}</strong></div>
-              <div className="quick-spec-item"><span>🧳 Bagaj:</span><strong>{vehicle.bags || '-'}</strong></div>
+              <div className="quick-spec-item"><span>⛽ {t('vehicle.fuel')}:</span><strong>{vehicle.fuelType || t('common.unknown')}</strong></div>
+              <div className="quick-spec-item"><span>⚙️ {t('vehicle.transmission')}:</span><strong>{vehicle.transmission || t('common.unknown')}</strong></div>
+              <div className="quick-spec-item"><span>👥 {t('vehicle.passengers')}:</span><strong>{vehicle.passengers || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🚪 {t('vehicle.doors')}:</span><strong>{vehicle.doors || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🧳 {t('vehicle.bags')}:</span><strong>{vehicle.bags || '-'}</strong></div>
             </div>
 
             <div className="cta-row">
-              <button className="btn btn-primary btn-icon" onClick={handleBooking}>🗓️ Rezervasyon Yap</button>
+              <button className="btn btn-primary btn-icon" onClick={handleBooking}>🗓️ {t('vehicle.book_now')}</button>
             </div>
 
             <div className="divider"></div>
@@ -232,7 +209,7 @@ const VehicleDetail = () => {
 
             {vehicle.specifications && Object.keys(vehicle.specifications).length > 0 && (
               <div className="vehicle-specifications">
-                <h3>Teknik Özellikler</h3>
+                <h3>{t('vehicle.specs')}</h3>
                 <div className="specs-grid">
                   {Object.entries(vehicle.specifications).map(([key, value]) => (
                     <div key={key} className="spec-row">
@@ -250,7 +227,7 @@ const VehicleDetail = () => {
         {/* Related Vehicles */}
         <div className="related-section">
           <div className="related-header">
-            <h3>Benzer Araçlar</h3>
+            <h3>{t('vehicle.related')}</h3>
           </div>
           <div className="related-grid">
             {[1,2,3,4].map((i) => {
@@ -307,7 +284,7 @@ const VehicleDetail = () => {
                           })
                         }
                       >
-                        Detay
+                        {t('vehicle.details')}
                       </button>
                     </div>
                   </div>

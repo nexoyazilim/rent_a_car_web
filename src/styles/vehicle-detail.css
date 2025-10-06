@@ -30,21 +30,7 @@
   background: #ffffff;
 }
 
-.image-thumbnails {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
 
-.image-thumbnails .thumbnail {
-  width: 100%;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
 
 .image-info-block {
   margin-top: 0.75rem;
@@ -67,13 +53,7 @@
   padding: 0;
 }
 
-.image-thumbnails .thumbnail:hover {
-  transform: translateY(-2px);
-}
 
-.image-thumbnails .thumbnail.active {
-  border-color: var(--primary-color);
-}
 
 .vehicle-info {
   background: #fff;
@@ -401,11 +381,3 @@
     height: 360px;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .image-thumbnails .thumbnail {
-    transition: none;
-  }
-}
-
-

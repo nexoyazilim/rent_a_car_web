@@ -11,6 +11,8 @@
     "title": "Güvenilir Araç Kiralama Hizmeti",
     "subtitle": "En uygun fiyatlarla kaliteli araçlarımızla seyahatinizi keyifli hale getirin",
     "search_placeholder": "Araç ara...",
+    "pickup_location": "Alış Lokasyonu",
+    "return_location": "Teslim Lokasyonu",
     "pickup_date": "Alış Tarihi",
     "return_date": "Teslim Tarihi",
     "pickup_time": "Alış Saati",
@@ -73,7 +75,8 @@
     "from": "itibaren",
     "select": "Seçin",
     "required": "Zorunlu",
-    "optional": "Opsiyonel"
+    "optional": "Opsiyonel",
+    "unknown": "Bilinmiyor"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -173,6 +176,27 @@
     "no_results_desc": "Filtreleri değiştirerek tekrar deneyin"
   }
   ,
+  "vehicle": {
+    "features": "Özellikler",
+    "description": "Açıklama",
+    "sample_desc_fallback": "Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.",
+    "sample_desc_p1": "Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.",
+    "sample_desc_p2": "Geniş bagaj hacmi, aile ve iş seyahatlerinde ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.",
+    "sample_bullet_1": "Uyarlanabilir hız sabitleme ve şerit takip asistanı",
+    "sample_bullet_2": "Çift bölgeli otomatik klima ve arka havalandırma",
+    "sample_bullet_3": "LED farlar, otomatik uzun/kısa far geçişi",
+    "sample_bullet_4": "Android Auto & Apple CarPlay desteği",
+    "fuel": "Yakıt",
+    "transmission": "Vites",
+    "passengers": "Yolcu",
+    "doors": "Kapı",
+    "bags": "Bagaj",
+    "book_now": "Rezervasyon Yap",
+    "specs": "Teknik Özellikler",
+    "related": "Benzer Araçlar",
+    "details": "Detay"
+  },
+  
   "rental": {
     "terms_intro": "Kiralama koşulları ve genel hükümler aşağıda listelenmiştir. Rezervasyon öncesi lütfen okuyunuz.",
     "eligibility_title": "Kiralama Uygunluğu",

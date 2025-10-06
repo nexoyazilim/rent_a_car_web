@@ -22,7 +22,7 @@
 .featured-vehicles .section-header h2 {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--secondary-color);
+  color: #000; /* Başlık siyah */
   margin-bottom: 4rem;
   position: relative;
 }
