@@ -70,7 +70,7 @@ const Vehicles = () => {
       passengers: 5,
       doors: 4,
       bags: 3,
-      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth']
+      features: ['Klima', 'GPS']
     },
     {
       id: 3,
@@ -126,7 +126,7 @@ const Vehicles = () => {
       passengers: 7,
       doors: 5,
       bags: 4,
-      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth', 'USB']
+      features: ['Klima', 'GPS']
     }
   ];
 
@@ -380,12 +380,7 @@ const Vehicles = () => {
                     <h3 className="vehicle-name">{vehicle.name}</h3>
                     <p className="vehicle-category">{vehicle.category}</p>
                     
-                    <div className="vehicle-specs">
-                      <span>👥 {vehicle.passengers} kişi</span>
-                      <span>🚪 {vehicle.doors} kapı</span>
-                      <span>⚙️ {vehicle.transmission}</span>
-                      <span>⛽ {vehicle.fuelType}</span>
-                    </div>
+                    {/* vehicle-specs kaldırıldı */}
                     
                     <div className="vehicle-features">
                       {vehicle.features.map((feature, index) => (

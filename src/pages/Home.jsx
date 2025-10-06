@@ -29,6 +29,108 @@ const Home = () => {
     vehicleType: ''
   });
 
+  // Mobil ekran algılama (≤576px) – form için
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia && window.matchMedia('(max-width: 576px)').matches;
+  });
+
+  // Slider için viewport kovası: 'mobile' (<801), 'tablet' (801–1199), 'desktop' (≥1200)
+  const getViewportBucket = () => {
+    if (typeof window === 'undefined') return 'desktop';
+    const w = window.innerWidth;
+    if (w < 801) return 'mobile';
+    if (w < 1200) return 'tablet';
+    return 'desktop';
+  };
+  const [viewportBucket, setViewportBucket] = useState(getViewportBucket);
+
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const mq576 = window.matchMedia('(max-width: 576px)');
+    const handler576 = (e) => setIsMobile(e.matches);
+    const onResize = () => setViewportBucket(getViewportBucket());
+    try { mq576.addEventListener('change', handler576); window.addEventListener('resize', onResize); }
+    catch (_) { mq576.addListener(handler576); }
+    return () => {
+      try { mq576.removeEventListener('change', handler576); window.removeEventListener('resize', onResize); }
+      catch (_) { mq576.removeListener(handler576); }
+    };
+  }, []);
+
+  // Saat seçenekleri (00:00–23:00)
+  const hourOptions = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, '0')}:00`);
+
+  // Mobil için tek çerçeveli tarih-saat kapsayıcısı
+  const DateTimeGroup = ({
+    dateLabel,
+    dateName,
+    dateValue,
+    timeLabel,
+    timeName,
+    timeValue,
+  }) => {
+    const groupStyle = {
+      border: '1px solid #e5e7eb',
+      borderRadius: 14,
+      padding: '10px 12px',
+      background: '#ffffff',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+    };
+    const innerStyle = {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 8,
+      alignItems: 'end',
+    };
+    const labelStyle = {
+      fontSize: '0.8rem',
+      color: '#6b7280',
+      margin: '0 0 6px 2px',
+      fontWeight: 600,
+      display: 'block',
+    };
+    const dividerStyle = {
+      gridColumn: '1 / -1',
+      height: 0,
+      borderTop: '1px solid #f0f2f5',
+      margin: '8px 0',
+    };
+    return (
+      <div className="date-time-group" style={groupStyle}>
+        <div className="date-time-inner" style={innerStyle}>
+          <div>
+            <label className="form-label" style={labelStyle}>{dateLabel}</label>
+            <input
+              type="date"
+              name={dateName}
+              value={dateValue}
+              onChange={handleInputChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div>
+            <label className="form-label" style={labelStyle}>{timeLabel}</label>
+            <select
+              name={timeName}
+              value={timeValue}
+              onChange={handleInputChange}
+              className="form-select"
+              required
+            >
+              <option value="">--</option>
+              {hourOptions.map((h) => (
+                <option key={h} value={h}>{h}</option>
+              ))}
+            </select>
+          </div>
+          <div style={dividerStyle} />
+        </div>
+      </div>
+    );
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     // Arama parametrelerini URL'e ekleyerek vehicles sayfasına yönlendir
@@ -52,7 +154,7 @@ const Home = () => {
       category: 'Premium',
       image: '/assets/images/renault_megane.jpg',
       price: 450,
-      features: ['Klima', 'GPS', 'Bluetooth', 'USB'],
+      features: ['GPS', 'Bluetooth'],
       passengers: 5,
       doors: 4,
       bags: 2
@@ -63,7 +165,7 @@ const Home = () => {
       category: 'Luxury',
       image: '/assets/images/mercedes_vito.jpg',
       price: 550,
-      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth'],
+      features: ['GPS', 'Bluetooth'],
       passengers: 5,
       doors: 4,
       bags: 3
@@ -74,7 +176,7 @@ const Home = () => {
       category: 'Premium',
       image: '/assets/images/audi_a4.png',
       price: 480,
-      features: ['Klima', 'GPS', 'Bluetooth', 'USB'],
+      features: ['GPS', 'Bluetooth'],
       passengers: 5,
       doors: 4,
       bags: 2
@@ -85,7 +187,7 @@ const Home = () => {
       category: 'Compact',
       image: '/assets/images/dacia_duster.jpg',
       price: 280,
-      features: ['Klima', 'Bluetooth', 'USB'],
+      features: ['Bluetooth', 'USB'],
       passengers: 5,
       doors: 4,
       bags: 2
@@ -96,7 +198,7 @@ const Home = () => {
       category: 'Economy',
       image: '/assets/images/toyota_corolla.png',
       price: 220,
-      features: ['Klima', 'Bluetooth'],
+      features: ['Bluetooth'],
       passengers: 5,
       doors: 4,
       bags: 2
@@ -107,32 +209,22 @@ const Home = () => {
       category: 'SUV',
       image: '/assets/images/fiat_egea.jpg',
       price: 650,
-      features: ['Klima', 'GPS', 'WiFi', 'Bluetooth', 'USB'],
+      features: ['GPS', 'USB'],
       passengers: 7,
       doors: 5,
       bags: 4
     }
   ];
 
-  // Slider ayarları
+  // Slider ayarları – tablet kırılımı ile: desktop(≥1200)=3, diğerleri=2
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Web görünümünde 3 araba
+    slidesToShow: viewportBucket === 'desktop' ? 3 : 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    mobileFirst: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2, // Mobil görünümde 2 araba
-          slidesToScroll: 1
-        }
-      }
-    ]
   };
 
   return (
@@ -146,99 +238,152 @@ const Home = () => {
           
           {/* Search Form */}
           <form className="search-form rental-form-content" onSubmit={handleSearch}>
-            <div className="search-form-grid">
-              <div className="form-group date-group">
-                <label className="form-label">{t('hero.pickup_date')}</label>
-                <input
-                  type="date"
-                  name="pickupDate"
-                  value={searchForm.pickupDate}
-                  onChange={handleInputChange}
-                  className="form-input"
-                  required
+            {isMobile ? (
+              <div className="mobile-search-form">
+                <div className="form-group">
+                  <label className="form-label">{t('hero.pickup_location', { defaultValue: 'Alış Lokasyonu' })}</label>
+                  <select
+                    name="pickupLocation"
+                    value={searchForm.pickupLocation}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">{t('common.select', { defaultValue: 'Seçiniz' })}</option>
+                    <option value="istanbul-airport">İstanbul Havalimanı</option>
+                    <option value="sabiha-gokcen">Sabiha Gökçen</option>
+                    <option value="taksim">Taksim</option>
+                    <option value="kadikoy">Kadıköy</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">{t('hero.return_location', { defaultValue: 'Teslim Lokasyonu' })}</label>
+                  <select
+                    name="returnLocation"
+                    value={searchForm.returnLocation}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">{t('common.select', { defaultValue: 'Seçiniz' })}</option>
+                    <option value="istanbul-airport">İstanbul Havalimanı</option>
+                    <option value="sabiha-gokcen">Sabiha Gökçen</option>
+                    <option value="taksim">Taksim</option>
+                    <option value="kadikoy">Kadıköy</option>
+                  </select>
+                </div>
+
+                <DateTimeGroup
+                  dateLabel={t('hero.pickup_date')}
+                  dateName="pickupDate"
+                  dateValue={searchForm.pickupDate}
+                  timeLabel={t('hero.pickup_time') || 'Alış Saati'}
+                  timeName="pickupTime"
+                  timeValue={searchForm.pickupTime}
+                />
+
+                <DateTimeGroup
+                  dateLabel={t('hero.return_date')}
+                  dateName="returnDate"
+                  dateValue={searchForm.returnDate}
+                  timeLabel={t('hero.return_time') || 'Teslim Saati'}
+                  timeName="returnTime"
+                  timeValue={searchForm.returnTime}
                 />
               </div>
-              
-              <div className="form-group time-group">
-                <label className="form-label">{t('hero.pickup_time') || 'Alış Saati'}</label>
-                <select
-                  name="pickupTime"
-                  value={searchForm.pickupTime}
-                  onChange={handleInputChange}
-                  className="form-select"
-                  required
-                >
-                  <option value="">--</option>
-                  {[...Array(23).keys()].map(i => {
-                    const h = String(i+1).padStart(2,'0')+':00';
-                    return <option key={h} value={h}>{h}</option>
-                  })}
-                </select>
-              </div>
+            ) : (
+              <div className="search-form-grid">
+                <div className="form-group date-group">
+                  <label className="form-label">{t('hero.pickup_date')}</label>
+                  <input
+                    type="date"
+                    name="pickupDate"
+                    value={searchForm.pickupDate}
+                    onChange={handleInputChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
+                
+                <div className="form-group time-group">
+                  <label className="form-label">{t('hero.pickup_time') || 'Alış Saati'}</label>
+                  <select
+                    name="pickupTime"
+                    value={searchForm.pickupTime}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">--</option>
+                    {hourOptions.map(h => (
+                      <option key={h} value={h}>{h}</option>
+                    ))}
+                  </select>
+                </div>
 
-              <div className="form-group date-group">
-                <label className="form-label">{t('hero.return_date')}</label>
-                <input
-                  type="date"
-                  name="returnDate"
-                  value={searchForm.returnDate}
-                  onChange={handleInputChange}
-                  className="form-input"
-                  required
-                />
-              </div>
-              
-              <div className="form-group time-group">
-                <label className="form-label">{t('hero.return_time') || 'Teslim Saati'}</label>
-                <select
-                  name="returnTime"
-                  value={searchForm.returnTime}
-                  onChange={handleInputChange}
-                  className="form-select"
-                  required
-                >
-                  <option value="">--</option>
-                  {[...Array(23).keys()].map(i => {
-                    const h = String(i+1).padStart(2,'0')+':00';
-                    return <option key={h} value={h}>{h}</option>
-                  })}
-                </select>
-              </div>
+                <div className="form-group date-group">
+                  <label className="form-label">{t('hero.return_date')}</label>
+                  <input
+                    type="date"
+                    name="returnDate"
+                    value={searchForm.returnDate}
+                    onChange={handleInputChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
+                
+                <div className="form-group time-group">
+                  <label className="form-label">{t('hero.return_time') || 'Teslim Saati'}</label>
+                  <select
+                    name="returnTime"
+                    value={searchForm.returnTime}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">--</option>
+                    {hourOptions.map(h => (
+                      <option key={h} value={h}>{h}</option>
+                    ))}
+                  </select>
+                </div>
 
-              <div className="form-group">
-                <label className="form-label">Alış Lokasyonu</label>
-                <select
-                  name="pickupLocation"
-                  value={searchForm.pickupLocation}
-                  onChange={handleInputChange}
-                  className="form-select"
-                  required
-                >
-                  <option value="">Lokasyon Seçin</option>
-                  <option value="istanbul-airport">İstanbul Havalimanı</option>
-                  <option value="sabiha-gokcen">Sabiha Gökçen</option>
-                  <option value="taksim">Taksim</option>
-                  <option value="kadikoy">Kadıköy</option>
-                </select>
+                <div className="form-group">
+                  <label className="form-label">{t('hero.pickup_location', { defaultValue: 'Alış Lokasyonu' })}</label>
+                  <select
+                    name="pickupLocation"
+                    value={searchForm.pickupLocation}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">{t('common.select', { defaultValue: 'Seçiniz' })}</option>
+                    <option value="istanbul-airport">İstanbul Havalimanı</option>
+                    <option value="sabiha-gokcen">Sabiha Gökçen</option>
+                    <option value="taksim">Taksim</option>
+                    <option value="kadikoy">Kadıköy</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label className="form-label">{t('hero.return_location', { defaultValue: 'Teslim Lokasyonu' })}</label>
+                  <select
+                    name="returnLocation"
+                    value={searchForm.returnLocation}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">{t('common.select', { defaultValue: 'Seçiniz' })}</option>
+                    <option value="istanbul-airport">İstanbul Havalimanı</option>
+                    <option value="sabiha-gokcen">Sabiha Gökçen</option>
+                    <option value="taksim">Taksim</option>
+                    <option value="kadikoy">Kadıköy</option>
+                  </select>
+                </div>
               </div>
-              
-              <div className="form-group">
-                <label className="form-label">Teslim Lokasyonu</label>
-                <select
-                  name="returnLocation"
-                  value={searchForm.returnLocation}
-                  onChange={handleInputChange}
-                  className="form-select"
-                  required
-                >
-                  <option value="">Lokasyon Seçin</option>
-                  <option value="istanbul-airport">İstanbul Havalimanı</option>
-                  <option value="sabiha-gokcen">Sabiha Gökçen</option>
-                  <option value="taksim">Taksim</option>
-                  <option value="kadikoy">Kadıköy</option>
-                </select>
-              </div>
-            </div>
+            )}
             
             <button type="submit" className="btn btn-primary btn-lg">
               {t('hero.search_button')}
@@ -252,9 +397,7 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 offset-lg-3 text-center">
              <h2>
-               {t('home.features.title_main', { defaultValue: 'Neden Bizi Seçmelisiniz?' })}
-               <br />
-               {t('home.features.title_sub', { defaultValue: 'Kaliteli Hizmet, Güvenilir Araçlar' })}
+              {t('home.features.title_main', { defaultValue: 'Neden Bizi Seçmelisiniz?' })}
              </h2>
              <p>{t('home.features.description', { defaultValue: 'Uygun fiyatlı ve bakımlı araç filomuz, esnek rezervasyon seçeneklerimiz ve 7/24 destek ekibimizle sorunsuz bir deneyim yaşayın. Şeffaf sözleşme şartları ve hızlı teslim/teslim alma süreçleriyle zaman kazanın.' })}</p>
               <div className="spacer-20"></div>
@@ -307,7 +450,7 @@ const Home = () => {
             <h2>{t('featured.title', { defaultValue: 'Öne Çıkan Araçlar – En Popüler Seçimlerimiz' })}</h2>
           </div>
           
-          <Slider {...sliderSettings}>
+          <Slider key={`slider-${viewportBucket}`} {...sliderSettings}>
             {featuredVehicles.map((vehicle) => (
               <div key={vehicle.id} className="vehicle-slide">
                 <div className="vehicle-card wow fadeInUp animated" data-wow-delay="0.15s">
@@ -336,14 +479,7 @@ const Home = () => {
                       ))}
                     </div>
 
-                    <div className="vehicle-specs" aria-label="Araç Özellikleri">
-                      <span className="spec-item" title="Yolcu">
-                        👥 {vehicle.passengers}
-                      </span>
-                      <span className="spec-item" title="Kapı">
-                        🚪 {vehicle.doors}
-                      </span>
-                    </div>
+                    {/* Araç hızlı özellikleri kaldırıldı */}
 
                     <div className="vehicle-card-footer">
                       <div className="vehicle-price">
@@ -354,7 +490,7 @@ const Home = () => {
                       </div>
                       <button
                         className="btn btn-primary btn-outline"
-                        onClick={() => navigate(`/vehicle/${vehicle.id}`)}
+                        onClick={() => navigate(`/vehicle/${vehicle.id}`, { state: { vehicle } })}
                         aria-label={`${vehicle.name} detaylarını görüntüle`}
                       >
                         Detaylar

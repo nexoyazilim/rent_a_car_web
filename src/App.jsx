@@ -7,7 +7,6 @@ import Vehicles from './pages/Vehicles';
 import VehicleDetail from './pages/VehicleDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Booking from './pages/Booking';
 import RentalTerms from './pages/RentalTerms';
 import './App.css';
 import { useLanguage } from './hooks/useLanguage';
@@ -24,7 +23,7 @@ const UrlNormalizer = () => {
       '/vehicle': '/arac',
       '/about': '/hakkimizda',
       '/contact': '/iletisim',
-      '/booking': '/rezervasyon'
+      // Rezervasyon sayfası kaldırıldı
     };
     const trToEn = Object.fromEntries(Object.entries(enToTr).map(([en, tr]) => [tr, en]));
 
@@ -59,14 +58,14 @@ function App() {
             <Route path="/vehicle/:id" element={<VehicleDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/booking" element={<Booking />} />
+            {/** Rezervasyon sayfası kaldırıldı */}
             <Route path="/rental-terms" element={<RentalTerms />} />
             {/* TR slugs */}
             <Route path="/araclar" element={<Vehicles />} />
             <Route path="/arac/:id" element={<VehicleDetail />} />
             <Route path="/hakkimizda" element={<About />} />
             <Route path="/iletisim" element={<Contact />} />
-            <Route path="/rezervasyon" element={<Booking />} />
+            {/** Rezervasyon sayfası kaldırıldı */}
             <Route path="/kiralama-kosullari" element={<RentalTerms />} />
 
             {/* 404 yok - opsiyonel */}

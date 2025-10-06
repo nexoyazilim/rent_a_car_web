@@ -110,9 +110,7 @@
   margin: 0.25rem 0;
 }
 
-.vehicle-info .vehicle-specs {
-  gap: 0.25rem 0.5rem;
-}
+/* .vehicle-info .vehicle-specs kaldırıldı */
 
 .vehicle-detail-page .container {
   max-width: 1320px;
@@ -207,11 +205,50 @@
   margin: 0.5rem 0;
 }
 
-.specs-grid,
-.vehicle-specs {
+.specs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+/* Satır düzeni: etiket solda, değer sağda */
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.25rem;
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.spec-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Tablet ve altı: tek sütunlu görünüm, satırlar tam genişlikte */
+@media (max-width: 992px) {
+  .specs-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem 0.75rem;
+  }
+  .spec-row {
+    grid-template-columns: 1fr auto;
+    padding: 0.5rem 0.25rem;
+  }
 }
 
 .spec-item {
