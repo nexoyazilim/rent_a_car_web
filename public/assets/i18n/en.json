@@ -138,6 +138,13 @@
     "service4_desc": "Reserve your car in just a few steps on our website and save time."
   }
   ,
+  "home": {
+    "features": {
+      "title_main": "Why Choose Us?",
+      "description": "Enjoy a seamless experience with our well-maintained fleet, flexible booking options, and 24/7 support team. Save time with transparent terms and fast pickup/return processes."
+    }
+  }
+  ,
   "vehicles": {
     "title": "Available Vehicles",
     "subtitle": "Find the right car and make a reservation",
@@ -164,5 +171,39 @@
     "details": "Details",
     "no_results_title": "No vehicles match your filters",
     "no_results_desc": "Try changing the filters and search again"
+  }
+  ,
+  "rental": {
+    "terms_intro": "Rental terms and general conditions are listed below. Please read before booking.",
+    "eligibility_title": "Rental Eligibility",
+    "term_age": "Driver must be at least 21 years old.",
+    "term_license": "A valid driver's license for at least 2 years is required.",
+    "term_additional_driver": "Additional drivers must be specified in the contract and meet the same conditions.",
+    "documents_title": "Required Documents",
+    "docs_id": "Valid ID/passport",
+    "docs_license": "Valid driver's license",
+    "docs_credit_card": "Credit card in driver's name for deposit",
+    "payment_title": "Payment and Deposit",
+    "term_deposit": "A credit card is required for the deposit.",
+    "term_payment": "Payments are collected in advance; currency conversions depend on your bank's rate on the payment day.",
+    "insurance_title": "Insurance and Liability",
+    "term_insurance_basic": "Vehicles are rented with mandatory traffic insurance and basic damage coverage.",
+    "term_insurance_excess": "The excess amount is the user's responsibility; it can be reduced with additional coverage.",
+    "term_accident_report": "Accident report and alcohol test are mandatory in case of damage.",
+    "usage_title": "Usage Conditions",
+    "term_mileage": "Daily mileage limit is specified in the contract; excess is subject to extra fees.",
+    "term_fuel": "Fuel policy is evaluated according to the level you return the vehicle.",
+    "term_fines": "Traffic fines and toll fees are the renter's responsibility.",
+    "term_smoking": "Smoking is prohibited inside the vehicle.",
+    "term_geo": "Taking the vehicle abroad requires company approval.",
+    "pickup_title": "Pickup & Return",
+    "term_pickup_window": "1-hour free waiting period from the reservation time.",
+    "term_late_return": "Late return is subject to additional fees based on the daily rate.",
+    "term_cleaning": "A detailed cleaning fee may be charged in case of excessive dirt.",
+    "cancellation_title": "Cancellation and Changes",
+    "term_cancel_free": "Free cancellation up to 24 hours before pickup time.",
+    "term_cancel_fee": "Cancellations within the last 24 hours may incur a one-day fee.",
+    "contact_title": "Contact",
+    "contact_help": "For any questions, please contact us via WhatsApp."
   }
 }

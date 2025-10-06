@@ -334,10 +334,6 @@ textarea.form-control {
   background-color: #f8f9fa;
 }
 
-.language-option.active {
-  /* Aktif dil vurgulaması kaldırıldı */
-}
-
 .language-option .flag {
   font-size: 20px;
   transition: filter 0.2s ease;

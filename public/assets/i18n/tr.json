@@ -138,6 +138,13 @@
     "service4_desc": "Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin."
   }
   ,
+  "home": {
+    "features": {
+      "title_main": "Neden Bizi Seçmelisiniz?",
+      "description": "Uygun fiyatlı ve bakımlı araç filomuz, esnek rezervasyon seçeneklerimiz ve 7/24 destek ekibimizle sorunsuz bir deneyim yaşayın. Şeffaf sözleşme şartları ve hızlı teslim/teslim alma süreçleriyle zaman kazanın."
+    }
+  }
+  ,
   "vehicles": {
     "title": "Mevcut Araçlar",
     "subtitle": "Size uygun aracı bulun ve rezervasyon yapın",
@@ -164,5 +171,39 @@
     "details": "Detaylar",
     "no_results_title": "Arama kriterlerinize uygun araç bulunamadı",
     "no_results_desc": "Filtreleri değiştirerek tekrar deneyin"
+  }
+  ,
+  "rental": {
+    "terms_intro": "Kiralama koşulları ve genel hükümler aşağıda listelenmiştir. Rezervasyon öncesi lütfen okuyunuz.",
+    "eligibility_title": "Kiralama Uygunluğu",
+    "term_age": "Sürücü yaşı en az 21 olmalıdır.",
+    "term_license": "Geçerli sürücü belgesi en az 2 yıllık olmalıdır.",
+    "term_additional_driver": "Ek sürücüler sözleşmede belirtilmeli ve aynı şartları sağlamalıdır.",
+    "documents_title": "Gerekli Belgeler",
+    "docs_id": "Geçerli kimlik/pasaport",
+    "docs_license": "Geçerli sürücü belgesi",
+    "docs_credit_card": "Depozito için sürücü adına kredi kartı",
+    "payment_title": "Ödeme ve Depozito",
+    "term_deposit": "Depozito için kredi kartı gereklidir.",
+    "term_payment": "Ödemeler peşin olarak tahsil edilir; kur dönüşümleri ödeme günündeki bankanız kuruna tabidir.",
+    "insurance_title": "Sigorta ve Sorumluluk",
+    "term_insurance_basic": "Araçlar zorunlu trafik sigortası ve temel hasar güvencesi ile kiralanır.",
+    "term_insurance_excess": "Muafiyet tutarı kullanıcı sorumluluğundadır; ek güvencelerle düşürülebilir.",
+    "term_accident_report": "Hasar durumunda kaza tespit tutanağı ve alkol raporu zorunludur.",
+    "usage_title": "Kullanım Şartları",
+    "term_mileage": "Günlük kilometre limiti sözleşmede belirtilir; aşım ek ücrete tabidir.",
+    "term_fuel": "Yakıt politikası, aracı teslim ettiğiniz seviyeye göre değerlendirilir.",
+    "term_fines": "Trafik cezaları ve OGS/HGS ücretleri kiracıya aittir.",
+    "term_smoking": "Araç içinde sigara içilmesi yasaktır.",
+    "term_geo": "Araçların yurt dışına çıkarılması şirket onayına tabidir.",
+    "pickup_title": "Teslim Alma & İade",
+    "term_pickup_window": "Rezervasyon saatinden itibaren 1 saat ücretsiz bekleme süresi uygulanır.",
+    "term_late_return": "Geç iade günlük ücret üzerinden ek ücrete tabidir.",
+    "term_cleaning": "Aşırı kirlenme durumlarında detaylı temizlik ücreti talep edilir.",
+    "cancellation_title": "İptal ve Değişiklik",
+    "term_cancel_free": "Teslim saatinden 24 saat öncesine kadar ücretsiz iptal.",
+    "term_cancel_fee": "Son 24 saatte yapılan iptallerde 1 günlük ücret kesilebilir.",
+    "contact_title": "İletişim",
+    "contact_help": "Herhangi bir sorunuz için bizimle WhatsApp üzerinden iletişime geçebilirsiniz."
   }
 }

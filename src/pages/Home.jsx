@@ -398,9 +398,9 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 offset-lg-3 text-center">
              <h2>
-              {t('home.features.title_main', { defaultValue: 'Neden Bizi Seçmelisiniz?' })}
+              {t('home.features.title_main')}
              </h2>
-             <p>{t('home.features.description', { defaultValue: 'Uygun fiyatlı ve bakımlı araç filomuz, esnek rezervasyon seçeneklerimiz ve 7/24 destek ekibimizle sorunsuz bir deneyim yaşayın. Şeffaf sözleşme şartları ve hızlı teslim/teslim alma süreçleriyle zaman kazanın.' })}</p>
+             <p>{t('home.features.description')}</p>
               <div className="spacer-20"></div>
             </div>
             <div className="clearfix"></div>

@@ -33,15 +33,15 @@ const RentalTerms = () => {
       <div className="rental-terms-container">
         <h1 className="rental-terms-title">{t('navigation.rental_terms')}</h1>
         <p className="rental-terms-intro">
-          {t('rental.terms_intro', { defaultValue: 'Kiralama koşulları ve genel hükümler aşağıda listelenmiştir. Rezervasyon öncesi lütfen okuyunuz.' })}
+          {t('rental.terms_intro')}
         </p>
 
       <div className="rt-section">
-        <Section title={t('rental.eligibility_title', { defaultValue: 'Kiralama Uygunluğu' })}>
+        <Section title={t('rental.eligibility_title')}>
         <ul>
-          <li>{t('rental.term_age', { defaultValue: 'Sürücü yaşı en az 21 olmalıdır.' })}</li>
-          <li>{t('rental.term_license', { defaultValue: 'Geçerli sürücü belgesi en az 2 yıllık olmalıdır.' })}</li>
-          <li>{t('rental.term_additional_driver', { defaultValue: 'Ek sürücüler sözleşmede belirtilmeli ve aynı şartları sağlamalıdır.' })}</li>
+          <li>{t('rental.term_age')}</li>
+          <li>{t('rental.term_license')}</li>
+          <li>{t('rental.term_additional_driver')}</li>
         </ul>
         </Section>
         {/* Language Switcher */}
@@ -76,68 +76,68 @@ const RentalTerms = () => {
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.documents_title', { defaultValue: 'Gerekli Belgeler' })}>
+        <Section title={t('rental.documents_title')}>
         <ul>
-          <li>{t('rental.docs_id', { defaultValue: 'Geçerli kimlik/pasaport' })}</li>
-          <li>{t('rental.docs_license', { defaultValue: 'Geçerli sürücü belgesi' })}</li>
-          <li>{t('rental.docs_credit_card', { defaultValue: 'Depozito için sürücü adına kredi kartı' })}</li>
+          <li>{t('rental.docs_id')}</li>
+          <li>{t('rental.docs_license')}</li>
+          <li>{t('rental.docs_credit_card')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.payment_title', { defaultValue: 'Ödeme ve Depozito' })}>
+        <Section title={t('rental.payment_title')}>
         <ul>
-          <li>{t('rental.term_deposit', { defaultValue: 'Depozito için kredi kartı gereklidir.' })}</li>
-          <li>{t('rental.term_payment', { defaultValue: 'Ödemeler peşin olarak tahsil edilir; kur dönüşümleri ödeme günündeki bankanız kuruna tabidir.' })}</li>
+          <li>{t('rental.term_deposit')}</li>
+          <li>{t('rental.term_payment')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.insurance_title', { defaultValue: 'Sigorta ve Sorumluluk' })}>
+        <Section title={t('rental.insurance_title')}>
         <ul>
-          <li>{t('rental.term_insurance_basic', { defaultValue: 'Araçlar zorunlu trafik sigortası ve temel hasar güvencesi ile kiralanır.' })}</li>
-          <li>{t('rental.term_insurance_excess', { defaultValue: 'Muafiyet tutarı kullanıcı sorumluluğundadır; ek güvencelerle düşürülebilir.' })}</li>
-          <li>{t('rental.term_accident_report', { defaultValue: 'Hasar durumunda kaza tespit tutanağı ve alkol raporu zorunludur.' })}</li>
+          <li>{t('rental.term_insurance_basic')}</li>
+          <li>{t('rental.term_insurance_excess')}</li>
+          <li>{t('rental.term_accident_report')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.usage_title', { defaultValue: 'Kullanım Şartları' })}>
+        <Section title={t('rental.usage_title')}>
         <ul>
-          <li>{t('rental.term_mileage', { defaultValue: 'Günlük kilometre limiti sözleşmede belirtilir; aşım ek ücrete tabidir.' })}</li>
-          <li>{t('rental.term_fuel', { defaultValue: 'Yakıt politikası, aracı teslim ettiğiniz seviyeye göre değerlendirilir.' })}</li>
-          <li>{t('rental.term_fines', { defaultValue: 'Trafik cezaları ve OGS/HGS ücretleri kiracıya aittir.' })}</li>
-          <li>{t('rental.term_smoking', { defaultValue: 'Araç içinde sigara içilmesi yasaktır.' })}</li>
-          <li>{t('rental.term_geo', { defaultValue: 'Araçların yurt dışına çıkarılması şirket onayına tabidir.' })}</li>
+          <li>{t('rental.term_mileage')}</li>
+          <li>{t('rental.term_fuel')}</li>
+          <li>{t('rental.term_fines')}</li>
+          <li>{t('rental.term_smoking')}</li>
+          <li>{t('rental.term_geo')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.pickup_title', { defaultValue: 'Teslim Alma & İade' })}>
+        <Section title={t('rental.pickup_title')}>
         <ul>
-          <li>{t('rental.term_pickup_window', { defaultValue: 'Rezervasyon saatinden itibaren 1 saat ücretsiz bekleme süresi uygulanır.' })}</li>
-          <li>{t('rental.term_late_return', { defaultValue: 'Geç iade günlük ücret üzerinden ek ücrete tabidir.' })}</li>
-          <li>{t('rental.term_cleaning', { defaultValue: 'Aşırı kirlenme durumlarında detaylı temizlik ücreti talep edilir.' })}</li>
+          <li>{t('rental.term_pickup_window')}</li>
+          <li>{t('rental.term_late_return')}</li>
+          <li>{t('rental.term_cleaning')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.cancellation_title', { defaultValue: 'İptal ve Değişiklik' })}>
+        <Section title={t('rental.cancellation_title')}>
         <ul>
-          <li>{t('rental.term_cancel_free', { defaultValue: 'Teslim saatinden 24 saat öncesine kadar ücretsiz iptal.' })}</li>
-          <li>{t('rental.term_cancel_fee', { defaultValue: 'Son 24 saatte yapılan iptallerde 1 günlük ücret kesilebilir.' })}</li>
+          <li>{t('rental.term_cancel_free')}</li>
+          <li>{t('rental.term_cancel_fee')}</li>
         </ul>
         </Section>
       </div>
 
       <div className="rt-section">
-        <Section title={t('rental.contact_title', { defaultValue: 'İletişim' })}>
-          <p>{t('rental.contact_help', { defaultValue: 'Herhangi bir sorunuz için bizimle WhatsApp üzerinden iletişime geçebilirsiniz.' })}</p>
+        <Section title={t('rental.contact_title')}>
+          <p>{t('rental.contact_help')}</p>
         </Section>
       </div>
       </div>

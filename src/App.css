@@ -884,7 +884,7 @@ body.top-header-hidden .header {
 
 /* Modern Button */
 .hero .search-form .btn-primary {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  background: var(--primary-color);
   border: none;
   color: #fff;
   border-radius: 12px;
