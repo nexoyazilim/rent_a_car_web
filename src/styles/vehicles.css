@@ -2,13 +2,6 @@
   background: #ffffff;
 }
 
-.page-header {
-  padding: 2rem 0 1rem;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
 /* Masaüstünde toggle butonunu gizle (btn sınıfını bastırmak için !important) */
 .filters-toggle-btn {
   display: none !important;
@@ -52,6 +45,7 @@
 
 .vehicles-main {
   min-width: 0;
+  padding-top: 1rem;
 }
 
 .vehicles-header {

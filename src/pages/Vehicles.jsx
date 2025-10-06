@@ -215,17 +215,6 @@ const Vehicles = () => {
       </section>
 
       <div className="container">
-        <div className="page-header">
-          <h1>{t('vehicles.title')}</h1>
-          <p>{t('vehicles.subtitle')}</p>
-          <button
-            className="btn btn-outline filters-toggle-btn"
-            onClick={() => setIsFiltersOpen(true)}
-            aria-label={t('vehicles.filters')}
-          >
-            {t('vehicles.filters')}
-          </button>
-        </div>
 
         <div className="vehicles-content">
           {/* Filters Sidebar */}
@@ -363,6 +352,15 @@ const Vehicles = () => {
                   <option value="category">{t('vehicles.sort_category')}</option>
                 </select>
               </div>
+              <button
+                type="button"
+                className="btn btn-outline filters-toggle-btn"
+                onClick={() => setIsFiltersOpen(true)}
+                aria-controls="filters-sidebar"
+                aria-expanded={isFiltersOpen}
+              >
+                {t('vehicles.filters')}
+              </button>
             </div>
 
             <div className="vehicle-grid">

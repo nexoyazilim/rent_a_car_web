@@ -16,6 +16,25 @@ const VehicleDetail = () => {
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
 
+  // Yardımcı: yakıt ve vites değerlerini i18n anahtarlarına eşle
+  const getTranslatedFuel = (fuel) => {
+    if (!fuel) return t('vehicleDetail.unknown', { defaultValue: 'Bilinmiyor' });
+    const v = String(fuel).toLowerCase();
+    if (v.includes('benzin') || v.includes('petrol') || v.includes('gasoline')) return t('common.fuel_petrol', { defaultValue: 'Benzin' });
+    if (v.includes('dizel') || v.includes('diesel')) return t('common.fuel_diesel', { defaultValue: 'Dizel' });
+    if (v.includes('hibrit') || v.includes('hybrid')) return t('common.fuel_hybrid', { defaultValue: 'Hibrit' });
+    if (v.includes('elektr') || v.includes('electric')) return t('common.fuel_electric', { defaultValue: 'Elektrik' });
+    return fuel;
+  };
+
+  const getTranslatedTransmission = (tr) => {
+    if (!tr) return t('vehicleDetail.unknown', { defaultValue: 'Bilinmiyor' });
+    const v = String(tr).toLowerCase();
+    if (v.includes('otom') || v.includes('auto')) return t('common.transmission_automatic', { defaultValue: 'Otomatik' });
+    if (v.includes('manuel') || v.includes('manual')) return t('common.transmission_manual', { defaultValue: 'Manuel' });
+    return tr;
+  };
+
   // Sayfa yüklendiğinde en üste scroll yap
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,17 +120,17 @@ const VehicleDetail = () => {
   };
 
   if (loading) {
-    return <Loading message="Araç detayları yükleniyor..." />;
+    return <Loading message={t('vehicleDetail.loading', { defaultValue: 'Araç detayları yükleniyor...' })} />;
   }
 
   if (!vehicle) {
     return (
       <div className="container">
         <div className="error-page">
-          <h2>Araç bulunamadı</h2>
-          <p>Aradığınız araç mevcut değil.</p>
+          <h2>{t('vehicleDetail.not_found_title', { defaultValue: 'Araç bulunamadı' })}</h2>
+          <p>{t('vehicleDetail.not_found_desc', { defaultValue: 'Aradığınız araç mevcut değil.' })}</p>
           <button className="btn btn-primary" onClick={() => navigate('/vehicles')}>
-            Araçlara Dön
+            {t('vehicleDetail.back_to_list', { defaultValue: 'Araçlara Dön' })}
           </button>
         </div>
       </div>
@@ -154,7 +173,7 @@ const VehicleDetail = () => {
             )}
             <div className="image-info-block">
               <div className="vehicle-features">
-                <h3>Özellikler</h3>
+                <h3>{t('vehicleDetail.features_title', { defaultValue: 'Özellikler' })}</h3>
                 <div className="features-grid">
                   {vehicle.features && vehicle.features.length > 0 ? (
                     vehicle.features.map((feature, index) => (
@@ -169,25 +188,21 @@ const VehicleDetail = () => {
                 </div>
                 <div className="features-demo-text">
                   <p>
-                    Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda 
-                    yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı 
-                    seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.
+                    {t('vehicleDetail.features_paragraph', { defaultValue: 'Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.' })}
                   </p>
                   <ul>
-                    <li>Uyarlanabilir hız sabitleme ve şerit takip asistanı</li>
-                    <li>Çift bölgeli otomatik klima ve arka havalandırma</li>
-                    <li>LED farlar, otomatik uzun/kısa far geçişi</li>
-                    <li>Android Auto & Apple CarPlay desteği</li>
+                    <li>{t('vehicleDetail.features_item_1', { defaultValue: 'Uyarlanabilir hız sabitleme ve şerit takip asistanı' })}</li>
+                    <li>{t('vehicleDetail.features_item_2', { defaultValue: 'Çift bölgeli otomatik klima ve arka havalandırma' })}</li>
+                    <li>{t('vehicleDetail.features_item_3', { defaultValue: 'LED farlar, otomatik uzun/kısa far geçişi' })}</li>
+                    <li>{t('vehicleDetail.features_item_4', { defaultValue: 'Android Auto & Apple CarPlay desteği' })}</li>
                   </ul>
                 </div>
               </div>
               <div className="vehicle-description">
-                <h3>Açıklama</h3>
-                <p>{vehicle.description || 'Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.'}</p>
+                <h3>{t('vehicleDetail.description_title', { defaultValue: 'Açıklama' })}</h3>
+                <p>{vehicle.description || t('vehicleDetail.description_paragraph_1', { defaultValue: 'Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.' })}</p>
                 <p>
-                  Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise 
-                  sessiz kabini ve stabil yol tutuşuyla güven verir. Geniş bagaj hacmi, aile ve iş seyahatlerinde 
-                  ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.
+                  {t('vehicleDetail.description_paragraph_2', { defaultValue: 'Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir. Geniş bagaj hacmi, aile ve iş seyahatlerinde ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.' })}
                 </p>
               </div>
             </div>
@@ -213,15 +228,15 @@ const VehicleDetail = () => {
             </div>
 
             <div className="quick-specs">
-              <div className="quick-spec-item"><span>⛽ Yakıt:</span><strong>{vehicle.fuelType || 'Bilinmiyor'}</strong></div>
-              <div className="quick-spec-item"><span>⚙️ Vites:</span><strong>{vehicle.transmission || 'Bilinmiyor'}</strong></div>
-              <div className="quick-spec-item"><span>👥 Yolcu:</span><strong>{vehicle.passengers || '-'}</strong></div>
-              <div className="quick-spec-item"><span>🚪 Kapı:</span><strong>{vehicle.doors || '-'}</strong></div>
-              <div className="quick-spec-item"><span>🧳 Bagaj:</span><strong>{vehicle.bags || '-'}</strong></div>
+              <div className="quick-spec-item"><span>⛽ {t('vehicleDetail.spec_fuel', { defaultValue: 'Yakıt' })}:</span><strong>{getTranslatedFuel(vehicle.fuelType)}</strong></div>
+              <div className="quick-spec-item"><span>⚙️ {t('vehicleDetail.spec_transmission', { defaultValue: 'Vites' })}:</span><strong>{getTranslatedTransmission(vehicle.transmission)}</strong></div>
+              <div className="quick-spec-item"><span>👥 {t('vehicleDetail.spec_passengers', { defaultValue: 'Yolcu' })}:</span><strong>{vehicle.passengers || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🚪 {t('vehicleDetail.spec_doors', { defaultValue: 'Kapı' })}:</span><strong>{vehicle.doors || '-'}</strong></div>
+              <div className="quick-spec-item"><span>🧳 {t('vehicleDetail.spec_bags', { defaultValue: 'Bagaj' })}:</span><strong>{vehicle.bags || '-'}</strong></div>
             </div>
 
             <div className="cta-row">
-              <button className="btn btn-primary btn-icon" onClick={handleBooking}>🗓️ Rezervasyon Yap</button>
+              <button className="btn btn-primary btn-icon" onClick={handleBooking}>🗓️ {t('vehicleDetail.reserve_button', { defaultValue: 'Rezervasyon Yap' })}</button>
             </div>
 
             <div className="divider"></div>
@@ -232,7 +247,7 @@ const VehicleDetail = () => {
 
             {vehicle.specifications && Object.keys(vehicle.specifications).length > 0 && (
               <div className="vehicle-specifications">
-                <h3>Teknik Özellikler</h3>
+                <h3>{t('vehicleDetail.specs_title', { defaultValue: 'Teknik Özellikler' })}</h3>
                 <div className="specs-grid">
                   {Object.entries(vehicle.specifications).map(([key, value]) => (
                     <div key={key} className="spec-row">
@@ -250,7 +265,7 @@ const VehicleDetail = () => {
         {/* Related Vehicles */}
         <div className="related-section">
           <div className="related-header">
-            <h3>Benzer Araçlar</h3>
+            <h3>{t('vehicleDetail.related_title', { defaultValue: 'Benzer Araçlar' })}</h3>
           </div>
           <div className="related-grid">
             {[1,2,3,4].map((i) => {
@@ -307,7 +322,7 @@ const VehicleDetail = () => {
                           })
                         }
                       >
-                        Detay
+                        {t('vehicleDetail.detail_button', { defaultValue: 'Detay' })}
                       </button>
                     </div>
                   </div>

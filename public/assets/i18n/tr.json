@@ -11,6 +11,8 @@
     "title": "Güvenilir Araç Kiralama Hizmeti",
     "subtitle": "En uygun fiyatlarla kaliteli araçlarımızla seyahatinizi keyifli hale getirin",
     "search_placeholder": "Araç ara...",
+    "pickup_location": "Alış Lokasyonu",
+    "return_location": "Teslim Lokasyonu",
     "pickup_date": "Alış Tarihi",
     "return_date": "Teslim Tarihi",
     "pickup_time": "Alış Saati",
@@ -71,9 +73,15 @@
     "price": "Fiyat",
     "per_day": "günlük",
     "from": "itibaren",
-    "select": "Seçin",
+    "select": "Seçiniz",
     "required": "Zorunlu",
-    "optional": "Opsiyonel"
+    "optional": "Opsiyonel",
+    "fuel_petrol": "Benzin",
+    "fuel_diesel": "Dizel",
+    "fuel_hybrid": "Hibrit",
+    "fuel_electric": "Elektrik",
+    "transmission_automatic": "Otomatik",
+    "transmission_manual": "Manuel"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -81,17 +89,21 @@
     "quick_links": "Hızlı Linkler",
     "contact_info": "İletişim Bilgileri",
     "follow_us": "Bizi Takip Edin",
+    "follow_us_desc": "Bizi sosyal medyada takip edin ve güncel kampanyalardan haberdar olun.",
     "all_rights_reserved": "Tüm hakları saklıdır"
   },
   "about": {
     "title": "Hakkımızda",
     "mission": "Misyonumuz",
+    "mission_title": "Misyonumuz",
     "vision": "Vizyonumuz",
+    "vision_title": "Vizyonumuz",
     "values": "Değerlerimiz",
     "team": "Ekibimiz",
-    "mission_text": "Müşterilerimize güvenli, konforlu ve uygun fiyatlı araç kiralama hizmeti sunarak, seyahat deneyimlerini en üst seviyeye çıkarmak.",
-    "vision_text": "Türkiye'nin en güvenilir ve tercih edilen araç kiralama şirketi olmak ve sektörde standartları belirleyen lider konumumuzu sürdürmek.",
+    "mission_text": "Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızla samimiyet, güven ve profesyonelliği bir araya getiriyoruz.\n\nMüşterilerimize güvenilir, şeffaf ve hızlı araç kiralama deneyimi sunmak en büyük önceliğimizdir. Her bireyin farklı ihtiyaçları olduğunu biliyor, bu doğrultuda esnek, yenilikçi ve kişiye özel çözümler geliştiriyoruz. Amacımız, yolculuk sürecinizi yalnızca zahmetsiz değil aynı zamanda keyifli hale getirmektir.\n\nTeknolojiyi, müşteri memnuniyetini ve sürekli gelişimi merkeze alarak hizmet kalitemizi her geçen gün artırıyoruz. Deneyimli ekibimizle birlikte, araç kiralama sektöründe fark yaratan bir hizmet anlayışıyla hareket ediyor; güven, konfor ve kolaylığı bir arada sunmak için çalışıyoruz.\n\nYola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve mutlu geçmesi için buradayız.",
+    "vision_text": "Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızın yer aldığı fotoğraflar, ekibimizin samimiyetini ve profesyonelliğini en doğal haliyle yansıtır.\n\nAmacımız, sadece araç kiralama hizmeti sunan bir marka olmanın ötesine geçerek, müşteri memnuniyetini her şeyin önünde tutan, teknolojiyi etkin şekilde kullanan ve çevreye duyarlı çözümler üreten bir kurum olmaktır.\n\nSektörde dijitalleşme, yenilikçilik ve sürdürülebilirlik ilkeleri doğrultusunda; hizmet kalitesini sürekli geliştiren, kullanıcı deneyimini ön planda tutan ve güvenilirliğiyle fark yaratan bir marka haline gelmeyi hedefliyoruz.\n\nBu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, yenilikçi çözümlerimizle sektörün geleceğine yön veren ve akla ilk gelen araç kiralama markalarından biri olmayı amaçlıyoruz.",
     "values_intro": "İş yapış şeklimizi belirleyen temel değerlerimiz",
+    "values_brief": { "title": "Değerlerimiz" },
     "values_items": {
       "reliability": { "title": "Güvenilirlik", "desc": "Müşterilerimize her zaman güvenilir hizmet sunuyoruz." },
       "quality": { "title": "Kalite", "desc": "En kaliteli araçları ve hizmetleri sunmaya odaklanıyoruz." },
@@ -106,9 +118,13 @@
   "contact": {
     "title": "İletişim",
     "name": "Ad Soyad",
+    "name_placeholder": "Adınızı ve soyadınızı girin",
     "email": "E-posta",
+    "email_placeholder": "ornek@eposta.com",
     "phone": "Telefon",
+    "phone_placeholder": "+90 5xx xxx xx xx",
     "message": "Mesaj",
+    "message_placeholder": "Mesajınızı yazın",
     "send": "Gönder",
     "address": "Adres",
     "phone_number": "Telefon Numarası",
@@ -137,6 +153,83 @@
     "service4_desc": "Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin."
   }
   ,
+  "home": {
+    "features": {
+      "title_main": "Neden Bizi Seçmelisiniz?",
+      "description": "Uygun fiyatlı ve bakımlı araç filomuz, esnek rezervasyon seçeneklerimiz ve 7/24 destek ekibimizle sorunsuz bir deneyim yaşayın. Şeffaf sözleşme şartları ve hızlı teslim/teslim alma süreçleriyle zaman kazanın."
+    }
+  },
+  "featured": {
+    "title": "Öne Çıkan Araçlar – En Popüler Seçimlerimiz"
+  },
+  
+  "vehicleDetail": {
+    "loading": "Araç detayları yükleniyor...",
+    "not_found_title": "Araç bulunamadı",
+    "not_found_desc": "Aradığınız araç mevcut değil.",
+    "back_to_list": "Araçlara Dön",
+    "features_title": "Özellikler",
+    "features_paragraph": "Bu model; konforlu süspansiyon sistemi, gelişmiş güvenlik teknolojileri ve uzun yolculuklarda yormayan ergonomik koltuk yapısıyla öne çıkar. Güncel multimedya ekranı, kablosuz bağlantı seçenekleri ve akıllı sürüş destekleri ile modern bir sürüş deneyimi sunar.",
+    "features_item_1": "Uyarlanabilir hız sabitleme ve şerit takip asistanı",
+    "features_item_2": "Çift bölgeli otomatik klima ve arka havalandırma",
+    "features_item_3": "LED farlar, otomatik uzun/kısa far geçişi",
+    "features_item_4": "Android Auto & Apple CarPlay desteği",
+    "description_title": "Açıklama",
+    "description_paragraph_1": "Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir.",
+    "description_paragraph_2": "Şehir içi kullanımlarda düşük yakıt tüketimiyle tasarruf sağlar; şehir dışı uzun yollarda ise sessiz kabini ve stabil yol tutuşuyla güven verir. Geniş bagaj hacmi, aile ve iş seyahatlerinde ihtiyaç duyacağınız alanı sunarken; pratik depolama gözleri günlük yaşamınızı kolaylaştırır.",
+    "spec_fuel": "Yakıt",
+    "spec_transmission": "Vites",
+    "spec_passengers": "Yolcu",
+    "spec_doors": "Kapı",
+    "spec_bags": "Bagaj",
+    "unknown": "Bilinmiyor",
+    "reserve_button": "Rezervasyon Yap",
+    "specs_title": "Teknik Özellikler",
+    "related_title": "Benzer Araçlar",
+    "detail_button": "Detay"
+  },
+
+  "rental": {
+    "terms_intro": "Kiralama koşulları ve genel hükümler aşağıda listelenmiştir. Rezervasyon öncesi lütfen okuyunuz.",
+    "eligibility_title": "Kiralama Uygunluğu",
+    "term_age": "Sürücü yaşı en az 21 olmalıdır.",
+    "term_license": "Geçerli sürücü belgesi en az 2 yıllık olmalıdır.",
+    "term_additional_driver": "Ek sürücüler sözleşmede belirtilmeli ve aynı şartları sağlamalıdır.",
+
+    "documents_title": "Gerekli Belgeler",
+    "docs_id": "Geçerli kimlik/pasaport",
+    "docs_license": "Geçerli sürücü belgesi",
+    "docs_credit_card": "Depozito için sürücü adına kredi kartı",
+
+    "payment_title": "Ödeme ve Depozito",
+    "term_deposit": "Depozito için kredi kartı gereklidir.",
+    "term_payment": "Ödemeler peşin olarak tahsil edilir; kur dönüşümleri ödeme günündeki bankanız kuruna tabidir.",
+
+    "insurance_title": "Sigorta ve Sorumluluk",
+    "term_insurance_basic": "Araçlar zorunlu trafik sigortası ve temel hasar güvencesi ile kiralanır.",
+    "term_insurance_excess": "Muafiyet tutarı kullanıcı sorumluluğundadır; ek güvencelerle düşürülebilir.",
+    "term_accident_report": "Hasar durumunda kaza tespit tutanağı ve alkol raporu zorunludur.",
+
+    "usage_title": "Kullanım Şartları",
+    "term_mileage": "Günlük kilometre limiti sözleşmede belirtilir; aşım ek ücrete tabidir.",
+    "term_fuel": "Yakıt politikası, aracı teslim ettiğiniz seviyeye göre değerlendirilir.",
+    "term_fines": "Trafik cezaları ve OGS/HGS ücretleri kiracıya aittir.",
+    "term_smoking": "Araç içinde sigara içilmesi yasaktır.",
+    "term_geo": "Araçların yurt dışına çıkarılması şirket onayına tabidir.",
+
+    "pickup_title": "Teslim Alma & İade",
+    "term_pickup_window": "Rezervasyon saatinden itibaren 1 saat ücretsiz bekleme süresi uygulanır.",
+    "term_late_return": "Geç iade günlük ücret üzerinden ek ücrete tabidir.",
+    "term_cleaning": "Aşırı kirlenme durumlarında detaylı temizlik ücreti talep edilir.",
+
+    "cancellation_title": "İptal ve Değişiklik",
+    "term_cancel_free": "Teslim saatinden 24 saat öncesine kadar ücretsiz iptal.",
+    "term_cancel_fee": "Son 24 saatte yapılan iptallerde 1 günlük ücret kesilebilir.",
+
+    "contact_title": "İletişim",
+    "contact_help": "Herhangi bir sorunuz için bizimle WhatsApp üzerinden iletişime geçebilirsiniz."
+  },
+
   "vehicles": {
     "title": "Mevcut Araçlar",
     "subtitle": "Size uygun aracı bulun ve rezervasyon yapın",

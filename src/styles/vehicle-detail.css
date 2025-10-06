@@ -151,7 +151,7 @@
 
 .quick-specs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.5rem 1rem;
   margin: 0.75rem 0 1rem;
 }
@@ -161,6 +161,19 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--text-secondary);
+  min-width: 0; /* flex item kırpma için */
+}
+
+.quick-spec-item span {
+  white-space: nowrap; /* etiket taşmasın */
+}
+
+.quick-spec-item strong {
+  display: inline-block;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* çok uzun değerler taşmasın */
 }
 
 .cta-row {

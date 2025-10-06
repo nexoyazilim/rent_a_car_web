@@ -79,14 +79,8 @@ const About = () => {
             {/* Row 1: Left Text, Right Image */}
             <div className="mv-row wow fadeInUp animated" data-wow-delay="0.2s">
               <div className="mv-col mv-col-text">
-                <h3>{t('about.mission.title', { defaultValue: 'Misyonumuz' })}</h3>
-                <p className="mv-caption">Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızla samimiyet, güven ve profesyonelliği bir araya getiriyoruz.
-
-Müşterilerimize güvenilir, şeffaf ve hızlı araç kiralama deneyimi sunmak en büyük önceliğimizdir. Her bireyin farklı ihtiyaçları olduğunu biliyor, bu doğrultuda esnek, yenilikçi ve kişiye özel çözümler geliştiriyoruz. Amacımız, yolculuk sürecinizi yalnızca zahmetsiz değil aynı zamanda keyifli hale getirmektir.
-
-Teknolojiyi, müşteri memnuniyetini ve sürekli gelişimi merkeze alarak hizmet kalitemizi her geçen gün artırıyoruz. Deneyimli ekibimizle birlikte, araç kiralama sektöründe fark yaratan bir hizmet anlayışıyla hareket ediyor; güven, konfor ve kolaylığı bir arada sunmak için çalışıyoruz.
-
-Yola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve mutlu geçmesi için buradayız.</p>
+                <h3>{t('about.mission_title', { defaultValue: 'Misyonumuz' })}</h3>
+                <p className="mv-caption">{t('about.mission_text', { defaultValue: `Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızla samimiyet, güven ve profesyonelliği bir araya getiriyoruz.\n\nMüşterilerimize güvenilir, şeffaf ve hızlı araç kiralama deneyimi sunmak en büyük önceliğimizdir. Her bireyin farklı ihtiyaçları olduğunu biliyor, bu doğrultuda esnek, yenilikçi ve kişiye özel çözümler geliştiriyoruz. Amacımız, yolculuk sürecinizi yalnızca zahmetsiz değil aynı zamanda keyifli hale getirmektir.\n\nTeknolojiyi, müşteri memnuniyetini ve sürekli gelişimi merkeze alarak hizmet kalitemizi her geçen gün artırıyoruz. Deneyimli ekibimizle birlikte, araç kiralama sektöründe fark yaratan bir hizmet anlayışıyla hareket ediyor; güven, konfor ve kolaylığı bir arada sunmak için çalışıyoruz.\n\nYola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve mutlu geçmesi için buradayız.` })}</p>
               </div>
               <div className="mv-col mv-col-media">
                 <img
@@ -111,13 +105,8 @@ Yola çıktığınız her anın, planladığınızdan daha konforlu, güvenli ve
                 />
               </div>
               <div className="mv-col mv-col-text">
-                <h3>{t('about.vision.title', { defaultValue: 'Vizyonumuz' })}</h3>
-                <p className="mv-caption">Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızın yer aldığı fotoğraflar, ekibimizin samimiyetini ve profesyonelliğini en doğal haliyle yansıtır.
-
-Amacımız, sadece araç kiralama hizmeti sunan bir marka olmanın ötesine geçerek, müşteri memnuniyetini her şeyin önünde tutan, teknolojiyi etkin şekilde kullanan ve çevreye duyarlı çözümler üreten bir kurum olmaktır.
-
-Sektörde dijitalleşme, yenilikçilik ve sürdürülebilirlik ilkeleri doğrultusunda; hizmet kalitesini sürekli geliştiren, kullanıcı deneyimini ön planda tutan ve güvenilirliğiyle fark yaratan bir marka haline gelmeyi hedefliyoruz.
-Bu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, yenilikçi çözümlerimizle sektörün geleceğine yön veren ve akla ilk gelen araç kiralama markalarından biri olmayı amaçlıyoruz.</p>
+                <h3>{t('about.vision_title', { defaultValue: 'Vizyonumuz' })}</h3>
+                <p className="mv-caption">{t('about.vision_text', { defaultValue: `Profesyonel Ekip Fotoğrafları: “İşin Arkasındaki Yüzler” — Ofis ortamında çekilmiş, gülümseyen çalışanlarımızın yer aldığı fotoğraflar, ekibimizin samimiyetini ve profesyonelliğini en doğal haliyle yansıtır.\n\nAmacımız, sadece araç kiralama hizmeti sunan bir marka olmanın ötesine geçerek, müşteri memnuniyetini her şeyin önünde tutan, teknolojiyi etkin şekilde kullanan ve çevreye duyarlı çözümler üreten bir kurum olmaktır.\n\nSektörde dijitalleşme, yenilikçilik ve sürdürülebilirlik ilkeleri doğrultusunda; hizmet kalitesini sürekli geliştiren, kullanıcı deneyimini ön planda tutan ve güvenilirliğiyle fark yaratan bir marka haline gelmeyi hedefliyoruz.\n\nBu vizyon doğrultusunda; sürekli gelişen teknolojiyi yakından takip ederek, yenilikçi çözümlerimizle sektörün geleceğine yön veren ve akla ilk gelen araç kiralama markalarından biri olmayı amaçlıyoruz.` })}</p>
               </div>
             </div>
 

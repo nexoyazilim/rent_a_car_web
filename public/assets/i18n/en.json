@@ -11,6 +11,8 @@
     "title": "Reliable Car Rental Service",
     "subtitle": "Make your journey enjoyable with our quality vehicles at the best prices",
     "search_placeholder": "Search vehicles...",
+    "pickup_location": "Pickup Location",
+    "return_location": "Return Location",
     "pickup_date": "Pickup Date",
     "return_date": "Return Date",
     "pickup_time": "Pickup Time",
@@ -73,7 +75,13 @@
     "from": "from",
     "select": "Select",
     "required": "Required",
-    "optional": "Optional"
+    "optional": "Optional",
+    "fuel_petrol": "Petrol",
+    "fuel_diesel": "Diesel",
+    "fuel_hybrid": "Hybrid",
+    "fuel_electric": "Electric",
+    "transmission_automatic": "Automatic",
+    "transmission_manual": "Manual"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -81,17 +89,21 @@
     "quick_links": "Quick Links",
     "contact_info": "Contact Information",
     "follow_us": "Follow Us",
+    "follow_us_desc": "Follow us on social media and stay informed about our latest campaigns.",
     "all_rights_reserved": "All rights reserved"
   },
   "about": {
     "title": "About Us",
     "mission": "Our Mission",
+    "mission_title": "Our Mission",
     "vision": "Our Vision",
+    "vision_title": "Our Vision",
     "values": "Our Values",
     "team": "Our Team",
-    "mission_text": "To provide safe, comfortable and affordable car rental services, enhancing our customers' travel experience to the highest level.",
-    "vision_text": "To be Turkey's most trusted and preferred car rental company, maintaining our leadership that sets the standards in the industry.",
+    "mission_text": "Professional Team Photos: 'The Faces Behind the Work' — We bring together sincerity, trust and professionalism with our smiling team members captured in an office environment.\n\nOur top priority is to provide a reliable, transparent and fast car rental experience. We know that everyone has different needs, and we therefore develop flexible, innovative and personalized solutions. Our goal is to make your journey not only effortless but also truly enjoyable.\n\nBy centering technology, customer satisfaction and continuous improvement, we increase our service quality every day. Together with our experienced team, we act with a service mindset that makes a difference in the car rental industry; we work to offer trust, comfort and convenience all at once.\n\nWe are here to ensure that every moment of your journey is more comfortable, safer and happier than you planned.",
+    "vision_text": "Professional Team Photos: 'The Faces Behind the Work' — Photos taken in the office with our smiling colleagues naturally reflect our team's sincerity and professionalism.\n\nOur aim is to go beyond being just a car rental brand by keeping customer satisfaction above all, using technology effectively and producing environmentally friendly solutions.\n\nIn line with the principles of digitalization, innovation and sustainability, we strive to become a brand that continuously improves service quality, prioritizes user experience, and stands out with reliability.\n\nWith this vision, we closely follow ever-evolving technology and, through our innovative solutions, aim to guide the future of the industry and be one of the first car rental brands that come to mind.",
     "values_intro": "The core values that shape our way of doing business",
+    "values_brief": { "title": "Our Values" },
     "values_items": {
       "reliability": { "title": "Reliability", "desc": "We always provide reliable service to our customers." },
       "quality": { "title": "Quality", "desc": "We focus on providing the highest quality vehicles and services." },
@@ -106,9 +118,13 @@
   "contact": {
     "title": "Contact",
     "name": "Full Name",
+    "name_placeholder": "Enter your full name",
     "email": "Email",
+    "email_placeholder": "example@email.com",
     "phone": "Phone",
+    "phone_placeholder": "+1 (555) 555-5555",
     "message": "Message",
+    "message_placeholder": "Write your message",
     "send": "Send",
     "address": "Address",
     "phone_number": "Phone Number",
@@ -137,6 +153,83 @@
     "service4_desc": "Reserve your car in just a few steps on our website and save time."
   }
   ,
+  "home": {
+    "features": {
+      "title_main": "Why Choose Us?",
+      "description": "Enjoy a seamless experience with our affordable and well-maintained vehicle fleet, flexible reservation options, and 24/7 support team. Save time with transparent contract terms and fast pickup/drop-off processes."
+    }
+  },
+  "featured": {
+    "title": "Featured Vehicles – Our Most Popular Picks"
+  },
+  
+  "vehicleDetail": {
+    "loading": "Loading vehicle details...",
+    "not_found_title": "Vehicle not found",
+    "not_found_desc": "The vehicle you are looking for does not exist.",
+    "back_to_list": "Back to Vehicles",
+    "features_title": "Features",
+    "features_paragraph": "This model stands out with its comfortable suspension system, advanced safety technologies, and ergonomic seats that do not tire you on long journeys. The updated multimedia screen, wireless connectivity options, and smart driving assists provide a modern driving experience.",
+    "features_item_1": "Adaptive cruise control and lane keeping assist",
+    "features_item_2": "Dual-zone automatic climate control and rear vents",
+    "features_item_3": "LED headlights with automatic high/low beam",
+    "features_item_4": "Android Auto & Apple CarPlay support",
+    "description_title": "Description",
+    "description_paragraph_1": "It saves fuel in city driving; on long trips, its quiet cabin and stable handling provide confidence.",
+    "description_paragraph_2": "While saving fuel in the city, it offers a quiet cabin and stable road holding on long journeys. Its large trunk volume provides the space you need for family and business trips, while practical storage compartments make daily life easier.",
+    "spec_fuel": "Fuel",
+    "spec_transmission": "Transmission",
+    "spec_passengers": "Passengers",
+    "spec_doors": "Doors",
+    "spec_bags": "Bags",
+    "unknown": "Unknown",
+    "reserve_button": "Reserve Now",
+    "specs_title": "Technical Specifications",
+    "related_title": "Similar Vehicles",
+    "detail_button": "Details"
+  },
+
+  "rental": {
+    "terms_intro": "Rental terms and general provisions are listed below. Please read before booking.",
+    "eligibility_title": "Rental Eligibility",
+    "term_age": "Driver must be at least 21 years old.",
+    "term_license": "A valid driver's license of at least 2 years is required.",
+    "term_additional_driver": "Additional drivers must be specified in the contract and meet the same conditions.",
+
+    "documents_title": "Required Documents",
+    "docs_id": "Valid ID/passport",
+    "docs_license": "Valid driver's license",
+    "docs_credit_card": "Credit card in the driver's name for deposit",
+
+    "payment_title": "Payment and Deposit",
+    "term_deposit": "A credit card is required for the deposit.",
+    "term_payment": "Payments are collected in advance; currency conversions are subject to your bank's rate on the day of payment.",
+
+    "insurance_title": "Insurance and Liability",
+    "term_insurance_basic": "Vehicles are rented with mandatory traffic insurance and basic damage coverage.",
+    "term_insurance_excess": "Excess amount is the user's responsibility; it can be reduced with additional coverages.",
+    "term_accident_report": "Accident report and alcohol test are mandatory in case of damage.",
+
+    "usage_title": "Usage Conditions",
+    "term_mileage": "Daily mileage limit is specified in the contract; excess is subject to an additional fee.",
+    "term_fuel": "Fuel policy is evaluated according to the level at which you return the vehicle.",
+    "term_fines": "Traffic fines and toll (OGS/HGS) fees are the renter's responsibility.",
+    "term_smoking": "Smoking is prohibited inside the vehicle.",
+    "term_geo": "Taking vehicles abroad is subject to company approval.",
+
+    "pickup_title": "Pickup & Return",
+    "term_pickup_window": "There is a 1-hour free waiting period from the reservation time.",
+    "term_late_return": "Late returns are subject to an additional fee based on the daily rate.",
+    "term_cleaning": "A detailed cleaning fee may be charged in case of excessive dirtiness.",
+
+    "cancellation_title": "Cancellation and Changes",
+    "term_cancel_free": "Free cancellation up to 24 hours before pickup time.",
+    "term_cancel_fee": "Cancellations made within the last 24 hours may incur a 1-day charge.",
+
+    "contact_title": "Contact",
+    "contact_help": "For any questions, you can contact us via WhatsApp."
+  },
+
   "vehicles": {
     "title": "Available Vehicles",
     "subtitle": "Find the right car and make a reservation",
