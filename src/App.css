@@ -2494,3 +2494,9 @@ body.top-header-hidden .header {
     font-size: 1rem;
   }
 }
+
+/* RTL (Arapça) için offset hizalama düzeltmesi */
+html[lang="ar"] .offset-lg-3 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
