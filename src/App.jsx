@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import AppRoutes from './routes';
 import './App.css';
 import { useLanguage } from './hooks/useLanguage';
 
@@ -39,18 +38,16 @@ const UrlNormalizer = () => {
 
 // Not: URL'ler dili yansıtan yerel slug'larla eşleştirilecek (önek yok)
 
-function App() {
+function App({ children }) {
   return (
-    <Router>
-      <div className="App">
-        <UrlNormalizer />
-        <Header />
-        <main className="main-content">
-          <AppRoutes />
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <UrlNormalizer />
+      <Header />
+      <main className="main-content">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }
 
