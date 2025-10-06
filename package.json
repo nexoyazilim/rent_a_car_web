@@ -7,9 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "touch dist/.nojekyll",
+    "postbuild": "cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:docs": "npm run build && rm -rf docs && cp -R dist docs",
+    "deploy:docs": "npm run build:docs && echo 'Docs hazir. Lütfen yedek branch icin push edin: git checkout yedek && git add docs && git commit -m \"Publish to GitHub Pages (docs)\" || true && git push origin yedek'"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -40,5 +42,6 @@
     "responsive"
   ],
   "author": "Dogan Senturk",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://nexoyazilim.github.io/rent_a_car_web"
 }

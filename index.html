@@ -36,6 +36,14 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // GitHub Pages altında kökten açılırsa repo sayfasına yönlendir
+      (function () {
+        var target = '/rent_a_car_web/';
+        if (location.pathname !== target) {
+          location.replace(target);
+        }
+      })();
+    </script>
   </body>
 </html>
