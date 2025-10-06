@@ -216,8 +216,7 @@ const Vehicles = () => {
 
       <div className="container">
         <div className="page-header">
-          <h1>{t('vehicles.title')}</h1>
-          <p>{t('vehicles.subtitle')}</p>
+          <h1>{t('vehicles.subtitle')}</h1>
           <button
             className="btn btn-outline filters-toggle-btn"
             onClick={() => setIsFiltersOpen(true)}
