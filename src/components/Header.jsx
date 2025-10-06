@@ -52,7 +52,7 @@ const Header = () => {
               <div className="top-social-container d-flex justify-content-end align-items-center">
                 <div className="social-links">
                   <a className="facebook-icon" href="#" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-                  <a className="insta-icon" href="https://www.instagram.com/ucarli.vip.travel?igsh=YWI1MjM1cDR2bDRp&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+                  <a className="insta-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
                 </div>
               </div>
             </div>
