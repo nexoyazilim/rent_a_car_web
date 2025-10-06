@@ -6,6 +6,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  text-align: center;
 }
 
 .rental-terms-title {
@@ -15,6 +16,7 @@
 .rental-terms-intro {
   color: var(--text-secondary);
   margin: 0 0 1.25rem 0;
+  line-height: 1.6;
 }
 
 .rt-section {

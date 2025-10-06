@@ -212,11 +212,13 @@
 .spec-label {
   color: var(--text-secondary);
   font-weight: 500;
+  white-space: nowrap; /* uzun etiketler tek satır kalsın */
 }
 
 .spec-value {
   color: var(--text-primary);
   font-weight: 600;
+  white-space: nowrap; /* Unknown vb. tek satırda kalsın */
 }
 
 /* Tablet ve altı: tek sütunlu görünüm, satırlar tam genişlikte */

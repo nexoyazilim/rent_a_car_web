@@ -298,7 +298,7 @@ const VehicleDetail = () => {
       {/* Fixed WhatsApp Button */}
       <div className="fixed-social">
         <a href="https://wa.me/+905555555555" target="_blank" className="whatsapp" rel="noopener noreferrer" aria-label="WhatsApp ile yazın">
-          <i className="fa fa-whatsapp"></i>
+          <i className="fa-brands fa-whatsapp"></i>
         </a>
       </div>
       
