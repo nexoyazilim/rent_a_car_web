@@ -76,7 +76,9 @@
     "select": "Select",
     "required": "Required",
     "optional": "Optional",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "prev": "Previous",
+    "next": "Next"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -165,6 +167,7 @@
   "vehicles": {
     "title": "Available Vehicles",
     "subtitle": "Find the right car and make a reservation",
+    "loading": "Loading vehicles...",
     "filters": "Filters",
     "brand": "Brand",
     "category": "Category",

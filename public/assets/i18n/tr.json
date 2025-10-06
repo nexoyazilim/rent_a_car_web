@@ -76,7 +76,9 @@
     "select": "Seçin",
     "required": "Zorunlu",
     "optional": "Opsiyonel",
-    "unknown": "Bilinmiyor"
+    "unknown": "Bilinmiyor",
+    "prev": "Önceki",
+    "next": "Sonraki"
   },
   "footer": {
     "company_name": "Rent A Car",
@@ -159,6 +161,7 @@
   "vehicles": {
     "title": "Mevcut Araçlar",
     "subtitle": "Size uygun aracı bulun ve rezervasyon yapın",
+    "loading": "Araçlar yükleniyor...",
     "filters": "Filtreler",
     "brand": "Marka",
     "category": "Kategori",

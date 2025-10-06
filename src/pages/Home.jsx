@@ -13,6 +13,33 @@ const Home = () => {
   const navigate = useNavigate();
   const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
   useScrollReveal();
+  // React Slick ok butonları (iç metni gizlemek ve RTL uyumu için)
+  const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <button
+        type="button"
+        className={className}
+        style={{ ...style }}
+        onClick={onClick}
+        aria-label={t('common.prev', { defaultValue: 'Previous' })}
+      />
+    );
+  };
+
+  const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <button
+        type="button"
+        className={className}
+        style={{ ...style }}
+        onClick={onClick}
+        aria-label={t('common.next', { defaultValue: 'Next' })}
+      />
+    );
+  };
+
 
   // Sayfa yüklendiğinde en üste scroll yap
   useEffect(() => {
@@ -225,6 +252,9 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    rtl: currentLanguage === 'ar',
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
   };
 
   return (

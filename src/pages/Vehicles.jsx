@@ -191,7 +191,7 @@ const Vehicles = () => {
   }, [filters.brand, filters.category, filters.priceRange, filters.transmission, filters.fuelType, filters.passengers, filters.sortBy]);
 
   if (loading) {
-    return <Loading message="Araçlar yükleniyor..." />;
+    return <Loading message={t('vehicles.loading', { defaultValue: 'Araçlar yükleniyor...' })} />;
   }
 
   return (
