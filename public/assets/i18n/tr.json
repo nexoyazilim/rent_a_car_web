@@ -110,9 +110,13 @@
   "contact": {
     "title": "İletişim",
     "name": "Ad Soyad",
+    "name_placeholder": "Adınızı ve soyadınızı girin",
     "email": "E-posta",
+    "email_placeholder": "ornek@eposta.com",
     "phone": "Telefon",
+    "phone_placeholder": "+90 5xx xxx xx xx",
     "message": "Mesaj",
+    "message_placeholder": "Mesajınızı yazın",
     "send": "Gönder",
     "address": "Adres",
     "phone_number": "Telefon Numarası",

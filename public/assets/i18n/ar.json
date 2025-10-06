@@ -116,9 +116,13 @@
   "contact": {
     "title": "اتصل بنا",
     "name": "الاسم الكامل",
+    "name_placeholder": "أدخل اسمك الكامل",
     "email": "البريد الإلكتروني",
+    "email_placeholder": "example@mail.com",
     "phone": "الهاتف",
+    "phone_placeholder": "+966 5xx xxx xxxx",
     "message": "الرسالة",
+    "message_placeholder": "اكتب رسالتك",
     "send": "إرسال",
     "address": "العنوان",
     "phone_number": "رقم الهاتف",

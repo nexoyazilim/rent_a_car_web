@@ -116,9 +116,13 @@
   "contact": {
     "title": "Contact",
     "name": "Full Name",
+    "name_placeholder": "Enter your full name",
     "email": "Email",
+    "email_placeholder": "example@mail.com",
     "phone": "Phone",
+    "phone_placeholder": "+1 555 555 5555",
     "message": "Message",
+    "message_placeholder": "Type your message",
     "send": "Send",
     "address": "Address",
     "phone_number": "Phone Number",
