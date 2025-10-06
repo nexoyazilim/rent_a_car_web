@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rentacar.example.com/sitemap.xml
