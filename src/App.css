@@ -2484,3 +2484,13 @@ body.top-header-hidden .header {
     font-size: 1.75rem;
   }
 }
+
+/* 1920x1080 ve üzeri ekranlar için header nav fontlarını büyüt */
+@media (min-width: 1920px) {
+  .nav-links .nav-link {
+    font-size: 1.15rem; /* ~18.4px */
+  }
+  .header .btn.btn-primary {
+    font-size: 1rem;
+  }
+}
