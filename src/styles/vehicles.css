@@ -102,13 +102,7 @@
   background: #f5f5f5;
 }
 
-.vehicle-specs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
+/* .vehicle-specs kaldırıldı */
 
 .no-results {
   padding: 2rem;
@@ -126,7 +120,7 @@
   .filters-sidebar {
     position: fixed;
     left: 0;
-    top: 72px; /* sabit header yüksekliği kadar boşluk bırak */
+    top: 110px; /* header + top-header toplamına göre boşluk */
     bottom: 0;
     width: 88%;
     max-width: 360px;
@@ -134,7 +128,7 @@
     transform: translateX(-105%);
     transition: transform 0.25s ease;
     border-radius: 0 12px 12px 0;
-    max-height: calc(100vh - 72px);
+    max-height: calc(100vh - 110px);
     overflow: auto; /* yalnızca panel kayar */
     -webkit-overflow-scrolling: touch;
   }
@@ -150,7 +144,7 @@
     gap: 0.75rem;
     margin-bottom: 0.5rem;
     position: sticky;
-    top: -1px; /* üst sınırda piksel kesilmesini önle */
+    top: 0; /* panel üstüne yapış */
     background: #fff;
     padding: 0 8px 0.5rem;
     z-index: 1;

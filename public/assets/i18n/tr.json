@@ -43,8 +43,8 @@
   },
   "booking": {
     "title": "Rezervasyon",
-    "pickup_location": "Alış Lokasyonu",
-    "return_location": "Teslim Lokasyonu",
+    "pickup_location": "Seçiniz",
+    "return_location": "Seçiniz",
     "pickup_date": "Alış Tarihi",
     "return_date": "Teslim Tarihi",
     "pickup_time": "Alış Saati",
@@ -128,11 +128,11 @@
     "title": "Sürüş Keyfi Başlıyor!",
     "description": "En yeni model araçlarımızla sürüş keyfinizi katlayın. İster lüks segment, ister ekonomik seçenekler arayın, size en uygun aracı bulmak artık çok kolay. Hemen araçlarımızı keşfedin ve rezervasyon yapın!",
     "service1_title": "Birinci sınıf hizmetler",
-    "service1_desc": "Lüksün olağanüstü özenle buluştuğu, unutulmaz anlar yaratan ve tüm beklentilerinizi aşan yer.",
+    "service1_desc": "Lüksün olağanüstü özenle buluştuğu,tüm beklentilerinizi aşan yer.",
     "service2_title": "7/24 yol asistanı",
     "service2_desc": "7/24 Yol Asistanı hizmetimizle, yolculuğunuz boyunca her an yanınızdayız.",
     "service3_title": "Minimum Maliyetle Kalite",
-    "service3_desc": "Bütçenize uygun araç kiralama seçenekleri ile en kaliteli hizmeti sunuyoruz. Farklı ödeme seçenekleri ve kampanyalarımızla, her zaman avantajlısınız.",
+    "service3_desc": "Bütçenize uygun araç kiralama seçenekleri ile en kaliteli hizmeti sunuyoruz. ",
     "service4_title": "Hızlı Rezervasyon, Anında Teslimat",
     "service4_desc": "Web sitemiz üzerinden sadece birkaç adımda aracınızı rezerve edin, zamandan tasarruf edin."
   }

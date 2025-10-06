@@ -11,6 +11,7 @@ const VehicleDetail = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const { currentLanguage, changeLanguage, getCurrentFlag } = useLanguage();
+  const isTR = currentLanguage === 'tr';
   const [vehicle, setVehicle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -53,7 +54,7 @@ const VehicleDetail = () => {
       passengers: 5,
       doors: 4,
       bags: 2,
-      features: ['Klima', 'GPS', 'Bluetooth', 'USB', 'Deri Döşeme', 'Elektrikli Camlar'],
+      features: ['Klima','GPS', 'Bluetooth'],
       description: 'BMW 3 Series, lüks ve performansı bir arada sunan premium sınıf bir sedan. Konforlu sürüş deneyimi ve modern teknolojileri ile seyahatinizi keyifli hale getirir.',
       specifications: {
         engine: '2.0L Turbo',
@@ -93,8 +94,10 @@ const VehicleDetail = () => {
 
   const handleBooking = (e) => {
     e.preventDefault();
-    // Rezervasyon işlemi
-    navigate('/booking', { state: { vehicle, bookingForm } });
+    const phone = '+905555555555';
+    const message = `Merhaba, ${vehicle?.name || 'araç'} için rezervasyon yapmak istiyorum. Fiyat: ₺${vehicle?.price || ''} / gün`;
+    const url = `https://wa.me/${encodeURIComponent(phone)}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   if (loading) {
@@ -161,8 +164,6 @@ const VehicleDetail = () => {
                     ))
                   ) : (
                     <>
-                      <span className="feature-tag">Klima</span>
-                      <span className="feature-tag">Bluetooth</span>
                     </>
                   )}
                 </div>
@@ -220,31 +221,12 @@ const VehicleDetail = () => {
             </div>
 
             <div className="cta-row">
-              <button className="btn btn-primary btn-icon" onClick={() => navigate('/booking', { state: { vehicle } })}>🗓️ Rezervasyon Yap</button>
-              <button className="btn btn-outline btn-icon" onClick={() => window.print()}>🖨️ Yazdır</button>
+              <button className="btn btn-primary btn-icon" onClick={handleBooking}>🗓️ Rezervasyon Yap</button>
             </div>
 
             <div className="divider"></div>
 
-            <div className="vehicle-specs">
-              <div className="spec-item">
-                <span className="spec-icon">👥</span>
-                <span>{vehicle.passengers} kişi</span>
-              </div>
-              <div className="spec-item">
-                <span className="spec-icon">🚪</span>
-                <span>{vehicle.doors} kapı</span>
-              </div>
-         
-              <div className="spec-item">
-                <span className="spec-icon">⚙️</span>
-                <span>{vehicle.transmission}</span>
-              </div>
-              <div className="spec-item">
-                <span className="spec-icon">⛽</span>
-                <span>{vehicle.fuelType}</span>
-              </div>
-            </div>
+            {/* vehicle-specs kaldırıldı */}
 
             
 
@@ -317,7 +299,16 @@ const VehicleDetail = () => {
                       <span className="related-category">{item.category}</span>
                     </div>
                     <div className="related-actions">
-                      <button className="btn btn-outline" onClick={() => navigate(`/vehicle/${(vehicle?.id || 0) + i}`, { state: { vehicle: { ...vehicle, id: (vehicle?.id || 0) + i } } })}>Detay</button>
+                      <button
+                        className="btn btn-outline"
+                        onClick={() =>
+                          navigate(`${isTR ? '/arac' : '/vehicle'}/${item.id}`, {
+                            state: { vehicle: item },
+                          })
+                        }
+                      >
+                        Detay
+                      </button>
                     </div>
                   </div>
                 </div>

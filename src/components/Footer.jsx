@@ -80,7 +80,7 @@ const Footer = () => {
           <h3>{t('footer.contact_info')}</h3>
           <div className="contact-info">
             <p>📍 {t('contact.address')}: İstanbul, Türkiye</p>
-            <p>📞 {t('contact.phone_number')}: +90 212 123 45 67</p>
+            <p>📞 {t('contact.phone_number')}: +90 535 308 44 66</p>
             <p>✉️ {t('contact.email_address')}: info@rentacar.com</p>
             <p>🕒 {t('contact.working_hours')}: 7/24 Hizmet</p>
           </div>

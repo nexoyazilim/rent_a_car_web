@@ -175,14 +175,14 @@ const Contact = () => {
             <LocationIcon />
             <div className="info-item-content">
               <p>{t('contact.address')}</p>
-              <p>Merkez Mahallesi, Araç Kiralama Caddesi No:123, Beşiktaş/İstanbul</p>
+              <p>Atatürk Meydanı, Ortahisar/Trabzon</p>
             </div>
           </div>
           <div className="info-item">
             <PhoneIcon />
             <div className="info-item-content">
               <p>{t('contact.phone')}</p>
-              <p><a href="tel:+902121234567">+90 (212) 123 45 67</a></p>
+              <p><a href="tel:+905353084466">+90 (535) 308 44 66</a></p>
             </div>
           </div>
           <div className="info-item">
