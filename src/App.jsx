@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Vehicles from './pages/Vehicles';
-import VehicleDetail from './pages/VehicleDetail';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import RentalTerms from './pages/RentalTerms';
+import AppRoutes from './routes';
 import './App.css';
 import { useLanguage } from './hooks/useLanguage';
 
@@ -51,25 +46,7 @@ function App() {
         <UrlNormalizer />
         <Header />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* EN slugs */}
-            <Route path="/vehicles" element={<Vehicles />} />
-            <Route path="/vehicle/:id" element={<VehicleDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            {/** Rezervasyon sayfası kaldırıldı */}
-            <Route path="/rental-terms" element={<RentalTerms />} />
-            {/* TR slugs */}
-            <Route path="/araclar" element={<Vehicles />} />
-            <Route path="/arac/:id" element={<VehicleDetail />} />
-            <Route path="/hakkimizda" element={<About />} />
-            <Route path="/iletisim" element={<Contact />} />
-            {/** Rezervasyon sayfası kaldırıldı */}
-            <Route path="/kiralama-kosullari" element={<RentalTerms />} />
-
-            {/* 404 yok - opsiyonel */}
-          </Routes>
+          <AppRoutes />
         </main>
         <Footer />
       </div>

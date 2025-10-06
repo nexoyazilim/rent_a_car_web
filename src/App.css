@@ -832,6 +832,55 @@ body.top-header-hidden .header {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+/* Desktop: Lokasyonları daha geniş, saatleri dar yap */
+@media (min-width: 993px) {
+  /* Masaüstünde tüm alanlar tek satıra sığsın: lokasyonlar geniş, tarih/saat dar */
+  .rental-form-content .search-form-grid {
+    grid-template-columns: minmax(220px, 2fr) minmax(220px, 2fr) minmax(150px, 1fr) minmax(150px, 1fr) minmax(110px, 1fr) minmax(110px, 1fr);
+    align-items: end;
+    gap: 0.75rem;
+  }
+
+  .rental-form-content .search-form-grid > .form-group:nth-child(1),
+  .rental-form-content .search-form-grid > .form-group:nth-child(2) {
+    grid-column: span 1; /* Alış/Teslim lokasyonu geniş */
+  }
+  .rental-form-content .search-form-grid > .time-group {
+    grid-column: span 1; /* Saat alanları dar */
+  }
+
+  /* Tarih ve saat alanlarının minimum genişliklerini küçült (tek satır için) */
+  .rental-form-content .date-group .form-input {
+    min-width: 150px !important; /* global 260px değerini ez */
+  }
+  .rental-form-content .time-group .form-select {
+    min-width: 110px;
+  }
+}
+
+/* Orta-büyük ekranlar (MacBook vb. ~1200–1536px): elemanları biraz büyüt */
+@media (min-width: 1200px) and (max-width: 1536px) {
+  .hero {
+    min-height: 72vh; /* görsel alanını büyüt */
+    padding: 22rem 0 6rem 0; /* üst boşluğu artır */
+  }
+
+  .rental-form-content .search-form-grid {
+    grid-template-columns: minmax(240px, 2fr) minmax(240px, 2fr) minmax(160px, 1fr) minmax(160px, 1fr) minmax(120px, 1fr) minmax(120px, 1fr);
+    gap: 0.75rem;
+  }
+  .rental-form-content .date-group .form-input {
+    min-width: 160px !important;
+  }
+  .rental-form-content .time-group .form-select {
+    min-width: 120px;
+  }
+  .rental-form-content .form-input,
+  .rental-form-content .form-select {
+    height: 52px;
+    font-size: 1rem;
+  }
+}
 
 /* Modern Button */
 .hero .search-form .btn-primary {
@@ -902,12 +951,12 @@ body.top-header-hidden .header {
     gap: 0.75rem;
   }
   /* Home.jsx içindeki alanların sıraya göre grid alanlarına atanması */
-  .rental-form-content .search-form-grid > .form-group:nth-child(1) { grid-area: pickupDate; }
-  .rental-form-content .search-form-grid > .form-group:nth-child(2) { grid-area: pickupTime; }
-  .rental-form-content .search-form-grid > .form-group:nth-child(3) { grid-area: returnDate; }
-  .rental-form-content .search-form-grid > .form-group:nth-child(4) { grid-area: returnTime; }
-  .rental-form-content .search-form-grid > .form-group:nth-child(5) { grid-area: pickupLocation; }
-  .rental-form-content .search-form-grid > .form-group:nth-child(6) { grid-area: returnLocation; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(1) { grid-area: pickupLocation; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(2) { grid-area: returnLocation; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(3) { grid-area: pickupDate; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(4) { grid-area: returnDate; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(5) { grid-area: pickupTime; }
+  .rental-form-content .search-form-grid > .form-group:nth-child(6) { grid-area: returnTime; }
   .hero .search-form {
     position: static; /* geri al: normal akış */
     left: auto;

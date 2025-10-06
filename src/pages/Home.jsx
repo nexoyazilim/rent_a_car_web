@@ -293,62 +293,7 @@ const Home = () => {
               </div>
             ) : (
               <div className="search-form-grid">
-                <div className="form-group date-group">
-                  <label className="form-label">{t('hero.pickup_date')}</label>
-                  <input
-                    type="date"
-                    name="pickupDate"
-                    value={searchForm.pickupDate}
-                    onChange={handleInputChange}
-                    className="form-input"
-                    required
-                  />
-                </div>
-                
-                <div className="form-group time-group">
-                  <label className="form-label">{t('hero.pickup_time') || 'Alış Saati'}</label>
-                  <select
-                    name="pickupTime"
-                    value={searchForm.pickupTime}
-                    onChange={handleInputChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">--</option>
-                    {hourOptions.map(h => (
-                      <option key={h} value={h}>{h}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group date-group">
-                  <label className="form-label">{t('hero.return_date')}</label>
-                  <input
-                    type="date"
-                    name="returnDate"
-                    value={searchForm.returnDate}
-                    onChange={handleInputChange}
-                    className="form-input"
-                    required
-                  />
-                </div>
-                
-                <div className="form-group time-group">
-                  <label className="form-label">{t('hero.return_time') || 'Teslim Saati'}</label>
-                  <select
-                    name="returnTime"
-                    value={searchForm.returnTime}
-                    onChange={handleInputChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">--</option>
-                    {hourOptions.map(h => (
-                      <option key={h} value={h}>{h}</option>
-                    ))}
-                  </select>
-                </div>
-
+                {/* 1) Alış Lokasyonu */}
                 <div className="form-group">
                   <label className="form-label">{t('hero.pickup_location', { defaultValue: 'Alış Lokasyonu' })}</label>
                   <select
@@ -365,7 +310,7 @@ const Home = () => {
                     <option value="kadikoy">Kadıköy</option>
                   </select>
                 </div>
-                
+                {/* 2) Teslim Lokasyonu */}
                 <div className="form-group">
                   <label className="form-label">{t('hero.return_location', { defaultValue: 'Teslim Lokasyonu' })}</label>
                   <select
@@ -380,6 +325,62 @@ const Home = () => {
                     <option value="sabiha-gokcen">Sabiha Gökçen</option>
                     <option value="taksim">Taksim</option>
                     <option value="kadikoy">Kadıköy</option>
+                  </select>
+                </div>
+                {/* 3) Alış Tarihi */}
+                <div className="form-group date-group">
+                  <label className="form-label">{t('hero.pickup_date')}</label>
+                  <input
+                    type="date"
+                    name="pickupDate"
+                    value={searchForm.pickupDate}
+                    onChange={handleInputChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
+                {/* 4) Teslim Tarihi */}
+                <div className="form-group date-group">
+                  <label className="form-label">{t('hero.return_date')}</label>
+                  <input
+                    type="date"
+                    name="returnDate"
+                    value={searchForm.returnDate}
+                    onChange={handleInputChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
+                {/* 5) Alış Saati */}
+                <div className="form-group time-group">
+                  <label className="form-label">{t('hero.pickup_time') || 'Alış Saati'}</label>
+                  <select
+                    name="pickupTime"
+                    value={searchForm.pickupTime}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">--</option>
+                    {hourOptions.map(h => (
+                      <option key={h} value={h}>{h}</option>
+                    ))}
+                  </select>
+                </div>
+                {/* 6) Teslim Saati */}
+                <div className="form-group time-group">
+                  <label className="form-label">{t('hero.return_time') || 'Teslim Saati'}</label>
+                  <select
+                    name="returnTime"
+                    value={searchForm.returnTime}
+                    onChange={handleInputChange}
+                    className="form-select"
+                    required
+                  >
+                    <option value="">--</option>
+                    {hourOptions.map(h => (
+                      <option key={h} value={h}>{h}</option>
+                    ))}
                   </select>
                 </div>
               </div>
